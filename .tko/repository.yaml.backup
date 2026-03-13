@@ -1,0 +1,41 @@
+version: '0.2'
+sources:
+- name: sandbox
+  target: sandbox
+  type: local
+  writeable: true
+  quests: null
+  tasks: null
+- name: ed
+  target: https://github.com/qxcodeed/arcade.git
+  type: git
+  writeable: false
+  cache_timestamp: '2026-03-13 18:17:06'
+  quests: null
+  tasks: null
+- name: poo
+  target: https://github.com/qxcodepoo/arcade.git
+  type: git
+  writeable: false
+  cache_timestamp: '2026-03-13 18:17:07'
+  quests: null
+  tasks: null
+expanded:
+- ed@revisão
+- sandbox@student_sandbox_alias
+- ed@side-quests
+- sandbox@student_sandbox_alias:00_rascunhos
+- ed@análise
+- ed@main-quest
+tasks:
+  ed@pintando: '{rate:100}'
+flags:
+  painel: 0
+  quests: 0
+  tracks: 0
+  tasks: 0
+  task_graph_mode: 0
+  show_time: 0
+lang: go
+selected: ed@pintando
+next_draft_id: 1

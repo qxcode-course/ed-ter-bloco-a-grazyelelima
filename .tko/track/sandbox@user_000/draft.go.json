@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-10_10-49-21",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -19,17 +19,16 @@\n t %22fmt%22%0A\n-%0A\n func mai\n@@ -54,175 +54,20 @@\n ln(%22\n-go%22 + %22lang%22)%0A%0A    fmt.Println(%221+1 =%22, 1+1)%0A    fmt.Println(%227.0/3.0 =%22, 7.0/3.0)%0A%0A    fmt.Println(true && false)%0A    fmt.Println(true %7C%7C false)%0A    fmt.Println(!true\n+Ol%C3%A1, mundo!%22\n )%0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-03-11_10-47-00",
+            "content": "@@ -39,185 +39,170 @@\n ) %7B%0A\n-%0A    var a = %22initial%22%0A    fmt.Println(a)%0A%0A    var b, c int = 1, 2%0A    fmt.Println(b, c)%0A%0A    var d = true%0A    fmt.Println(d)%0A%0A    var e int%0A    fmt.Println(e)%0A%0A    f := %22apple%22\n+    fmt.Println(%22go%22 + %22lang%22)%0A%0A    fmt.Println(%221+1 =%22, 1+1)%0A    fmt.Println(%227.0/3.0 =%22, 7.0/3.0)%0A%0A    fmt.Println(true && false)%0A    fmt.Println(true %7C%7C false)\n %0A   \n@@ -214,13 +214,17 @@\n Println(\n-f\n+!true\n )%0A%7D%0A\n",
+            "lines": "14"
+        },
+        {
+            "label": "2026-03-11_11-12-23",
+            "content": "@@ -18,76 +18,51 @@\n ort \n-(%0A    %22fmt%22%0A    %22math%22%0A)%0A%0Aconst s string = %22constant%22%0A%0Afunc main() %7B\n+%22fmt%22%0A%0Afunc main() %7B%0A%0A    var a = %22initial%22\n %0A   \n@@ -78,133 +78,164 @@\n tln(\n-s\n+a\n )%0A%0A    \n-const n = 500000000%0A%0A    const d = 3e20 / n%0A    fmt.Println(d)%0A%0A    fmt.Println(int64(d))%0A%0A    fmt.Println(math.Sin(n)\n+var b, c int = 1, 2%0A    fmt.Println(b, c)%0A%0A    var d = true%0A    fmt.Println(d)%0A%0A    var e int%0A    fmt.Println(e)%0A%0A    f := %22apple%22%0A    fmt.Println(f\n )%0A%7D\n+%0A\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-03-11_11-13-38",
+            "content": "@@ -18,62 +18,77 @@\n ort \n-%22fmt%22%0A%0Afunc main() %7B%0A%0A    i := 1%0A    for i %3C= 3 %7B%0A    \n+(%0A    %22fmt%22%0A    %22math%22%0A)%0A%0Aconst s string = %22constant%22%0A%0Afunc main() %7B%0A\n     \n@@ -103,69 +103,60 @@\n tln(\n-i)%0A   \n+s)%0A%0A\n     \n- i = i + 1%0A    %7D%0A%0A    for j := 0; j %3C 3; j++ %7B%0A    \n+const n = 500000000%0A%0A    const d = 3e20 / n%0A\n     \n@@ -171,241 +171,65 @@\n tln(\n-j)%0A    %7D%0A%0A    for i := range 3 %7B%0A        fmt.Println(%22range%22, i)%0A    %7D%0A%0A    for %7B%0A        fmt.Println(%22loop%22)%0A        break%0A    %7D%0A%0A    for n := range 6 %7B%0A        if n%252 == 0 %7B%0A            continue%0A        %7D%0A        fmt.Println(n)%0A    %7D\n+d)%0A%0A    fmt.Println(int64(d))%0A%0A    fmt.Println(math.Sin(n))\n %0A%7D\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-03-11_11-14-11",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n\n    i := 1\n    for i <= 3 {\n        fmt.Println(i)\n        i = i + 1\n    }\n\n    for j := 0; j < 3; j++ {\n        fmt.Println(j)\n    }\n\n    for i := range 3 {\n        fmt.Println(\"range\", i)\n    }\n\n    for {\n        fmt.Println(\"loop\")\n        break\n    }\n\n    for n := range 6 {\n        if n%2 == 0 {\n            continue\n        }\n        fmt.Println(n)\n    }\n}",
+            "lines": "32"
+        }
+    ]
+}

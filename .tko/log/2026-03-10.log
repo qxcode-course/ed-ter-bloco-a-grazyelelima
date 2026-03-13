@@ -1,0 +1,5 @@
+2026-03-10 10:48:33, MOVE, v:1, k:sandbox@user_000, mode:PICK
+2026-03-10 10:49:21, EXEC, v:1, k:sandbox@user_000, mode:FREE, size:5
+2026-03-10 10:54:17, MOVE, v:1, k:sandbox@user_000, mode:BACK
+2026-03-10 10:54:34, MOVE, v:1, k:ed@princesa, mode:PICK
+2026-03-10 11:05:09, MOVE, v:1, k:ed@princesa, mode:BACK
