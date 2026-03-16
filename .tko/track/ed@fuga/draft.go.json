@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-14_14-04-55",
+            "content": "@@ -233,27 +233,24 @@\n      %7D%0A%0A    \n-%7D%0A%0A\n     if vaiFu\n@@ -252,32 +252,36 @@\n vaiFugir == 1 %7B%0A\n+    \n         fmt.Prin\n@@ -289,16 +289,20 @@\n ln(%22S%22)%0A\n+    \n     %7D el\n@@ -306,32 +306,36 @@\n  else %7B%0A        \n+  \n+  \n fmt.Println(%22N%22)\n@@ -335,16 +335,26 @@\n ln(%22N%22)%0A\n+        %7D%0A\n     %7D%0A%7D%0A\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-03-14_14-05-57",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var h, p, f, d int\n\n    fmt.Scan(&h, &p, &f, &d)\n\n    var vaiFugir int = 1\n\n    for f != h && vaiFugir == 1 {\n        f = (f + d + 16) % 16\n        if f == p {\n            vaiFugir = 0\n        }\n\n    }\n\n    if vaiFugir == 1 {\n        fmt.Println(\"S\")\n    } else {\n        fmt.Println(\"N\")\n    }\n}\n",
+            "lines": "23"
+        }
+    ]
+}

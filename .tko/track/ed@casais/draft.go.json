@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-16_18-55-17",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    var n int \n    fmt.Scan(&n)\n\n    descasados := make(map[int]int)\n    casais := 0\n\n    for i := 0; i < n; i++ {\n        var animal int\n        fmt.Scan(&animal)\n\n        parEsperado := -animal \n\n        if descasados[parEsperado] > 0 {\n            casais++\n            descasados[parEsperado]--\n        } else {\n            descasados[animal]++\n        }\n    }\n\n    fmt.Println(casais)\n}\n",
+            "lines": "26"
+        }
+    ]
+}

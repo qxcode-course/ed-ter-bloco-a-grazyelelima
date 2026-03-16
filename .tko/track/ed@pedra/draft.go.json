@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-14_17-34-02",
+            "content": "@@ -487,11 +487,14 @@\n ln(%22\n-sem\n+N%C3%A3o h%C3%A1\n  gan\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-03-14_17-35-16",
+            "content": "package main\nimport (\n    \"fmt\"\n    \"math\"\n)\nfunc main() {\n    var n int \n\n    fmt.Scan(&n)\n\n    var ganhador int = -1\n    var melhorDif int = 101\n\n    for i := 0; i < n; i++ {\n        var a, b int \n        fmt.Scan(&a, &b)\n\n        dif := int(math.Abs(float64(a - b)))\n\n        \n\n        if a < 10 || b < 10 {\n            continue\n        } \n\n        if dif < melhorDif {\n            melhorDif = dif \n            ganhador = i\n        }\n\n    }\n\n    if ganhador == -1 {\n        fmt.Println(\"sem ganhador\")\n    } else {\n        fmt.Println(ganhador)\n    }\n\n}\n",
+            "lines": "39"
+        }
+    ]
+}
