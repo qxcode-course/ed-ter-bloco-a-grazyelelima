@@ -1,0 +1,8 @@
+2026-03-17 08:50:31, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-03-17 08:51:05, MOVE, v:1, k:ed@baruel, mode:BACK
+2026-03-17 08:52:24, SELF, v:1, k:ed@mumia, self:1, rate:100
+2026-03-17 10:43:28, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-03-17 11:04:18, MOVE, v:1, k:ed@baruel, mode:BACK
+2026-03-17 16:04:38, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-03-17 16:04:52, EXEC, v:1, k:ed@baruel, mode:FULL, rate:100, size:56
+2026-03-17 16:05:01, MOVE, v:1, k:ed@baruel, mode:BACK

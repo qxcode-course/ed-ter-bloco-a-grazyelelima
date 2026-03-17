@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-17_16-04-52",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var qtd_figurinhasAlbum int\n    var qtd_figurinhasBoruel int\n\n    fmt.Scan(&qtd_figurinhasAlbum)\n    fmt.Scan(&qtd_figurinhasBoruel)\n\n    tem := make([]int, qtd_figurinhasBoruel)\n    existeNoAlbum := make([]bool, qtd_figurinhasAlbum+1)\n    var repetidas []int\n\n    for i := 0; i < qtd_figurinhasBoruel; i++ {\n\t\tfmt.Scan(&tem[i])\n\t\t\n\t\tif i > 0 && tem[i] == tem[i-1] {\n\t\t\trepetidas = append(repetidas, tem[i])\n\t\t}\n\t\t\n\t\tif tem[i] <= qtd_figurinhasAlbum {\n\t\t\texisteNoAlbum[tem[i]] = true\n\t\t}\n\t}\n\n    if len(repetidas) == 0 {\n\t\tfmt.Println(\"N\")\n\t} else {\n\t\tfor i, v := range repetidas {\n\t\t\tfmt.Print(v)\n\t\t\tif i < len(repetidas)-1 {\n\t\t\t\tfmt.Print(\" \")\n\t\t\t}\n\t\t}\n\t\tfmt.Println()\n\t}\n\n\thouveFaltante := false\n\tprimeiroFaltante := true\n\tfor i := 1; i <= qtd_figurinhasAlbum; i++ {\n\t\tif !existeNoAlbum[i] {\n\t\t\tif !primeiroFaltante {\n\t\t\t\tfmt.Print(\" \")\n\t\t\t}\n\t\t\tfmt.Print(i)\n\t\t\thouveFaltante = true\n\t\t\tprimeiroFaltante = false\n\t\t}\n\t}\n\n\tif !houveFaltante {\n\t\tfmt.Print(\"N\")\n\t}\n\tfmt.Println()\n}\n\n",
+            "lines": "56"
+        }
+    ]
+}
