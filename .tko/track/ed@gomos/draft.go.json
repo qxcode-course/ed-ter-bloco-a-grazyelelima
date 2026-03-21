@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-21_15-20-29",
+            "content": "@@ -352,364 +352,8 @@\n     \n-switch direcao %7B%0A        case %22L%22:%0A            cobra%5B0%5D.a--%0A        case %22R%22:%0A            cobra%5B0%5D.a++%0A        case %22U%22:%0A            cobra%5B0%5D.b--%0A        case %22D%22:%0A            cobra%5B0%5D.b++        %0A    %7D%0A%0A    for i := 1; i %3C q; i++%7B%0A        cobra%5Bi%5D = posicaoAnteriores%5Bi-1%5D%0A    %7D%0A%0A    for _, g := range cobra %7B%0A        fmt.Printf(%22%25d %25d%5Cn%22, g.a, g.b)%0A    %7D\n %0A%0A%0A%7D\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-03-21_15-26-07",
+            "content": "package main\nimport \"fmt\"\n\ntype Gomo struct {\n    a int \n    b int\n}\n\nfunc main() {\n\n    var q int \n    var direcao string\n\n    fmt.Scan(&q)\n    fmt.Scan(&direcao)\n\n    cobra := make([]Gomo, q)\n\n    for i := 0; i < q; i++ {\n        fmt.Scan(&cobra[i].a, &cobra[i].b)\n    }\n\n    posicaoAnteriores := make([]Gomo, q)\n    copy(posicaoAnteriores, cobra)\n\n    switch direcao {\n        case \"L\":\n            cobra[0].a--\n        case \"R\":\n            cobra[0].a++\n        case \"U\":\n            cobra[0].b--\n        case \"D\":\n            cobra[0].b++        \n    }\n\n    for i := 1; i < q; i++{\n        cobra[i] = posicaoAnteriores[i-1]\n    }\n\n    for _, g := range cobra {\n        fmt.Printf(\"%d %d\\n\", g.a, g.b)\n    }\n\n\n}\n",
+            "lines": "46"
+        }
+    ]
+}
