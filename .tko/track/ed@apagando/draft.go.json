@@ -1,0 +1,64 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-31_08-09-26",
+            "content": "@@ -36,131 +36,7 @@\n () %7B\n-%0A%0A%09var n int %0A%0A%09fmt.Scan(&n)%0A%0A%09fila := make(%5B%5Dint, n)%0A%0A%09for i := 0; i %3C n; i++ %7B%0A%09%09fmt.Scan(&fila%5Bi%5D)%0A%09%7D%0A%0A%09fmt.Println(fila)\n %0A%7D%0A\n",
+            "lines": "4"
+        },
+        {
+            "label": "2026-03-31_08-18-41",
+            "content": "@@ -44,17 +44,14 @@\n ar n\n-, m\n  int %0A\n+\n %0A%09fm\n@@ -147,125 +147,20 @@\n fmt.\n-Scan(&m)%0A%0A%09quemSai := make(%5B%5D int, m)%0A%0A%09for i := 0; i %3C m; i++ %7B%0A%09%09fmt.Scan(&quemSai%5Bi%5D)%0A %09%7D%09%0A%0A%09fmt.Println(quemSai)%09%0A\n+Println(fila)\n %0A%7D%0A\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-03-31_08-21-23",
+            "content": "@@ -177,20 +177,17 @@\n ake(\n-map%5Bint%5Dbool\n+%5B%5D int, m\n )%0A%0A%09\n@@ -215,21 +215,8 @@\n + %7B%0A\n-%09%09var id int%0A\n %09%09fm\n@@ -227,14 +227,8 @@\n an(&\n-id)%0A%09%09\n quem\n@@ -236,25 +236,38 @@\n ai%5Bi\n-d%5D = true%0A %09%7D%09%0A%0A%09\n+%5D)%0A %09%7D%09%0A%0A%09fmt.Println(quemSai)\n %09%0A%0A%7D\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-03-31_10-50-22",
+            "content": "@@ -275,184 +275,9 @@\n %09%0A%0A%09\n-primeiro := true%0A%0A%09for _, pessoa := range fila %7B%0A%09%09if !quemSai%5Bpessoa%5D %7B%0A%09%09%09if !primeiro %7B%0A%09%09%09%09fmt.Print(%22 %22)%0A%09%09%09%7D%0A%09%09%09fmt.Print(pessoa)%0A%09%09%09primeiro = false%0A%09%09%7D%0A%09%7D%0A%09fmt.Println()\n+%09%0A\n %0A%7D%0A\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-03-31_12-24-54",
+            "content": "@@ -378,18 +378,16 @@\n Print(%22 \n- t\n %22)%0A%09%09%09%7D%0A\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-25-36",
+            "content": "@@ -378,16 +378,18 @@\n Print(%22 \n+ t\n %22)%0A%09%09%09%7D%0A\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-25-46",
+            "content": "@@ -409,13 +409,8 @@\n ssoa\n-, %22 %22\n )%0A%09%09\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-26-10",
+            "content": "@@ -405,16 +405,21 @@\n t(pessoa\n+, %22 %22\n )%0A%09%09%09pri\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-26-20",
+            "content": "@@ -398,18 +398,16 @@\n mt.Print\n-ln\n (pessoa)\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-26-38",
+            "content": "@@ -398,17 +398,18 @@\n mt.Print\n-f\n+ln\n (pessoa)\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-26-46",
+            "content": "@@ -398,16 +398,17 @@\n mt.Print\n+f\n (pessoa)\n@@ -448,15 +448,12 @@\n Println(\n-%22 %22\n )%0A%7D%0A\n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-03-31_12-27-13",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n\n\tvar n, m int \n\n\tfmt.Scan(&n)\n\n\tfila := make([]int, n)\n\n\tfor i := 0; i < n; i++ {\n\t\tfmt.Scan(&fila[i])\n\t}\n\n\tfmt.Scan(&m)\n\n\tquemSai := make(map[int]bool)\n\n\tfor i := 0; i < m; i++ {\n\t\tvar id int\n\t\tfmt.Scan(&id)\n\t\tquemSai[id] = true\n \t}\t\n\n\tprimeiro := true\n\n\tfor _, pessoa := range fila {\n\t\tif !quemSai[pessoa] {\n\t\t\tif !primeiro {\n\t\t\t\tfmt.Print(\" \")\n\t\t\t}\n\t\t\tfmt.Print(pessoa)\n\t\t\tprimeiro = false\n\t\t}\n\t}\n\tfmt.Println(\" \")\n}\n",
+            "lines": "37"
+        }
+    ]
+}

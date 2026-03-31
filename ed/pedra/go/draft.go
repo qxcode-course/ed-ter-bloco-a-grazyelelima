@@ -1,39 +1,47 @@
 package main
-import (
-    "fmt"
-    "math"
-)
+
+import  "fmt" 
+
+type Jogada struct {
+    pa, pb int
+}
+
+func pontuacao(j Jogada) int {
+    if j.pa > j.pb {
+        return j.pa - j.pb
+    }
+    return j.pb - j.pa
+}
+
 func main() {
-    var n int 
+    n := 0
 
     fmt.Scan(&n)
 
-    var ganhador int = -1
-    var melhorDif int = 101
+    jogadas := make([]Jogada, n)
 
-    for i := 0; i < n; i++ {
-        var a, b int 
-        fmt.Scan(&a, &b)
+    for i := range n {
+        fmt.Scan(&jogadas[i].pa, &jogadas[i].pb)
+    }
 
-        dif := int(math.Abs(float64(a - b)))
+    ind_melhor := -1
 
-        
-
-        if a < 10 || b < 10 {
+    for i, jog := range jogadas {
+        if jog.pa < 10 || jog.pb < 10 {
             continue
         } 
 
-        if dif < melhorDif {
-            melhorDif = dif 
-            ganhador = i
+        if ind_melhor == -1 || (pontuacao(jog) < pontuacao(jogadas[ind_melhor])) {
+            ind_melhor = i
         }
-
     }
 
-    if ganhador == -1 {
+    if ind_melhor == -1 {
         fmt.Println("sem ganhador")
     } else {
-        fmt.Println(ganhador)
+        fmt.Println(ind_melhor)
     }
+
+
 
 }
