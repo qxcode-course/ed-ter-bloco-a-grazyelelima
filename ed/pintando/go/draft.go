@@ -1,21 +1,22 @@
 package main
 
 import (
-    "fmt"
-    "math")
+	"fmt"
+	"math"
+)
+
+func area (a, b, c float64) float64 {
+    p := (a + b + c) / 2.0
+    return math.Sqrt(p * (p - a) * (p - b) * (p - c))
+}
 
 func main() {
-    var a float64
-    var b float64 
-    var c float64
+    
+    var l1, l2, l3 float64
 
-    var area float64
+    fmt.Scan(&l1, &l2, &l3)
 
-    fmt.Scan(&a, &b, &c)
+    resultado := area(l1, l2, l3)
+    fmt.Printf("%.2f\n", resultado)
 
-    var p float64 = float64(a + b + c) / 2.0
-
-    area = math.Sqrt(p * (p - float64(a)) * (p - float64(b)) * (p - float64(c)))
-
-    fmt.Printf("%.2f\n", area)
 }

@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-12_12-42-12",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc divisao(x int) {\n    if x == 0 {\n        return\n    }\n\n    divisao(x / 2)\n\n    fmt.Printf(\"%d %d\\n\", x/2, x % 2)\n}\n\nfunc main() {\n    \n    n := 0\n    fmt.Scan(&n)\n\n    if n == 0 {\n        return \n    }\n\n    divisao(n)\n    \n}\n",
+            "lines": "26"
+        }
+    ]
+}

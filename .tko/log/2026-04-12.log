@@ -1,0 +1,25 @@
+2026-04-12 11:58:09, MOVE, v:1, k:ed@casais, mode:PICK
+2026-04-12 12:31:40, MOVE, v:1, k:ed@casais, mode:BACK
+2026-04-12 12:31:58, MOVE, v:1, k:ed@resto, mode:PICK
+2026-04-12 12:32:16, MOVE, v:1, k:ed@resto, mode:EDIT
+2026-04-12 12:37:23, MOVE, v:1, k:ed@resto, mode:EDIT
+2026-04-12 12:42:12, EXEC, v:1, k:ed@resto, mode:FREE, size:26
+2026-04-12 12:42:04, MOVE, v:1, k:ed@resto, mode:EDIT
+2026-04-12 12:49:04, SELF, v:1, k:ed@resto, self:1, concept:1
+2026-04-12 12:49:09, EXEC, v:1, k:ed@resto, mode:FULL, rate:100
+2026-04-12 12:49:15, MOVE, v:1, k:ed@resto, mode:BACK
+2026-04-12 12:49:30, MOVE, v:1, k:ed@mdc, mode:DOWN
+2026-04-12 12:49:33, MOVE, v:1, k:ed@mdc, mode:PICK
+2026-04-12 12:49:30, MOVE, v:1, k:ed@mdc, mode:EDIT
+2026-04-12 12:52:49, MOVE, v:1, k:ed@mdc, mode:EDIT
+2026-04-12 12:53:12, MOVE, v:1, k:ed@mdc, mode:EDIT
+2026-04-12 13:01:58, EXEC, v:1, k:ed@mdc, mode:FREE, size:21
+2026-04-12 13:02:25, EXEC, v:1, k:ed@mdc, mode:FREE
+2026-04-12 13:02:39, EXEC, v:1, k:ed@mdc, mode:FULL, rate:100
+2026-04-12 13:01:39, MOVE, v:1, k:ed@mdc, mode:EDIT
+2026-04-12 13:03:06, SELF, v:1, k:ed@mdc, self:1, rate:100, concept:1
+2026-04-12 13:03:08, MOVE, v:1, k:ed@mdc, mode:BACK
+2026-04-12 13:03:58, SELF, v:1, k:ed@triangulo, self:1, rate:100, concept:1, problem:1
+2026-04-12 13:04:10, MOVE, v:1, k:ed@treinando, mode:DOWN
+2026-04-12 13:04:11, MOVE, v:1, k:ed@treinando, mode:PICK
+2026-04-12 13:05:56, MOVE, v:1, k:ed@treinando, mode:BACK

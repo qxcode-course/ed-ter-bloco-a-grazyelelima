@@ -12,8 +12,48 @@
         },
         {
             "label": "2026-03-29_13-28-26",
-            "content": "package main\n\nimport  \"fmt\" \n\ntype Jogada struct {\n    pa, pb int\n}\n\nfunc pontuacao(j Jogada) int {\n    if j.pa > j.pb {\n        return j.pa - j.pb\n    }\n    return j.pb - j.pa\n}\n\nfunc main() {\n    n := 0\n\n    fmt.Scan(&n)\n\n    jogadas := make([]Jogada, n)\n\n    for i := range n {\n        fmt.Scan(&jogadas[i].pa, &jogadas[i].pb)\n    }\n\n    ind_melhor := -1\n\n    for i, jog := range jogadas {\n        if jog.pa < 10 || jog.pb < 10 {\n            continue\n        } \n\n        if ind_melhor == -1 || (pontuacao(jog) < pontuacao(jogadas[ind_melhor])) {\n            ind_melhor = i\n        }\n    }\n\n    if ind_melhor == -1 {\n        fmt.Println(\"sem ganhador\")\n    } else {\n        fmt.Println(ind_melhor)\n    }\n\n\n\n}\n",
+            "content": "@@ -48,12 +48,17 @@\n t %7B%0A\n-%09\n+    p\n a, \n+p\n b in\n@@ -62,16 +62,127 @@\n  int%0A%7D%0A%0A\n+func pontuacao(j Jogada) int %7B%0A    if j.pa %3E j.pb %7B%0A        return j.pa - j.pb%0A    %7D%0A    return j.pb - j.pa%0A%7D%0A%0A\n func mai\n@@ -195,18 +195,20 @@\n     \n-%0A%09\n n := 0%0A\n-%09\n+%0A    \n fmt.\n@@ -221,17 +221,18 @@\n n)%0A%0A\n-%09\n+    \n jogad\n-ore\n+a\n s :=\n@@ -255,31 +255,457 @@\n n)%0A%0A\n-%09fmt.Println(jogadores)\n+    for i := range n %7B%0A        fmt.Scan(&jogadas%5Bi%5D.pa, &jogadas%5Bi%5D.pb)%0A    %7D%0A%0A    ind_melhor := -1%0A%0A    for i, jog := range jogadas %7B%0A        if jog.pa %3C 10 %7C%7C jog.pb %3C 10 %7B%0A            continue%0A        %7D %0A%0A        if ind_melhor == -1 %7C%7C (pontuacao(jog) %3C pontuacao(jogadas%5Bind_melhor%5D)) %7B%0A            ind_melhor = i%0A        %7D%0A    %7D%0A%0A    if ind_melhor == -1 %7B%0A        fmt.Println(%22sem ganhador%22)%0A    %7D else %7B%0A        fmt.Println(ind_melhor)%0A    %7D%0A%0A\n %0A%0A%7D%0A\n",
             "lines": "47"
+        },
+        {
+            "label": "2026-04-11_12-14-40",
+            "content": "@@ -136,83 +136,8 @@\n n)%0A%0A\n-%09for i := 0; i %3C n; i++ %7B%0A%09%09fmt.Scan(&jogadores%5Bi%5D.a, &jogadores%5Bi%5D.b)%0A%09%7D%0A%0A\n %09fmt\n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-04-11_12-17-18",
+            "content": "@@ -61,108 +61,8 @@\n %0A%7D%0A%0A\n-func valorAbs(j Jogada) int %7B%0A%09if j.a %3E j.b %7B%0A%09%09return j.a - j.b%0A%09%7D else %7B%0A%09%09return j.b - j.a%0A%09%7D%0A%7D%0A%0A\n func\n@@ -105,17 +105,19 @@\n %0A%0A%09jogad\n-a\n+ore\n s := mak\n@@ -146,15 +146,21 @@\n  := \n-range n\n+0; i %3C n; i++\n  %7B%0A%09\n@@ -171,25 +171,27 @@\n .Scan(&jogad\n-a\n+ore\n s%5Bi%5D.a, &jog\n@@ -196,355 +196,46 @@\n ogad\n-as%5Bi%5D.b)%0A%09%7D%0A%0A%09indice_melhor := -1%0A%09for i, jog := range jogadas %7B%0A%09%09if jog.a %3C 10 %7C%7C jog.b %3C 10 %7B%0A%09%09%09continue%0A%09%09%7D%0A%0A%09%09if indice_melhor == -1 %7B%0A%09%09%09indice_melhor = i%0A%09%09%7D else if indice_melhor %3E valorAbs(jogadas%5Bi%5D) %7B%0A%09%09%09indice_melhor = i%0A%09%09%7D%0A%0A%09%09if indice_melhor == -1 %7B%0A%09%09%09fmt.Println(%22sem ganhador%22)%0A%09%09%7D else %7B%0A%09%09%09fmt.Println(indice_melhor)%0A%09%09%7D%0A%09%7D%0A%0A%0A\n+ores%5Bi%5D.b)%0A%09%7D%0A%0A%09fmt.Println(jogadores)\n %0A%0A%7D%0A\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-04-11_13-04-03",
+            "content": "@@ -460,23 +460,23 @@\n  if \n-valorAbs(jog) %3C\n+indice_melhor %3E\n  val\n@@ -490,28 +490,16 @@\n ogadas%5Bi\n-ndice_melhor\n %5D) %7B%0A%09%09%09\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-04-11_13-07-37",
+            "content": "@@ -421,19 +421,50 @@\n r == -1 \n- %7C%7C\n+%7B%0A%09%09%09indice_melhor = i%0A%09%09%7D else if\n  valorAb\n@@ -504,16 +504,17 @@\n melhor%5D)\n+ \n %7B%0A%09%09%09ind\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-04-11_13-10-31",
+            "content": "@@ -124,18 +124,25 @@\n - j.b%0A%09%7D\n-%0A%0A\n+ else %7B%0A%09\n %09return \n@@ -151,16 +151,19 @@\n b - j.a%0A\n+%09%7D%0A\n %7D%0A%0Afunc \n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-04-11_13-11-44",
+            "content": "@@ -232,31 +232,25 @@\n  i := range \n-jogadas\n+n\n  %7B%0A%09%09fmt.Sca\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-04-11_13-13-30",
+            "content": "@@ -236,17 +236,23 @@\n = range \n-n\n+jogadas\n  %7B%0A%09%09fmt\n@@ -496,20 +496,18 @@\n = i%0A%09%09%7D%0A\n-%09%7D%0A\n %0A\n+%09\n %09if indi\n@@ -600,10 +600,17 @@\n or)%0A%09%09%7D%0A\n+%09%7D%0A%0A%0A%0A%0A\n %7D%0A\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-04-11_13-15-39",
+            "content": "package main\n\nimport  \"fmt\" \n\ntype Jogada struct {\n\ta, b int\n}\n\nfunc valorAbs(j Jogada) int {\n\tif j.a > j.b {\n\t\treturn j.a - j.b\n\t}\n\n\treturn j.b - j.a\n}\n\nfunc main() {\n    \n\tn := 0\n\tfmt.Scan(&n)\n\n\tjogadas := make([]Jogada, n)\n\n\tfor i := range n {\n\t\tfmt.Scan(&jogadas[i].a, &jogadas[i].b)\n\t}\n\n\tindice_melhor := -1\n\tfor i, jog := range jogadas {\n\t\tif jog.a < 10 || jog.b < 10 {\n\t\t\tcontinue\n\t\t}\n\n\t\tif indice_melhor == -1  || valorAbs(jog) < valorAbs(jogadas[indice_melhor]){\n\t\t\tindice_melhor = i\n\t\t}\n\t}\n\n\tif indice_melhor == -1 {\n\t\t\tfmt.Println(\"sem ganhador\")\n\t\t} else {\n\t\t\tfmt.Println(indice_melhor)\n\t\t}\n}\n",
+            "lines": "44"
         }
     ]
 }

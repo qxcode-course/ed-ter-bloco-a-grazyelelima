@@ -1,23 +1,32 @@
 package main
+
 import "fmt"
+
 func main() {
-    var h, p, f, d int
+    var h, p, f, d int 
 
     fmt.Scan(&h, &p, &f, &d)
 
-    var vaiFugir int = 1
+    for {
 
-    for f != h && vaiFugir == 1 {
-        f = (f + d + 16) % 16
+        f += d
+
+        if f > 15 {
+            f = 0
+        } else if f < 0 {
+            f = 15
+        }
+
+        if f == h {
+            fmt.Println("S")
+            break
+        }
+
         if f == p {
-            vaiFugir = 0
+            fmt.Println("N")
+            break
         }
 
     }
+}    
 
-    if vaiFugir == 1 {
-        fmt.Println("S")
-    } else {
-        fmt.Println("N")
-    }
-}

@@ -7,8 +7,23 @@
         },
         {
             "label": "2026-03-14_14-05-57",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var h, p, f, d int\n\n    fmt.Scan(&h, &p, &f, &d)\n\n    var vaiFugir int = 1\n\n    for f != h && vaiFugir == 1 {\n        f = (f + d + 16) % 16\n        if f == p {\n            vaiFugir = 0\n        }\n\n    }\n\n    if vaiFugir == 1 {\n        fmt.Println(\"S\")\n    } else {\n        fmt.Println(\"N\")\n    }\n}\n",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -19,17 +19,16 @@\n t %22fmt%22%0A\n-%0A\n func mai\n@@ -55,17 +55,16 @@\n f, d int\n- \n %0A%0A    fm\n@@ -86,24 +86,25 @@\n &f, &d)%0A\n+%0A\n     var \n fugiuSim\n@@ -99,100 +99,57 @@\n var \n-fugiuSimOuNao bool%0A%0A    if d == -1 %7B%0A        for i := 0; i %3C 15; i++ %7B%0A            if f\n+vaiFugir int = 1%0A%0A    for f != h && vaiFugir\n  == \n-h\n+1\n  %7B%0A \n@@ -159,319 +159,116 @@\n     \n-     \n-   fugiuSimOuNao = true%0A                break%0A            %7D else if f == p %7B%0A                fugiuSimOuNao = false%0A                break%0A            %7D%0A            %7D%0A            if f == 0 %7B%0A                f++%0A            %7D else %7B%0A                f--%0A            %7D%0A        %7D%0A%0A   \n+f = (f + d + 16) %25 16%0A        if f == p %7B%0A            vaiFugir = 0%0A        %7D%0A%0A    %7D%0A%0A\n     \n- \n if \n-fugiuSimOuNao %7B%0A    \n+vaiFugir == 1 %7B%0A\n     \n@@ -288,20 +288,16 @@\n ln(%22S%22)%0A\n-    \n     %7D el\n@@ -301,20 +301,16 @@\n  else %7B%0A\n-    \n         \n@@ -326,26 +326,16 @@\n ln(%22N%22)%0A\n-        %7D%0A%0A\n     %7D%0A\n+%7D\n %0A\n",
             "lines": "23"
+        },
+        {
+            "label": "2026-04-10_16-43-57",
+            "content": "@@ -482,297 +482,8 @@\n    %7D\n- else %7B%0A            if f == h %7B%0A                fugiuSimOuNao = true%0A                return%0A            %7D else if f == p %7B%0A                fugiuSimOuNao = false%0A                return%0A            %7D%0A%0A            if f == 15 %7B%0A                f = 0%0A                f++%0A            %7D%0A        %7D\n %0A%0A  \n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-04-10_16-49-04",
+            "content": "@@ -93,20 +93,53 @@\n &d)%0A\n-%0A    for\n+    var fugiuSimOuNao bool%0A%0A    if d == -1\n  %7B%0A\n-%0A\n     \n@@ -147,23 +147,42 @@\n    f\n- += d%0A%0A\n+or i := 0; i %3C 15; i++ %7B%0A \n         \n if f\n@@ -181,17 +181,20 @@\n     \n+   \n if f \n-%3E 15\n+== h\n  %7B%0A \n@@ -208,14 +208,59 @@\n     \n-f = 0%0A\n+    fugiuSimOuNao = true%0A                break%0A    \n     \n@@ -279,14 +279,18 @@\n f f \n-%3C 0 %7B%0A\n+== p %7B%0A   \n     \n@@ -301,26 +301,201 @@\n     \n-f = 15%0A        %7D%0A%0A\n+ fugiuSimOuNao = false%0A                break%0A            %7D%0A            %7D%0A            if f == 0 %7B%0A                f++%0A            %7D else %7B%0A                f--%0A            %7D%0A        %7D else %7B%0A    \n     \n@@ -502,32 +502,36 @@\n     if f == h %7B%0A\n+    \n             fmt.\n@@ -531,50 +531,153 @@\n    f\n-mt.Println(%22S%22)%0A            break%0A\n+ugiuSimOuNao = true%0A                return%0A            %7D else if f == p %7B%0A                fugiuSimOuNao = false%0A                return%0A  \n         \n %7D%0A%0A \n@@ -668,27 +668,33 @@\n n%0A          \n+  \n %7D%0A%0A\n+    \n         if f\n@@ -689,33 +689,128 @@\n         if f == \n-p\n+15 %7B%0A                f = 0%0A                f++%0A            %7D%0A        %7D%0A%0A        if fugiuSimOuNao\n  %7B%0A            f\n@@ -821,17 +821,17 @@\n rintln(%22\n-N\n+S\n %22)%0A     \n@@ -837,38 +837,60 @@\n     \n-    break%0A        %7D%0A%0A\n+%7D else %7B%0A            fmt.Println(%22N%22)%0A   \n     \n+ \n %7D%0A\n-%7D\n+%0A\n     \n+%7D\n %0A%0A\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-04-10_16-58-50",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var h, p, f, d int \n\n    fmt.Scan(&h, &p, &f, &d)\n\n    for {\n\n        f += d\n\n        if f > 15 {\n            f = 0\n        } else if f < 0 {\n            f = 15\n        }\n\n        if f == h {\n            fmt.Println(\"S\")\n            break\n        }\n\n        if f == p {\n            fmt.Println(\"N\")\n            break\n        }\n\n    }\n}    \n\n",
+            "lines": "32"
         }
     ]
 }

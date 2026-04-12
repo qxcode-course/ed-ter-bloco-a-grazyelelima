@@ -2,8 +2,23 @@
     "patches": [
         {
             "label": "2026-03-16_18-55-17",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    var n int \n    fmt.Scan(&n)\n\n    descasados := make(map[int]int)\n    casais := 0\n\n    for i := 0; i < n; i++ {\n        var animal int\n        fmt.Scan(&animal)\n\n        parEsperado := -animal \n\n        if descasados[parEsperado] > 0 {\n            casais++\n            descasados[parEsperado]--\n        } else {\n            descasados[animal]++\n        }\n    }\n\n    fmt.Println(casais)\n}\n",
+            "content": "@@ -46,15 +46,18 @@\n     \n-n := 0%0A\n+var n int \n %0A   \n@@ -75,22 +75,25 @@\n n)%0A%0A    \n-animai\n+descasado\n s := mak\n@@ -98,47 +98,89 @@\n ake(\n-%5B%5Dint, n)%0A%0A    for i := range\n+map%5Bint%5Dint)%0A    casais := 0%0A%0A    for i := 0; i %3C n; i++ %7B%0A        var\n  anima\n-is %7B\n+l int\n %0A   \n@@ -203,14 +203,204 @@\n nima\n-is%5Bi%5D)\n+l)%0A%0A        parEsperado := -animal %0A%0A        if descasados%5BparEsperado%5D %3E 0 %7B%0A            casais++%0A            descasados%5BparEsperado%5D--%0A        %7D else %7B%0A            descasados%5Banimal%5D++%0A        %7D\n %0A   \n@@ -415,17 +415,19 @@\n fmt.\n-Scan(anim\n+Println(cas\n ais)\n",
             "lines": "26"
+        },
+        {
+            "label": "2026-04-11_13-53-56",
+            "content": "@@ -177,14 +177,11 @@\n fmt.\n-Printl\n+Sca\n n(an\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-04-11_13-55-17",
+            "content": "@@ -103,43 +103,8 @@\n n)%0A%0A\n-    solteiros := make(map%5Bint%5Dint)%0A\n     \n@@ -169,222 +169,8 @@\n  %7D%0A%0A\n-    numPares := 0%0A    for _, animal := range  animais %7B%0A        if solteiros%5B-animal%5D %3E 0 %7B%0A            solteiros%5B-animal%5D--%0A            numPares++%0A        %7D else %7B%0A            solteiros%5Banimal%5D++%0A        %7D%0A    %7D%0A%0A\n     \n@@ -185,15 +185,14 @@\n tln(\n-numPare\n+animai\n s)%0A%7D\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-04-11_14-08-54",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    n := 0\n\n    fmt.Scan(&n)\n\n    animais := make([]int, n)\n\n    solteiros := make(map[int]int)\n    for i := range animais {\n        fmt.Scan(&animais[i])\n    }\n\n    numPares := 0\n    for _, animal := range  animais {\n        if solteiros[-animal] > 0 {\n            solteiros[-animal]--\n            numPares++\n        } else {\n            solteiros[animal]++\n        }\n    }\n\n    fmt.Println(numPares)\n}\n",
+            "lines": "27"
         }
     ]
 }

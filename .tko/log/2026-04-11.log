@@ -1,0 +1,37 @@
+2026-04-11 12:06:54, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-04-11 12:10:59, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 12:14:40, EXEC, v:1, k:ed@pedra, mode:FULL, rate:0, size:18
+2026-04-11 12:16:45, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 12:17:18, EXEC, v:1, k:ed@pedra, mode:FULL, rate:0, size:22
+2026-04-11 12:18:06, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 12:45:01, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 12:56:33, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 13:01:37, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 13:04:03, EXEC, v:1, k:ed@pedra, mode:FULL, rate:25, size:50
+2026-04-11 13:06:06, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 13:07:37, EXEC, v:1, k:ed@pedra, mode:FULL, rate:25, size:50
+2026-04-11 13:10:31, EXEC, v:1, k:ed@pedra, mode:FULL, rate:25, size:48
+2026-04-11 13:11:44, EXEC, v:1, k:ed@pedra, mode:FULL, rate:25, size:48
+2026-04-11 13:11:42, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 13:13:30, EXEC, v:1, k:ed@pedra, mode:FULL, rate:25, size:48
+2026-04-11 13:15:39, EXEC, v:1, k:ed@pedra, mode:FULL, rate:100, size:44
+2026-04-11 13:15:34, MOVE, v:1, k:ed@pedra, mode:EDIT
+2026-04-11 13:18:56, MOVE, v:1, k:ed@pedra, mode:BACK
+2026-04-11 13:19:54, SELF, v:1, k:ed@pedra, self:1, rate:100, guided:1
+2026-04-11 13:20:03, MOVE, v:1, k:ed@casais, mode:PICK
+2026-04-11 13:53:56, EXEC, v:1, k:ed@casais, mode:FULL, rate:0, size:16
+2026-04-11 13:55:17, EXEC, v:1, k:ed@casais, mode:FULL, rate:0, size:16
+2026-04-11 13:56:50, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:01:53, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:06:53, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:08:54, EXEC, v:1, k:ed@casais, mode:FULL, rate:100, size:27
+2026-04-11 14:08:50, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:31:54, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:36:16, MOVE, v:1, k:ed@casais, mode:BACK
+2026-04-11 14:36:23, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-04-11 14:35:54, MOVE, v:1, k:ed@casais, mode:EDIT
+2026-04-11 14:37:29, MOVE, v:1, k:ed@baruel, mode:EDIT
+2026-04-11 15:03:32, MOVE, v:1, k:ed@baruel, mode:BACK
+2026-04-11 15:07:00, MOVE, v:1, k:ed@princesa, mode:PICK
+2026-04-11 15:25:34, MOVE, v:1, k:ed@princesa, mode:BACK
+2026-04-11 15:26:24, MOVE, v:1, k:ed@princesa, mode:PICK

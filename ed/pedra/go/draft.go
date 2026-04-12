@@ -3,45 +3,42 @@ package main
 import  "fmt" 
 
 type Jogada struct {
-    pa, pb int
+	a, b int
 }
 
-func pontuacao(j Jogada) int {
-    if j.pa > j.pb {
-        return j.pa - j.pb
-    }
-    return j.pb - j.pa
+func valorAbs(j Jogada) int {
+	if j.a > j.b {
+		return j.a - j.b
+	}
+
+	return j.b - j.a
 }
 
 func main() {
-    n := 0
+    
+	n := 0
+	fmt.Scan(&n)
 
-    fmt.Scan(&n)
+	jogadas := make([]Jogada, n)
 
-    jogadas := make([]Jogada, n)
+	for i := range n {
+		fmt.Scan(&jogadas[i].a, &jogadas[i].b)
+	}
 
-    for i := range n {
-        fmt.Scan(&jogadas[i].pa, &jogadas[i].pb)
-    }
+	indice_melhor := -1
+	for i, jog := range jogadas {
+		if jog.a < 10 || jog.b < 10 {
+			continue
+		}
 
-    ind_melhor := -1
+		if indice_melhor == -1  || valorAbs(jog) < valorAbs(jogadas[indice_melhor]){
+			indice_melhor = i
+		}
+	}
 
-    for i, jog := range jogadas {
-        if jog.pa < 10 || jog.pb < 10 {
-            continue
-        } 
-
-        if ind_melhor == -1 || (pontuacao(jog) < pontuacao(jogadas[ind_melhor])) {
-            ind_melhor = i
-        }
-    }
-
-    if ind_melhor == -1 {
-        fmt.Println("sem ganhador")
-    } else {
-        fmt.Println(ind_melhor)
-    }
-
-
-
+	if indice_melhor == -1 {
+			fmt.Println("sem ganhador")
+		} else {
+			fmt.Println(indice_melhor)
+		}
 }

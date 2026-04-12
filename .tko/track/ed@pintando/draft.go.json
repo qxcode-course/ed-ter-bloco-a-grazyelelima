@@ -27,8 +27,23 @@
         },
         {
             "label": "2026-03-13_18-32-21",
-            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\")\n\nfunc main() {\n    var a float64\n    var b float64 \n    var c float64\n\n    var area float64\n\n    fmt.Scan(&a, &b, &c)\n\n    var p float64 = float64(a + b + c) / 2.0\n\n    area = math.Sqrt(p * (p - float64(a)) * (p - float64(b)) * (p - float64(c)))\n\n    fmt.Printf(\"%.2f\\n\", area)\n}\n",
+            "content": "@@ -40,67 +40,157 @@\n ath%22\n-%0A        )%0A%0Afunc area (a, b, c float64) float64 %7B%0A    p := \n+)%0A%0Afunc main() %7B%0A    var a float64%0A    var b float64 %0A    var c float64%0A%0A    var area float64%0A%0A    fmt.Scan(&a, &b, &c)%0A%0A    var p float64 = float64(\n a + \n@@ -198,25 +198,27 @@\n  + c\n+)\n  / 2.0%0A\n+%0A\n     \n+a\n re\n-turn\n+a =\n  mat\n@@ -237,144 +237,59 @@\n p - \n-a) * (p - b) * (p - c))%0A%7D%0A%0Afunc main() %7B%0A    %0A    var l1, l2, l3 float64%0A%0A    fmt.Scan(&l1, &l2, &l3)%0A%0A    resultado := area(l1, l2, l3)\n+float64(a)) * (p - float64(b)) * (p - float64(c)))%0A\n %0A   \n@@ -309,21 +309,17 @@\n %25.2f\n+%5Cn\n %22, \n+a\n re\n-sultado)%0A\n+a)\n %0A%7D%0A\n",
             "lines": "21"
+        },
+        {
+            "label": "2026-04-10_16-19-04",
+            "content": "@@ -95,17 +95,16 @@\n    p := \n-(\n a + b + \n@@ -104,17 +104,16 @@\n  + b + c\n-)\n  / 2.0%0A \n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-04-10_16-19-41",
+            "content": "@@ -304,10 +304,8 @@\n %25.2f\n-%5Cn\n %22, r\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-04-10_16-20-20",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\"\n        )\n\nfunc area (a, b, c float64) float64 {\n    p := (a + b + c) / 2.0\n    return math.Sqrt(p * (p - a) * (p - b) * (p - c))\n}\n\nfunc main() {\n    \n    var l1, l2, l3 float64\n\n    fmt.Scan(&l1, &l2, &l3)\n\n    resultado := area(l1, l2, l3)\n    fmt.Printf(\"%.2f\\n\", resultado)\n\n}\n",
+            "lines": "22"
         }
     ]
 }
