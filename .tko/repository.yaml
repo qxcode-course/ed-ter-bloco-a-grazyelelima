@@ -29,8 +29,8 @@ sources:
   quests: null
   tasks: null
 expanded:
-- ed@map_set
 - eval1@teste-1
+- ed@map_set
 - ed@basic
 - ed@rec
 flags:

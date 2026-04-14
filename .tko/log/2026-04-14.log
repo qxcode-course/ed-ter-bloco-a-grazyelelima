@@ -75,3 +75,7 @@
 2026-04-14 11:37:38, SELF, v:1, k:eval1@baruel, self:1
 2026-04-14 11:37:45, MOVE, v:1, k:eval1@baruel, mode:PICK
 2026-04-14 11:37:48, MOVE, v:1, k:eval1@baruel, mode:BACK
+2026-04-14 11:45:08, MOVE, v:1, k:eval1@baruel, mode:PICK
+2026-04-14 11:47:16, EXEC, v:1, k:eval1@baruel, mode:FULL, rate:0, size:48
+2026-04-14 11:48:57, EXEC, v:1, k:eval1@baruel, mode:FULL, rate:100, size:48
+2026-04-14 11:49:01, MOVE, v:1, k:eval1@baruel, mode:BACK

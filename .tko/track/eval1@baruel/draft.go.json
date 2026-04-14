@@ -77,8 +77,18 @@
         },
         {
             "label": "2026-04-14_11-35-42",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    var qtd_album, qtd_possui int\n    fmt.Scan(&qtd_album, &qtd_possui)\n\n    unicas := make(map[int]bool)\n    figuras := make([]int, qtd_possui)\n\n    for i := range figuras {\n        fmt.Scan(&figuras[i])\n    }\n\n    repetidas := make([]int, 0, qtd_possui)\n    faltantes := make([]int, 0)\n\n    for _, figura := range figuras {\n        if unicas[figura] {\n            repetidas = append(repetidas, figura)\n        } else {\n            unicas[figura] = true\n        }\n    }\n\n    for i := 1; i <= qtd_album; i++ {\n        if !unicas[i] {\n            faltantes  = append(faltantes, i)\n        }\n    }\n\n    fmt.Println(repetidas)\n    fmt.Println(faltantes)\n\n\n}\n",
+            "content": "@@ -642,36 +642,21 @@\n %0A   \n- saida :=\n  fmt.\n-Sp\n+P\n rint\n-f(%22%25v%22, \n+ln(\n repe\n@@ -670,317 +670,31 @@\n     \n-if saida == %22%5B%5D%22 %7B%0A        fmt.Println(saida%5B1 : len(saida) -1%5D)%0A    %7D else %7B%0A        fmt.Println(%22N%22)%0A    %7D%0A%0A    saida = fmt.Sprintf(%22%25v%22, faltantes)%0A    if saida == %22%5B%5D%22 %7B%0A        fmt.Println(saida%5B1 : len(saida) -1%5D)%0A    %7D else %7B%0A        fmt.Println(%22N%22)%0A    %7D%0A    %0A    //Lembrei como formata a saida KKKKK\n+fmt.Println(faltantes)%0A\n %0A%0A%7D%0A\n",
             "lines": "36"
+        },
+        {
+            "label": "2026-04-14_11-47-16",
+            "content": "@@ -712,35 +712,56 @@\n     fmt.Println(\n-%22N%22\n+saida%5B1 : len(saida) -1%5D\n )%0A    %7D else %7B%0A \n@@ -783,32 +783,11 @@\n tln(\n-saida%5B1 : len(saida) -1%5D\n+%22N%22\n )%0A  \n@@ -871,27 +871,48 @@\n fmt.Println(\n-%22N%22\n+saida%5B1 : len(saida) -1%5D\n )%0A    %7D else\n@@ -938,32 +938,11 @@\n tln(\n-saida%5B1 : len(saida) -1%5D\n+%22N%22\n )%0A  \n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-04-14_11-48-57",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    var qtd_album, qtd_possui int\n    fmt.Scan(&qtd_album, &qtd_possui)\n\n    unicas := make(map[int]bool)\n    figuras := make([]int, qtd_possui)\n\n    for i := range figuras {\n        fmt.Scan(&figuras[i])\n    }\n\n    repetidas := make([]int, 0, qtd_possui)\n    faltantes := make([]int, 0)\n\n    for _, figura := range figuras {\n        if unicas[figura] {\n            repetidas = append(repetidas, figura)\n        } else {\n            unicas[figura] = true\n        }\n    }\n\n    for i := 1; i <= qtd_album; i++ {\n        if !unicas[i] {\n            faltantes  = append(faltantes, i)\n        }\n    }\n\n    saida := fmt.Sprintf(\"%v\", repetidas)\n    if saida == \"[]\" {\n        fmt.Println(\"N\")\n    } else {\n        fmt.Println(saida[1 : len(saida) -1])\n    }\n\n    saida = fmt.Sprintf(\"%v\", faltantes)\n    if saida == \"[]\" {\n        fmt.Println(\"N\")\n    } else {\n        fmt.Println(saida[1 : len(saida) -1])\n    }\n    \n    //Lembrei como formata a saida KKKKK\n\n}\n",
+            "lines": "48"
         }
     ]
 }

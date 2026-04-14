@@ -29,8 +29,20 @@ func main() {
         }
     }
 
-    fmt.Println(repetidas)
-    fmt.Println(faltantes)
-    /*Foi mal ai professor, esqueci a sintaxe para formatar a saída, cortar esses "["*/
+    saida := fmt.Sprintf("%v", repetidas)
+    if saida == "[]" {
+        fmt.Println("N")
+    } else {
+        fmt.Println(saida[1 : len(saida) -1])
+    }
+
+    saida = fmt.Sprintf("%v", faltantes)
+    if saida == "[]" {
+        fmt.Println("N")
+    } else {
+        fmt.Println(saida[1 : len(saida) -1])
+    }
+    
+    //Lembrei como formata a saida KKKKK
 
 }
