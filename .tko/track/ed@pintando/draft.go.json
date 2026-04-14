@@ -42,8 +42,13 @@
         },
         {
             "label": "2026-04-10_16-20-20",
-            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\"\n        )\n\nfunc area (a, b, c float64) float64 {\n    p := (a + b + c) / 2.0\n    return math.Sqrt(p * (p - a) * (p - b) * (p - c))\n}\n\nfunc main() {\n    \n    var l1, l2, l3 float64\n\n    fmt.Scan(&l1, &l2, &l3)\n\n    resultado := area(l1, l2, l3)\n    fmt.Printf(\"%.2f\\n\", resultado)\n\n}\n",
+            "content": "@@ -20,16 +20,22 @@\n t (%0A\n-%09\n+    \n %22fmt%22%0A\n-%09\n+    \n %22mat\n@@ -57,16 +57,17 @@\n unc area\n+ \n (a, b, c\n@@ -136,17 +136,16 @@\n .Sqrt(p \n- \n * (p - a\n@@ -216,16 +216,17 @@\n float64%0A\n+%0A\n     fmt.\n@@ -256,16 +256,19 @@\n   result\n+ado\n  := area\n@@ -311,13 +311,16 @@\n , result\n+ado\n )%0A%0A%7D%0A\n",
             "lines": "22"
+        },
+        {
+            "label": "2026-04-13_22-33-55",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"math\"\n        )\n\nfunc area(a, b, c float64) float64 {\n    p := (a + b + c) / 2.0\n    return math.Sqrt(p  * (p - a) * (p - b) * (p - c))\n}\n\nfunc main() {\n    \n    var l1, l2, l3 float64\n    fmt.Scan(&l1, &l2, &l3)\n\n    result := area(l1, l2, l3)\n    fmt.Printf(\"%.2f\\n\", result)\n\n}\n",
+            "lines": "21"
         }
     ]
 }

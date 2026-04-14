@@ -22,8 +22,13 @@
         },
         {
             "label": "2026-04-10_16-58-50",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var h, p, f, d int \n\n    fmt.Scan(&h, &p, &f, &d)\n\n    for {\n\n        f += d\n\n        if f > 15 {\n            f = 0\n        } else if f < 0 {\n            f = 15\n        }\n\n        if f == h {\n            fmt.Println(\"S\")\n            break\n        }\n\n        if f == p {\n            fmt.Println(\"N\")\n            break\n        }\n\n    }\n}    \n\n",
+            "content": "@@ -57,17 +57,20 @@\n f, d int\n-%0A\n+ %0A%0A \n    fmt.S\n@@ -90,16 +90,17 @@\n f, &d)%0A%0A\n+ \n    for %7B\n@@ -178,16 +178,17 @@\n if f %3C 0\n+ \n %7B%0A      \n@@ -367,16 +367,17 @@\n      %7D%0A%0A\n+ \n    %7D%0A%7D  \n",
             "lines": "32"
+        },
+        {
+            "label": "2026-04-13_22-56-27",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var h, p, f, d int\n   fmt.Scan(&h, &p, &f, &d)\n\n   for {\n\n        f += d\n\n        if f > 15 {\n            f = 0\n        } else if f < 0{\n            f = 15\n        }\n\n        if f == h {\n            fmt.Println(\"S\")\n            break\n        }\n\n        if f == p {\n            fmt.Println(\"N\")\n            break\n        }\n\n   }\n}    \n\n",
+            "lines": "31"
         }
     ]
 }

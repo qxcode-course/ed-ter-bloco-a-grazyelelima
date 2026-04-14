@@ -1,6 +1,9 @@
 package main
+
 import "fmt"
+
 func main() {
+
     var name string
     var age int
 
@@ -18,4 +21,5 @@ func main() {
     } else {
         fmt.Printf("%s eh mumia\n", name)
     }
+
 }
