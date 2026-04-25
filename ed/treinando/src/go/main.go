@@ -9,13 +9,19 @@ import (
 )
 
 func tostr(vet []int) string {
-	_ = vet
-	return ""
+	if len(vet) == 0 {
+		return "[]"
+	} else {
+		var partes []string
+	for _, n := range vet {
+		partes = append(partes, fmt.Sprint(n))
+	}
+	return "[" + strings.Join(partes, ", ") + "]"
+	}
 }
 
 func tostrrev(vet []int) string {
-	_ = vet
-	return ""
+	
 }
 
 // reverse: inverte os elementos do slice

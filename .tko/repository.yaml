@@ -29,15 +29,18 @@ sources:
   quests: null
   tasks: null
 expanded:
-- eval1@teste-1
-- ed@map_set
-- ed@basic
+- eval1@eval1
 - ed@rec
+- ed@map_set
+- ed@vector
+- ed@backtrack
+- ed@basic
 flags:
-  inbox: all
-  panel: help
+  inbox: inbox
+  panel: graph
   show_panel: 'true'
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: eval1@queimada
+selected: ed@labirinto
+selected_index: 14

@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-25_12-30-42",
+            "content": "@@ -99,187 +99,28 @@\n  %7B%0A%09\n-if len(vet) == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D else %7B%0A%09%09strvet := make(%5B%5Dstring, len(vet))%0A%09%09for i, v := range vet %7B%0A%09%09strvet%5Bi%5D = strconv.Itoa(v)%0A%09%7D%0A%09%09return strings.Join(strvet, %22, %22)%0A%09%7D%0A%09\n+_ = vet%0A%09return %22%5B%5D%22\n %0A%7D%0A%0A\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-04-25_12-38-35",
+            "content": "@@ -144,37 +144,53 @@\n %7B%0A%09%09\n-var partes %5B%5Dstring%0A\n+strvet := make(%5B%5Dstring, len(vet))%0A%09\n %09for \n-_, n\n+i, v\n  := \n@@ -207,63 +207,47 @@\n %7B%0A%09%09\n-partes = append(partes, fmt.Sprint(n)\n+strvet%5Bi%5D = strconv.Itoa(v\n )%0A%09%7D%0A\n+%09\n %09return\n- %22%5B%22 +\n  str\n@@ -260,32 +260,25 @@\n oin(\n-partes\n+strvet\n , %22, %22)\n- + %22%5D%22\n %0A%09%7D%0A\n-%0A\n %09%0A%7D%0A\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-04-25_12-43-11",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc tostr(vet []int) string {\n\tif len(vet) == 0 {\n\t\treturn \"[]\"\n\t} else {\n\t\tvar partes []string\n\tfor _, n := range vet {\n\t\tpartes = append(partes, fmt.Sprint(n))\n\t}\n\treturn \"[\" + strings.Join(partes, \", \") + \"]\"\n\t}\n\n\t\n}\n\nfunc tostrrev(vet []int) string {\n\t_ = vet\n\treturn \"\"\n}\n\n// reverse: inverte os elementos do slice\nfunc reverse(vet []int) {\n\t_ = vet\n}\n\n// sum: soma dos elementos do slice\nfunc sum(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\n// mult: produto dos elementos do slice\nfunc mult(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\n// min: retorna o \u00edndice e valor do menor valor\n// crie uma fun\u00e7\u00e3o recursiva interna do modelo\n// var rec func(v []int) (int, int)\n// para fazer uma recurs\u00e3o que retorna valor e \u00edndice\nfunc min(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\nfunc main() {\n\tvar vet []int\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(\"$\" + line)\n\n\t\tswitch args[0] {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"read\":\n\t\t\tvet = nil\n\t\t\tfor _, arg := range args[1:] {\n\t\t\t\tif val, err := strconv.Atoi(arg); err == nil {\n\t\t\t\t\tvet = append(vet, val)\n\t\t\t\t}\n\t\t\t}\n\t\tcase \"tostr\":\n\t\t\tfmt.Println(tostr(vet))\n\t\tcase \"torev\":\n\t\t\tfmt.Println(tostrrev(vet))\n\t\tcase \"reverse\":\n\t\t\treverse(vet)\n\t\tcase \"sum\":\n\t\t\tfmt.Println(sum(vet))\n\t\tcase \"mult\":\n\t\t\tfmt.Println(mult(vet))\n\t\tcase \"min\":\n\t\t\tfmt.Println(min(vet))\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "93"
+        }
+    ]
+}

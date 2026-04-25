@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+func saida(v []int) string {
+	saida := fmt.Sprintf("%v", v)
+	if saida == "[]" {
+		return "N"
+	} else {
+		return saida[1 : len(saida) - 1]
+	}
+}
+
 func main() {
 
     var qtd_album, qtd_possui int
@@ -25,13 +34,6 @@ func main() {
 		}
 	}
 
-	saida := fmt.Sprintf("%v", repetidas)
-	if saida == "[]" {
-		fmt.Println("N")
-	} else {
-		fmt.Println(saida[1 : len(saida) -1])
-	}
-
 	faltantes := make([]int , 0 , qtd_album)
 
 	for i := 1; i <= qtd_album; i++ {
@@ -40,12 +42,9 @@ func main() {
 		}
 	}
 
-	saida = fmt.Sprintf("%v", faltantes)
-	if saida == "[]" {
-		fmt.Println("N")
-	} else {
-		fmt.Println(saida[1 : len(saida) -1])
-	}
+	
+	fmt.Println(saida(repetidas))
+	fmt.Println(saida(faltantes))
 
 }
 
