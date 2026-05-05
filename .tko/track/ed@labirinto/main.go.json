@@ -1,0 +1,44 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-28_11-21-34",
+            "content": "@@ -528,18 +528,31 @@\n bool %7B%0A%09\n-if\n+_, _, _ = grid,\n  startPo\n@@ -556,37 +556,16 @@\n tPos\n- ==\n+,\n  endPos\n- %7B%0A%09%09return true%0A%09%7D\n %0A%09re\n",
+            "lines": "66"
+        },
+        {
+            "label": "2026-04-28_11-31-53",
+            "content": "@@ -556,45 +556,8 @@\n s %7B%0A\n-%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'%0A\n %09%09re\n",
+            "lines": "68"
+        },
+        {
+            "label": "2026-04-28_11-33-42",
+            "content": "@@ -522,26 +522,8 @@\n  Pos\n-, visited %5B%5D%5B%5Dbool\n ) bo\n@@ -609,49 +609,8 @@\n e%0A%09%7D\n-%0A%0A%09visited%5BstartPos.l%5D%5BstartPos.c%5D = true\n %0A%09re\n@@ -1185,101 +1185,8 @@\n %09%7D%0A%0A\n-%09visited := make(%5B%5D%5B%5Dbool, nl)%0A%09for i := range visited %7B%0A%09%09visited%5Bi%5D = make(%5B%5Dbool, nc)%0A%09%7D%0A%0A\n %09sea\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-28_11-36-37",
+            "content": "@@ -527,16 +527,17 @@\n  visited\n+ \n %5B%5D%5B%5Dbool\n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-04-28_11-37-03",
+            "content": "@@ -1362,25 +1362,16 @@\n , endPos\n-, visited\n )%0A%0A%09// I\n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-04-28_11-38-43",
+            "content": "@@ -668,314 +668,8 @@\n rue%0A\n-%09%0A%09for _, nb := range getNeig(startPos) %7B%0A%09%09if inside(grid, nb) && !visited%5Bnb.l%5D%5Bnb.c%5D && grid%5Bnb.l%5D%5Bnb.c%5D != '#' %7B%0A%09%09%09if search(grid, nb, endPos, visited) %7B%0A%09%09%09%09// Caminho encontrado pelo vizinho, ent%C3%A3o c%C3%A9lula atual faz parte do caminho%0A%09%09%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'%0A%09%09%09%09return true%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A\n %09ret\n@@ -678,17 +678,16 @@\n n false%0A\n-%0A\n %7D%0A%0Afunc \n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-04-28_11-39-46",
+            "content": "@@ -823,16 +823,96 @@\n ited) %7B%0A\n+%09%09%09%09// Caminho encontrado pelo vizinho, ent%C3%A3o c%C3%A9lula atual faz parte do caminho%0A\n %09%09%09%09grid\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-04-28_11-40-08",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc getNeig(p Pos) []Pos {\n\treturn []Pos{{p.l, p.c - 1}, {p.l - 1, p.c}, {p.l, p.c + 1}, {p.l + 1, p.c}}\n}\n\nfunc inside(grid [][]rune, p Pos) bool {\n\treturn !(p.l < 0 || p.l >= len(grid) || p.c < 0 || p.c >= len(grid[0]))\n}\n\nfunc match(grid [][]rune, p Pos, value rune) bool {\n\treturn inside(grid, p) && grid[p.l][p.c] == value\n}\n\n// Fun\u00e7\u00e3o recursiva que tenta encontrar o caminho do in\u00edcio ao fim\nfunc search(grid [][]rune, startPos, endPos Pos, visited[][]bool) bool {\n\tif startPos == endPos {\n\t\tgrid[startPos.l][startPos.c] = '.'\n\t\treturn true\n\t}\n\n\tvisited[startPos.l][startPos.c] = true\n\t\n\tfor _, nb := range getNeig(startPos) {\n\t\tif inside(grid, nb) && !visited[nb.l][nb.c] && grid[nb.l][nb.c] != '#' {\n\t\t\tif search(grid, nb, endPos, visited) {\n\t\t\t\tgrid[startPos.l][startPos.c] = '.'\n\t\t\t\treturn true\n\t\t\t}\n\t\t}\n\t}\n\treturn false\n\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tnl_nc := scanner.Text()\n\tvar nl, nc int\n\tfmt.Sscanf(nl_nc, \"%d %d\", &nl, &nc)\n\tgrid := make([][]rune, nl)\n\n\t// L\u00ea a gridriz\n\tfor i := range nl {\n\t\tscanner.Scan()\n\t\tgrid[i] = []rune(scanner.Text())\n\t}\n\n\t// Procura posi\u00e7\u00f5es de in\u00edcio e endPos e conserta para _\n\tvar startPos, endPos Pos\n\tfor l := range nl {\n\t\tfor c := range nc {\n\t\t\tif grid[l][c] == 'I' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tstartPos = Pos{l, c}\n\t\t\t}\n\t\t\tif grid[l][c] == 'F' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tendPos = Pos{l, c}\n\t\t\t}\n\t\t}\n\t}\n\n\tvisited := make([][]bool, nl)\n\tfor i := range visited {\n\t\tvisited[i] = make([]bool, nc)\n\t}\n\n\tsearch(grid, startPos, endPos, visited)\n\n\t// Imprime o labirinto final\n\tfor _, line := range grid {\n\t\tfmt.Println(string(line))\n\t}\n}\n",
+            "lines": "86"
+        }
+    ]
+}

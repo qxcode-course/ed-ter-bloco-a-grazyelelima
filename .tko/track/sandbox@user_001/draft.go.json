@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-27_12-40-06",
+            "content": "@@ -157,17 +157,16 @@\n  %25d anos\n-,\n  %25.2f m \n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-04-27_12-40-26",
+            "content": "@@ -195,12 +195,8 @@\n o %25v\n-: %5Cn\n %22, n\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-04-27_12-40-54",
+            "content": "@@ -163,16 +163,17 @@\n os, %25.2f\n+ \n m e gost\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-04-27_12-41-09",
+            "content": "@@ -191,12 +191,12 @@\n m go\n-:\n  %25v\n+:\n  %5Cn%22\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-04-27_12-41-22",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n\n    var nome string = \"Grazy\"\n    idade := 21\n    altura := 1.67\n    gostoDeCodar := true\n\n    fmt.Printf(\"%s tem %d anos, %.2fm e gosta de codar em go: %v \\n\", nome, idade, altura, gostoDeCodar)\n}\n",
+            "lines": "13"
+        }
+    ]
+}

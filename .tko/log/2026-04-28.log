@@ -1,0 +1,37 @@
+2026-04-28 10:51:36, MOVE, v:1, k:ed@queimada, mode:PICK
+2026-04-28 11:00:30, MOVE, v:1, k:ed@queimada, mode:EDIT
+2026-04-28 11:05:54, MOVE, v:1, k:ed@queimada, mode:PICK
+2026-04-28 11:06:46, EXEC, v:1, k:ed@queimada, mode:FULL, rate:14, size:47
+2026-04-28 11:10:32, MOVE, v:1, k:ed@queimada, mode:EDIT
+2026-04-28 11:11:45, EXEC, v:1, k:ed@queimada, mode:FULL, rate:100, size:50
+2026-04-28 11:15:32, MOVE, v:1, k:ed@queimada, mode:EDIT
+2026-04-28 11:16:14, EXEC, v:1, k:ed@queimada, mode:FULL, rate:0, size:55
+2026-04-28 11:17:48, EXEC, v:1, k:ed@queimada, mode:FULL, rate:100, size:56
+2026-04-28 11:18:17, SELF, v:1, k:ed@queimada, self:1, rate:100, guided:1
+2026-04-28 11:18:19, MOVE, v:1, k:ed@queimada, mode:BACK
+2026-04-28 11:19:10, MOVE, v:1, k:ed@labirinto, mode:DOWN
+2026-04-28 11:19:13, MOVE, v:1, k:ed@labirinto, mode:PICK
+2026-04-28 11:17:44, MOVE, v:1, k:ed@queimada, mode:EDIT
+2026-04-28 11:19:10, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:19:10, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:19:10, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:21:34, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:0, size:66
+2026-04-28 11:31:53, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:0, size:68
+2026-04-28 11:33:42, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:0, size:69
+2026-04-28 11:35:33, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:36:37, EXEC, v:1, k:ed@labirinto, mode:FULL, size:76, fail:COMP
+2026-04-28 11:37:03, EXEC, v:1, k:ed@labirinto, mode:FULL, size:76, fail:COMP
+2026-04-28 11:38:13, EXEC, v:1, k:ed@labirinto, mode:FULL, fail:COMP
+2026-04-28 11:38:43, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:0, size:76
+2026-04-28 11:39:46, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:100, size:87
+2026-04-28 11:40:08, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:100, size:86
+2026-04-28 11:40:28, SELF, v:1, k:ed@labirinto, self:1, rate:100, concept:1
+2026-04-28 11:40:29, MOVE, v:1, k:ed@labirinto, mode:BACK
+2026-04-28 11:40:06, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:42:29, SELF, v:1, k:ed@treinando, self:1, rate:100, concept:1
+2026-04-28 11:42:18, MOVE, v:1, k:ed@labirinto, mode:EDIT
+2026-04-28 11:56:58, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-04-28 11:56:58, MOVE, v:1, k:ed@fractais_png, mode:PICK
+2026-04-28 11:56:58, MOVE, v:1, k:ed@fractais_png, mode:EDIT
+2026-04-28 11:56:58, MOVE, v:1, k:ed@fractais_png, mode:EDIT
+2026-04-28 12:02:44, MOVE, v:1, k:ed@fractais_png, mode:BACK

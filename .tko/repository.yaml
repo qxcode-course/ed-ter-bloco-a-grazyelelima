@@ -29,18 +29,19 @@ sources:
   quests: null
   tasks: null
 expanded:
-- eval1@eval1
-- ed@rec
-- ed@map_set
 - ed@vector
-- ed@backtrack
+- ed@rec
+- ed@list
 - ed@basic
+- sandbox@sandbox
+- ed@map_set
+- eval1@eval1
 flags:
-  inbox: inbox
+  inbox: all
   panel: graph
-  show_panel: 'true'
+  show_panel: 'false'
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@labirinto
-selected_index: 14
+selected: ed@rec
+selected_index: 21

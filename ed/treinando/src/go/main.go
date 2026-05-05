@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sort"
 )
 
 func tostr(vet []int) string {
@@ -21,24 +22,49 @@ func tostr(vet []int) string {
 }
 
 func tostrrev(vet []int) string {
+	if len(vet) == 0 {
+		return "[]"
+	}
+
+	sort.Slice(vet, func(i, j int) bool {
+		return vet[i] > vet[j]
+	})
+
+	var partes []string
+	for _, n := range vet {
+		partes = append(partes, fmt.Sprint(n))
+	}
 	
+	return "[" + strings.Join(partes, ", ") + "]"
 }
 
 // reverse: inverte os elementos do slice
 func reverse(vet []int) {
-	_ = vet
+	for i, j := 0, len(vet)-1; i < j; i, j = i+1, j-1 {
+		vet[i], vet[j] = vet[j], vet[i]
+	}
 }
 
 // sum: soma dos elementos do slice
 func sum(vet []int) int {
-	_ = vet
-	return 0
+	total := 0
+	for _, numero := range vet {
+		total += numero
+	}
+	return total
 }
 
 // mult: produto dos elementos do slice
 func mult(vet []int) int {
-	_ = vet
-	return 0
+	if len(vet) == 0 {
+		return 1 
+	}
+
+	total := 1 
+	for _, numero := range vet {
+		total *= numero 
+	}
+	return total
 }
 
 // min: retorna o índice e valor do menor valor
@@ -46,8 +72,25 @@ func mult(vet []int) int {
 // var rec func(v []int) (int, int)
 // para fazer uma recursão que retorna valor e índice
 func min(vet []int) int {
-	_ = vet
-	return 0
+	if len(vet) == 0 {
+		return -1
+	}
+
+	var rec func(idx int) int
+	rec = func(idx int) int {
+		if idx == len(vet)-1 {
+			return idx
+		}
+
+		idxMenorDoResto := rec(idx + 1)
+
+		if vet[idx] < vet[idxMenorDoResto] {
+			return idx
+		}
+		return idxMenorDoResto
+	}
+
+	return rec(0)
 }
 
 func main() {
