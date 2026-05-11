@@ -4,6 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"strings"
+	"errors"
+	"strconv"
+	"os"
 )
 
 type Vector struct {
@@ -18,6 +21,61 @@ func NewVector(capacity int) *Vector {
 		size:     0,
 		capacity: capacity,
 	}
+}
+
+func (v *Vector) Status() string {
+	return fmt.Sprintf("size:%d capacity:%d", v.size, v.capacity)
+}
+
+func (v *Vector) String() string {
+	if v.size == 0 {
+		return "[]"
+	}
+	
+	elem := Join(v.data[:v.size], ", ")
+	return "[" + elem + "]"
+}
+
+func (v *Vector) PushBack(value int) {
+    if v.size == v.capacity {
+        novaCap := 0
+        if v.capacity == 0 {
+            novaCap = 1
+        } else {
+            novaCap = v.capacity * 2
+        }
+
+        novoData := make([]int, novaCap)
+
+        for i := 0; i < v.size; i++ {
+            novoData[i] = v.data[i]
+        }
+    
+        v.data = novoData
+        v.capacity = novaCap
+    }
+
+    v.data[v.size] = value
+    v.size = v.size + 1
+}
+
+func (v *Vector) At(index int) (int, error) {
+	if index < 0 || index >= v.size {
+        return 0, errors.New("index out of range")
+    }
+    return v.data[index], nil
+}
+
+func (v *Vector) Set(index int, value int) error {
+    if index < 0 || index >= v.size {
+        return errors.New("index out of range")
+    }
+    v.data[index] = value
+    return nil
+}
+
+func (v *Vector) Clear() {
+	v.size = 0
 }
 
 
@@ -37,7 +95,7 @@ func main() {
 	var line, cmd string
 	scanner := bufio.NewScanner(os.Stdin)
 
-	// v := NewVector(0)
+	v := NewVector(0)
 	for {
 		fmt.Print("$")
 		if !scanner.Scan() {
@@ -55,17 +113,17 @@ func main() {
 		case "end":
 			return
 		case "init":
-			// value, _ := strconv.Atoi(parts[1])
-			// v = NewVector(value)
+			value, _ := strconv.Atoi(parts[1])
+			v = NewVector(value)
 		case "push":
-			// for _, part := range parts[1:] {
-			// 	value, _ := strconv.Atoi(part)
-			// 	v.PushBack(value)
-			// }
+			for _, part := range parts[1:] {
+				value, _ := strconv.Atoi(part)
+				v.PushBack(value)
+			}
 		case "show":
-			// fmt.Println(v)
+			fmt.Println(v)
 		case "status":
-			// fmt.Println(v.Status())
+			fmt.Println(v.Status())
 		case "pop":
 			// err := v.PopBack()
 			// if err != nil {
@@ -96,25 +154,24 @@ func main() {
 			// 	fmt.Println("false")
 			// }
 		case "clear":
-			// v.Clear()
+			v.Clear()
 		case "capacity":
 			// fmt.Println(v.Capacity())
 		case "get":
-			// index, _ := strconv.Atoi(parts[1])
-			// value, err := v.At(index)
-			// if err != nil {
-			// 	fmt.Println(err)
-			// } else {
-			// 	fmt.Println(value)
-			// }
+			index, _ := strconv.Atoi(parts[1])
+			value, err := v.At(index)
+			if err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println(value)
+			}
 		case "set":
-			// index, _ := strconv.Atoi(parts[1])
-			// value, _ := strconv.Atoi(parts[2])
-			// err := v.Set(index, value)
-			// if err != nil {
-			// 	fmt.Println(err)
-			// }
-			// 
+			index, _ := strconv.Atoi(parts[1])
+			value, _ := strconv.Atoi(parts[2])
+			err := v.Set(index, value)
+			if err != nil {
+				fmt.Println(err)
+			} 
 		case "reserve":
 			// newCapacity, _ := strconv.Atoi(parts[1])
 			// v.Reserve(newCapacity)

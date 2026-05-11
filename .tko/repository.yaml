@@ -29,13 +29,12 @@ sources:
   quests: null
   tasks: null
 expanded:
-- ed@vector
 - ed@rec
+- sandbox@sandbox
 - ed@list
 - ed@basic
-- sandbox@sandbox
 - ed@map_set
-- eval1@eval1
+- ed@vector
 flags:
   inbox: all
   panel: graph
@@ -43,5 +42,5 @@ flags:
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@rec
-selected_index: 21
+selected: ed@vetbuild
+selected_index: 48
