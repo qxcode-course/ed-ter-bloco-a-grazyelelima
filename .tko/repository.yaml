@@ -30,11 +30,11 @@ sources:
   tasks: null
 expanded:
 - ed@list
-- ed@basic
-- sandbox@sandbox
-- ed@rec
-- ed@vector
 - ed@map_set
+- ed@rec
+- sandbox@sandbox
+- ed@vector
+- ed@basic
 flags:
   inbox: all
   panel: graph
@@ -42,5 +42,5 @@ flags:
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@lista_d1
-selected_index: 55
+selected: ed@vetbuild
+selected_index: 48

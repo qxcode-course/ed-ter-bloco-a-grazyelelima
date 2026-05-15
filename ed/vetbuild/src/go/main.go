@@ -78,6 +78,53 @@ func (v *Vector) Clear() {
 	v.size = 0
 }
 
+func (v *Vector) Reserve(newCapacity int) {
+	if newCapacity > v.capacity {
+		novoData := make([]int, newCapacity)
+		for i := 0; i < v.size; i++ {
+			novoData[i] = v.data[i]
+		}
+		v.data = novoData
+		v.capacity = newCapacity
+	}
+}
+
+func (v *Vector) PopBack() error {
+	if v.size == 0 {
+        return errors.New("vector is empty")
+    }
+    v.size = v.size - 1
+    return nil
+}
+
+func (v *Vector) Insert(index int, value int) error {
+	if index < 0 || index > v.size {
+        return errors.New("index out of range")
+    }
+    if v.size == v.capacity {
+        novaCap := 1
+        if v.capacity > 0 {
+            novaCap = v.capacity * 2
+        }
+        novoData := make([]int, novaCap)
+        for i := 0; i < index; i++ {
+            novoData[i] = v.data[i]
+        }
+        for i := index; i < v.size; i++ {
+            novoData[i+1] = v.data[i]
+        }
+        v.data = novoData
+        v.capacity = novaCap
+    } else {
+        for i := v.size; i > index; i-- {
+            v.data[i] = v.data[i-1]
+        }
+    }
+    v.data[index] = value
+    v.size = v.size + 1
+    return nil
+}
+
 
 func Join(slice []int, sep string) string {
 	if len(slice) == 0 {
@@ -125,10 +172,10 @@ func main() {
 		case "status":
 			fmt.Println(v.Status())
 		case "pop":
-			// err := v.PopBack()
-			// if err != nil {
-			// 	fmt.Println(err)
-			// }
+			err := v.PopBack()
+			if err != nil {
+				fmt.Println(err)
+			}
 		case "insert":
 			// index, _ := strconv.Atoi(parts[1])
 			// value, _ := strconv.Atoi(parts[2])
@@ -173,8 +220,8 @@ func main() {
 				fmt.Println(err)
 			} 
 		case "reserve":
-			// newCapacity, _ := strconv.Atoi(parts[1])
-			// v.Reserve(newCapacity)
+			newCapacity, _ := strconv.Atoi(parts[1])
+			v.Reserve(newCapacity)
 		case "slice":
 			// start, _ := strconv.Atoi(parts[1])
 			// end, _ := strconv.Atoi(parts[2])
