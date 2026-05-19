@@ -6,41 +6,37 @@ sources:
   type: local
   writeable: true
   quests: null
-  tasks: null
 - name: ed
   target: https://github.com/qxcodeed/arcade.git
   index: README.md
   type: git
   writeable: false
   quests: null
-  tasks: null
 - name: poo
   target: https://github.com/qxcodepoo/arcade.git
   index: README.md
   type: git
   writeable: false
   quests: null
-  tasks: null
 - name: eval1
   target: https://github.com/senapk/eval_26_ed_1
   index: README.md
   type: git
   writeable: false
   quests: null
-  tasks: null
 expanded:
-- ed@list
 - ed@map_set
+- ed@dfs
+- ed@basic
+- ed@backtrack
 - ed@rec
 - sandbox@sandbox
-- ed@vector
-- ed@basic
 flags:
   inbox: all
   panel: graph
-  show_panel: 'false'
+  show_panel: 'true'
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@vetbuild
-selected_index: 48
+selected: ed@+dfs
+selected_index: 58
