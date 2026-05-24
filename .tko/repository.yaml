@@ -26,11 +26,8 @@ sources:
   quests: null
 expanded:
 - ed@map_set
-- ed@dfs
 - ed@basic
-- ed@backtrack
 - ed@rec
-- sandbox@sandbox
 flags:
   inbox: all
   panel: graph
@@ -38,5 +35,5 @@ flags:
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@+dfs
-selected_index: 58
+selected: ed@manipulacao
+selected_index: 13

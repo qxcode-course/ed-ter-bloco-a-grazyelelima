@@ -2,43 +2,44 @@ package main
 
 import  "fmt" 
 
-type Jogada struct {
-	a, b int
+type Competidor struct {
+	pedraA int
+	pedraB int
 }
 
-func valorAbs(j Jogada) int {
-	if j.a > j.b {
-		return j.a - j.b
+func difAbs(c Competidor) int {
+	if c.pedraA > c.pedraB {
+		return c.pedraA - c.pedraB
 	}
-
-	return j.b - j.a
+	return c.pedraB - c.pedraA
 }
 
 func main() {
-    
-	n := 0
-	fmt.Scan(&n)
-
-	jogadas := make([]Jogada, n)
-
-	for i := range n {
-		fmt.Scan(&jogadas[i].a, &jogadas[i].b)
+    nCompetidores := 0
+	fmt.Scan(&nCompetidores)
+	
+	jogadas := make([]Competidor, nCompetidores)
+	
+	for i := range jogadas {
+		fmt.Scan(&jogadas[i].pedraA, &jogadas[i].pedraB)
 	}
 
-	indice_melhor := -1
+	melhorJogadaIndice := -1
+
 	for i, jog := range jogadas {
-		if jog.a < 10 || jog.b < 10 {
+		if jog.pedraA < 10 || jog.pedraB < 10 {
 			continue
 		}
 
-		if indice_melhor == -1  || valorAbs(jog) < valorAbs(jogadas[indice_melhor]){
-			indice_melhor = i
+		if melhorJogadaIndice == -1 || difAbs(jog) < difAbs(jogadas[melhorJogadaIndice]) {
+			melhorJogadaIndice = i
 		}
+
 	}
 
-	if indice_melhor == -1 {
-			fmt.Println("sem ganhador")
-		} else {
-			fmt.Println(indice_melhor)
-		}
+	if melhorJogadaIndice == -1 {
+		fmt.Println("sem ganhador")
+	} else {
+		fmt.Println(melhorJogadaIndice)
+	}
 }

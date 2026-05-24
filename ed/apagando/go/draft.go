@@ -2,38 +2,46 @@ package main
 
 import "fmt"
 
+func imprimir(filaFinal []int) {
+	for i := 0; i < len(filaFinal); i++ {
+		if i == len(filaFinal) -1 {
+			fmt.Printf("%d ", filaFinal[i])
+		} else {
+			fmt.Printf("%d ", filaFinal[i])
+		}
+	}
+	fmt.Println()
+}
+
 func main() {
+	qtdFila := 0
+	fmt.Scan(&qtdFila)
 
-	var n, m int 
-
-	fmt.Scan(&n)
-
-	fila := make([]int, n)
-
-	for i := 0; i < n; i++ {
+	fila := make([]int, qtdFila)
+	for i := 0; i < qtdFila; i++ {
 		fmt.Scan(&fila[i])
 	}
 
-	fmt.Scan(&m)
+	qtdSairam := 0
+	fmt.Scan(&qtdSairam)
 
-	quemSai := make(map[int]bool)
+	sairam := make(map[int]bool)
+	for i := 0; i < qtdSairam; i++ {
+		var num int
+		fmt.Scan(&num)
+		sairam[num] = true
+	}
 
-	for i := 0; i < m; i++ {
-		var id int
-		fmt.Scan(&id)
-		quemSai[id] = true
- 	}	
+	novaFila := make([]int, 0, qtdFila - qtdSairam)
+	for i := 0; i < qtdFila; i++ {
+		pessoa := fila[i]
 
-	primeiro := true
-
-	for _, pessoa := range fila {
-		if !quemSai[pessoa] {
-			if !primeiro {
-				fmt.Print(" ")
-			}
-			fmt.Print(pessoa)
-			primeiro = false
+		if !sairam[pessoa] {
+			novaFila = append(novaFila, pessoa)
 		}
 	}
-	fmt.Println(" ")
+
+	imprimir(novaFila)
+
+
 }

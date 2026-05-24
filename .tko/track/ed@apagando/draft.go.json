@@ -57,8 +57,88 @@
         },
         {
             "label": "2026-03-31_12-27-13",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n\n\tvar n, m int \n\n\tfmt.Scan(&n)\n\n\tfila := make([]int, n)\n\n\tfor i := 0; i < n; i++ {\n\t\tfmt.Scan(&fila[i])\n\t}\n\n\tfmt.Scan(&m)\n\n\tquemSai := make(map[int]bool)\n\n\tfor i := 0; i < m; i++ {\n\t\tvar id int\n\t\tfmt.Scan(&id)\n\t\tquemSai[id] = true\n \t}\t\n\n\tprimeiro := true\n\n\tfor _, pessoa := range fila {\n\t\tif !quemSai[pessoa] {\n\t\t\tif !primeiro {\n\t\t\t\tfmt.Print(\" \")\n\t\t\t}\n\t\t\tfmt.Print(pessoa)\n\t\t\tprimeiro = false\n\t\t}\n\t}\n\tfmt.Println(\" \")\n}\n",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -19,17 +19,16 @@\n t %22fmt%22%0A\n-%0A\n func mai\n",
             "lines": "37"
+        },
+        {
+            "label": "2026-05-24_10-34-22",
+            "content": "@@ -37,11 +37,427 @@\n n() %7B%0A%0A%09\n+var n, m int %0A%0A%09fmt.Scan(&n)%0A%0A%09fila := make(%5B%5Dint, n)%0A%0A%09for i := 0; i %3C n; i++ %7B%0A%09%09fmt.Scan(&fila%5Bi%5D)%0A%09%7D%0A%0A%09fmt.Scan(&m)%0A%0A%09quemSai := make(map%5Bint%5Dbool)%0A%0A%09for i := 0; i %3C m; i++ %7B%0A%09%09var id int%0A%09%09fmt.Scan(&id)%0A%09%09quemSai%5Bid%5D = true%0A %09%7D%09%0A%0A%09primeiro := true%0A%0A%09for _, pessoa := range fila %7B%0A%09%09if !quemSai%5Bpessoa%5D %7B%0A%09%09%09if !primeiro %7B%0A%09%09%09%09fmt.Print(%22 %22)%0A%09%09%09%7D%0A%09%09%09fmt.Print(pessoa)%0A%09%09%09primeiro = false%0A%09%09%7D%0A%09%7D%0A%09fmt.Println(%22 %22)\n %0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-05-24_10-41-31",
+            "content": "@@ -39,45 +39,9 @@\n ) %7B%0A\n+%0A\n %09\n-n := 0%0A%09fmt.Scan(&n)%0A%0A%09fmt.Println(n)\n %0A%7D%0A\n",
+            "lines": "8"
+        },
+        {
+            "label": "2026-05-24_12-50-52",
+            "content": "@@ -62,86 +62,8 @@\n n)%0A%0A\n-%09fila := make(%5B%5Dint, 0, n)%0A%09for i := 0; i %3C n; i++ %7B%0A%09%09fmt.Scan(&fila%5Bi%5D)%0A%09%7D%0A%0A\n %09fmt\n@@ -75,12 +75,9 @@\n tln(\n-fila\n+n\n )%0A%7D%0A\n",
+            "lines": "10"
+        },
+        {
+            "label": "2026-05-24_12-54-08",
+            "content": "@@ -78,16 +78,19 @@\n e(%5B%5Dint,\n+ 0,\n  n)%0A%09for\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-24_12-54-22",
+            "content": "@@ -36,23 +36,17 @@\n in() %7B%0A%09\n-qtdFila\n+n\n  := 0%0A%09f\n@@ -79,23 +79,17 @@\n (%5B%5Dint, \n-qtdFila\n+n\n )%0A%09for i\n@@ -103,15 +103,9 @@\n i %3C \n-qtdFila\n+n\n ; i+\n@@ -137,142 +137,8 @@\n %09%7D%0A%0A\n-%09qtdSairam := 0%0A%09fmt.Scan(&qtdSairam)%0A%0A%09sairam := make(%5B%5Dint, qtdSairam)%0A%09for i := 0; i %3C qtdSairam; i++ %7B%0A%09%09fmt.Scan(&sairam%5Bi%5D)%0A%09%7D%0A%0A\n %09fmt\n@@ -150,14 +150,12 @@\n tln(\n-sairam\n+fila\n )%0A%7D%0A\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-24_13-00-36",
+            "content": "@@ -60,23 +60,17 @@\n t.Scan(&\n-qtdFila\n+n\n )%0A%0A%09fila\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-05-24_13-01-19",
+            "content": "@@ -295,200 +295,8 @@\n %09%7D%0A%0A\n-%09qtdRestante := len(fila) - len(sairam)%0A%0A%09novaFila := make(%5B%5Dint, qtdRestante)%0A%09for i, f := range fila %7B%0A%09%09if f == sairam%5Bi%5D %7B%0A%09%09%09continue%0A%09%09%7D else %7B%0A%09%09%09novaFila = append(novaFila, f)%0A%09%09%7D%0A%09%7D%0A%0A\n %09fmt\n@@ -308,16 +308,14 @@\n tln(\n-novaFila\n+sairam\n )%0A%7D%0A\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-05-24_13-07-28",
+            "content": "@@ -456,15 +456,30 @@\n Fila\n-%5Bi%5D = f\n+ = append(novaFila, f)\n %0A%09%09%7D\n",
+            "lines": "34"
+        },
+        {
+            "label": "2026-05-24_13-08-53",
+            "content": "@@ -296,10 +296,8 @@\n %7D%0A%0A%09\n-//\n qtdR\n@@ -357,17 +357,27 @@\n (%5B%5Dint, \n-0\n+qtdRestante\n )%0A%09for i\n",
+            "lines": "34"
+        },
+        {
+            "label": "2026-05-24_13-09-26",
+            "content": "@@ -216,20 +216,24 @@\n ake(\n-map%5Bint%5Dbool\n+%5B%5Dint, qtdSairam\n )%0A%09f\n@@ -270,60 +270,74 @@\n %7B%0A%09%09\n-var num int%0A%09%09fmt.Scan(&num)%0A%09%09sairam%5Bnum%5D = true%0A%09%7D\n+fmt.Scan(&sairam%5Bi%5D)%0A%09%7D%0A%0A%09//qtdRestante := len(fila) - len(sairam)\n %0A%0A%09n\n@@ -364,37 +364,16 @@\n t, 0\n-, qtdFila - qtdSairam\n )%0A%09for i\n  := \n@@ -372,116 +372,91 @@\n or i\n+, f\n  := \n-0; i %3C qtdFila; i++ %7B%0A%09%09pessoa := fila%5Bi%5D%0A%0A%09%09if !sairam%5Bpessoa%5D %7B%0A%09%09%09novaFila = append(novaFila, pessoa)\n+range fila %7B%0A%09%09if f == sairam%5Bi%5D %7B%0A%09%09%09continue%0A%09%09%7D else %7B%0A%09%09%09novaFila%5Bi%5D = f\n %0A%09%09%7D\n@@ -483,12 +483,10 @@\n vaFila)%0A\n-%0A%0A\n %7D%0A\n",
+            "lines": "34"
+        },
+        {
+            "label": "2026-05-24_13-19-01",
+            "content": "@@ -25,202 +25,8 @@\n t%22%0A%0A\n-func imprimir(filaFinal %5B%5Dint) %7B%0A%09for i := 0; i %3C len(filaFinal); i++ %7B%0A%09%09if i == len(filaFinal) -1 %7B%0A%09%09%09fmt.Printf(%22%25d%5Cn%22, filaFinal%5Bi%5D)%0A%09%09%7D else %7B%0A%09%09%09fmt.Printf(%22%25d %22, filaFinal%5Bi%5D)%0A%09%09%7D%0A%09%7D%0A%7D%0A%0A\n func\n@@ -505,17 +505,8 @@\n tln(\n-imprimir(\n nova\n@@ -510,14 +510,13 @@\n ovaFila)\n-)\n %0A%0A%0A%7D%0A\n",
+            "lines": "36"
+        },
+        {
+            "label": "2026-05-24_13-24-23",
+            "content": "@@ -683,16 +683,28 @@\n %09%7D%0A%09%7D%0A%0A%09\n+fmt.Println(\n imprimir\n@@ -713,13 +713,14 @@\n ovaFila)\n+)\n %0A%0A%0A%7D%0A\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-05-24_13-25-21",
+            "content": "@@ -142,17 +142,16 @@\n tf(%22%25d%5Cn\n- \n %22, filaF\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-05-24_13-26-02",
+            "content": "@@ -132,32 +132,34 @@\n %09%09fmt.Printf(%22%25d\n+%5Cn\n  %22, filaFinal%5Bi%5D\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-05-24_13-26-13",
+            "content": "@@ -215,23 +215,8 @@\n %0A%09%7D%0A\n-%09fmt.Println()%0A\n %7D%0A%0Af\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-05-24_13-26-34",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc imprimir(filaFinal []int) {\n\tfor i := 0; i < len(filaFinal); i++ {\n\t\tif i == len(filaFinal) -1 {\n\t\t\tfmt.Printf(\"%d \", filaFinal[i])\n\t\t} else {\n\t\t\tfmt.Printf(\"%d \", filaFinal[i])\n\t\t}\n\t}\n\tfmt.Println()\n}\n\nfunc main() {\n\tqtdFila := 0\n\tfmt.Scan(&qtdFila)\n\n\tfila := make([]int, qtdFila)\n\tfor i := 0; i < qtdFila; i++ {\n\t\tfmt.Scan(&fila[i])\n\t}\n\n\tqtdSairam := 0\n\tfmt.Scan(&qtdSairam)\n\n\tsairam := make(map[int]bool)\n\tfor i := 0; i < qtdSairam; i++ {\n\t\tvar num int\n\t\tfmt.Scan(&num)\n\t\tsairam[num] = true\n\t}\n\n\tnovaFila := make([]int, 0, qtdFila - qtdSairam)\n\tfor i := 0; i < qtdFila; i++ {\n\t\tpessoa := fila[i]\n\n\t\tif !sairam[pessoa] {\n\t\t\tnovaFila = append(novaFila, pessoa)\n\t\t}\n\t}\n\n\timprimir(novaFila)\n\n\n}\n",
+            "lines": "47"
         }
     ]
 }

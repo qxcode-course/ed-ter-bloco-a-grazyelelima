@@ -37,8 +37,123 @@
         },
         {
             "label": "2026-03-31_08-06-46",
-            "content": "package main\nimport \"fmt\"\n\nfunc saidaVivos(vivos []int, donoDaEspada int) {\n    fmt.Print(\"[ \")\n    for _, p := range vivos {\n        if p == donoDaEspada {\n            fmt.Printf(\"%d> \", p)\n        } else {\n            fmt.Printf(\"%d \", p)\n        }\n    }\n    fmt.Println(\"]\")\n}\n\nfunc main() {\n\n    var n, e int\n    fmt.Scan(&n, &e)\n\n    vivos := make([]int, n)\n\n    for i := 0; i < n; i++ {\n        vivos[i] = i + 1\n    }\n\n    pos := 0\n\n    for i, v := range vivos {\n        if v == e {\n            pos = i\n            break\n        }\n    }\n\n    for len(vivos) > 1 {\n        saidaVivos(vivos, vivos[pos])\n\n        morre := (pos + 1) % len(vivos)\n\n        vivos = append(vivos[:morre], vivos[morre+1:]...)\n\n        if morre < pos {\n            pos--\n        }\n\n        pos = (pos + 1) % len(vivos)\n    }\n\n    saidaVivos(vivos, vivos[0])\n\n    \n\n}\n",
+            "content": "@@ -20,16 +20,269 @@\n  %22fmt%22%0A%0A\n+func saidaVivos(vivos %5B%5Dint, donoDaEspada int) %7B%0A    fmt.Print(%22%5B %22)%0A    for _, p := range vivos %7B%0A        if p == donoDaEspada %7B%0A            fmt.Printf(%22%25d%3E %22, p)%0A        %7D else %7B%0A            fmt.Printf(%22%25d %22, p)%0A        %7D%0A    %7D%0A    fmt.Println(%22%5D%22)%0A%7D%0A\n %0Afunc ma\n@@ -284,24 +284,25 @@\n nc main() %7B%0A\n+%0A\n     var n, e\n@@ -306,17 +306,20 @@\n , e int%0A\n-%09\n+    \n fmt.Scan\n@@ -331,25 +331,517 @@\n &e)%0A\n-%09fmt.Println(n, e)\n+%0A    vivos := make(%5B%5Dint, n)%0A%0A    for i := 0; i %3C n; i++ %7B%0A        vivos%5Bi%5D = i + 1%0A    %7D%0A%0A    pos := 0%0A%0A    for i, v := range vivos %7B%0A        if v == e %7B%0A            pos = i%0A            break%0A        %7D%0A    %7D%0A%0A    for len(vivos) %3E 1 %7B%0A        saidaVivos(vivos, vivos%5Bpos%5D)%0A%0A        morre := (pos + 1) %25 len(vivos)%0A%0A        vivos = append(vivos%5B:morre%5D, vivos%5Bmorre+1:%5D...)%0A%0A        if morre %3C pos %7B%0A            pos--%0A        %7D%0A%0A        pos = (pos + 1) %25 len(vivos)%0A    %7D%0A%0A    saidaVivos(vivos, vivos%5B0%5D)%0A%0A    %0A\n %0A%7D%0A\n",
             "lines": "54"
+        },
+        {
+            "label": "2026-05-24_09-31-13",
+            "content": "@@ -74,80 +74,8 @@\n &e)%0A\n-%0A%09fila := make(%5B%5Dbool, 0)%0A%0A%09for i := 1; i %3C= n; i++ %7B%0A%09%09fila%5Bi%5D = true%0A%09\n %09fmt\n@@ -87,16 +87,12 @@\n tln(\n-fila)%0A%09%7D%0A\n+n, e)\n %0A%7D%0A\n",
+            "lines": "9"
+        },
+        {
+            "label": "2026-05-24_09-36-20",
+            "content": "@@ -134,29 +134,18 @@\n fila\n- = append(fila,\n+%5Bi%5D =\n  true\n-)\n %0A%09%09f\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-05-24_09-36-58",
+            "content": "@@ -91,17 +91,15 @@\n e(%5B%5D\n-int, 0, n\n+bool, 0\n )%0A%0A%09\n@@ -130,132 +130,33 @@\n %7B%0A%09%09\n-if e == n %7B%0A%09%09%09if fila%5Bi+1%5D == 0 %7B%0A%09%09%09%09continue%0A%09%09%09%7D else %7B%0A%09%09%09%09fila%5Bi+1%5D = 0%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09if fila%5Bi%5D == 0 %7B%0A%09%09%09continue%0A%09%09%7D%0A\n+fila = append(fila, true)\n %0A%09%09f\n@@ -174,11 +174,8 @@\n fila\n-%5Bi%5D\n )%0A%09%7D\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-05-24_09-43-09",
+            "content": "@@ -92,17 +92,17 @@\n (%5B%5Dint, \n-1\n+0\n , n)%0A%0A%09f\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-24_09-45-01",
+            "content": "@@ -91,16 +91,19 @@\n e(%5B%5Dint,\n+ 1,\n  n)%0A%0A%09fo\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-24_09-45-22",
+            "content": "@@ -95,11 +95,8 @@\n int,\n- 0,\n  n)%0A\n@@ -129,35 +129,134 @@\n %7B%0A%09%09\n-fila = append(fila, i)%0A\n+if e == n %7B%0A%09%09%09if fila%5Bi+1%5D == 0 %7B%0A%09%09%09%09continue%0A%09%09%09%7D else %7B%0A%09%09%09%09fila%5Bi+1%5D = 0%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09if fila%5Bi%5D == 0 %7B%0A%09%09%09continue%0A%09\n %09%7D%0A%0A\n+%09\n %09fmt\n@@ -268,13 +268,19 @@\n tln(fila\n-)\n+%5Bi%5D)%0A%09%7D\n %0A%0A%7D%0A\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-24_09-48-14",
+            "content": "@@ -25,170 +25,8 @@\n %22%0A%0A%0A\n-func imprimir(f %5B%5Dint, e int) %7B%0A%09fmt.Print(%22%5B %22)%0A%09for i := 0; i %3C len(f); i++ %7B%0A%09%09if i == e %7B%0A%09%09%09fmt.Printf(%22%25d%3E%22, e)%0A%09%09%7D else %7B%0A%09%09%09fmt.Printf(%22%25d%22, i)%0A%09%09%7D%0A%09%7D%0A%7D%0A%0A\n func\n@@ -35,16 +35,16 @@\n ain() %7B%0A\n+\n     var \n@@ -103,46 +103,8 @@\n n)%0A%0A\n-%09//crio a fila e preencho de 1 at%C3%A9 n%0A%0A\n %09for\n@@ -160,312 +160,25 @@\n %7D%0A%0A%09\n-//procurar o indice que quem est%C3%A1 com a espada%0A%09var indiceEspada int%0A%09for i := 0; i %3C n; i++ %7B%0A%09%09if fila%5Bi%5D == indiceEspada %7B%0A%09%09%09indiceEspada = i%0A%09%09%09break%0A%09%09%7D%0A%09%7D%0A%0A%09if len(fila) %3E 0 %7B%0A%09%09imprimir(fila, indiceEspada)%0A%0A%09%09/*if len(fila) == 1 %7B%0A%09%09%09break%0A%09%09%7D%0A%0A%09%09merreIdx := (indiceEspada + 1) %25 len(fila)*/%0A%09%7D%0A%0A\n+fmt.Println(fila)\n %0A%0A%7D%0A\n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-05-24_10-03-27",
+            "content": "@@ -80,23 +80,22 @@\n or i := \n-1\n+0\n ; i %3C\n-=\n  len(f);\n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-05-24_10-03-53",
+            "content": "@@ -134,17 +134,16 @@\n ntf(%22%25d%3E\n- \n %22, e)%0A%09%09\n@@ -168,17 +168,16 @@\n intf(%22%25d\n- \n %22, i)%0A%09%09\n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-05-24_10-04-03",
+            "content": "@@ -187,25 +187,8 @@\n %0A%09%7D%0A\n-%09fmt.Print(%22 %5D%22)%0A\n %7D%0A%0Af\n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-05-24_10-05-09",
+            "content": "@@ -195,16 +195,17 @@\n .Print(%22\n+ \n %5D%22)%0A%7D%0A%0Af\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-05-16",
+            "content": "@@ -76,25 +76,25 @@\n )%0A%09for i := \n-0\n+1\n ; i %3C= len(f\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-05-38",
+            "content": "@@ -76,25 +76,25 @@\n )%0A%09for i := \n-1\n+0\n ; i %3C= len(f\n@@ -446,39 +446,38 @@\n a int%0A%09for i := \n-1\n+0\n ; i %3C\n-=\n  n; i++ %7B%0A%09%09if f\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-06-04",
+            "content": "@@ -80,22 +80,23 @@\n or i := \n-0\n+1\n ; i %3C\n+=\n  len(f);\n@@ -458,14 +458,15 @@\n  := \n-0\n+1\n ; i %3C\n+=\n  n; \n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-06-32",
+            "content": "@@ -133,25 +133,25 @@\n ntf(%22%25d%3E %22, \n-i\n+e\n )%0A%09%09%7D else %7B\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-06-57",
+            "content": "@@ -80,23 +80,22 @@\n or i := \n-1\n+0\n ; i %3C\n-=\n  len(f);\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-07-06",
+            "content": "@@ -80,22 +80,23 @@\n or i := \n-0\n+1\n ; i %3C\n+=\n  len(f);\n@@ -111,14 +111,15 @@\n %09if \n-e\n+i\n  == \n-i\n+e \n %7B%0A%09%09\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-08-14",
+            "content": "@@ -132,28 +132,25 @@\n ntf(%22%25d%3E %22, \n-f%5Bi%5D\n+i\n )%0A%09%09%7D else %7B\n@@ -175,12 +175,9 @@\n  %22, \n-f%5Bi%5D\n+i\n )%0A%09%09\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-08-40",
+            "content": "@@ -546,323 +546,97 @@\n %09%7D%0A%0A\n-%0A%0A%09//enquanto minha fila for maior que 0, ou seja, ter algu%C3%A9m, o meu la%C3%A7o vai continuar%0A%09for len(fila) %3E 0 %7B%0A%09%09//imprimo a pessoa que t%C3%A1 na fila e quem possui a espada%0A%09%09imprimir(fila, indiceEspada)%0A%0A%09%09//se tiver s%C3%B3 uma pessoa eu paro o loop%0A%09%09if len(fila) == 1 %7B%0A%09%09%09break%0A%09%09%7D%0A%0A%09%09//%25 d%C3%A1 a ideia de uma fila circular\n+%09if len(fila) %3E 0 %7B%0A%09%09imprimir(fila, indiceEspada)%0A%0A%09%09/*if len(fila) == 1 %7B%0A%09%09%09break%0A%09%09%7D%0A\n %0A%09%09m\n@@ -676,18 +676,18 @@\n en(fila)\n-%0A%0A\n+*/\n %0A%09%7D%0A%0A%0A%0A%7D\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-05-24_10-12-55",
+            "content": "@@ -861,17 +861,17 @@\n ular%0A%09%09m\n-o\n+e\n rreIdx :\n@@ -908,415 +908,13 @@\n a)%0A%0A\n-%09%09/*O que isso significa ? corto o indice do que morre, na minha fila, e continuo depois do que eu cortei, os %22...%22 %C3%A9 tipo como se eu tivesse indicando que eu quero que continue, mas exclua o morreIdx, o append s%C3%B3 cola tudo*/%0A%09%09fila  = append(fila%5B:morreIdx%5D, fila%5BmorreIdx+1:%5D...)%0A%0A%09%09//atualiza o index de quem fica com a espada, ap%C3%B3s matar e passar para o pr%C3%B3ximo%0A%09%09indiceEspada = morreIdx %25 len(fila)%0A\n %0A%09%7D\n+%0A%0A\n %0A%0A%7D%0A\n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-05-24_10-30-43",
+            "content": "@@ -207,23 +207,8 @@\n %5D%22)%0A\n-%09fmt.Println()%0A\n %7D%0A%0Af\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-05-24_10-31-20",
+            "content": "@@ -505,17 +505,28 @@\n a%5Bi%5D == \n-e\n+indiceEspada\n  %7B%0A%09%09%09in\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-05-24_10-33-01",
+            "content": "package main\nimport \"fmt\"\n\n\nfunc imprimir(f []int, e int) {\n\tfmt.Print(\"[ \")\n\tfor i := 0; i < len(f); i++ {\n\t\tif e == i{\n\t\t\tfmt.Printf(\"%d> \", f[i])\n\t\t} else {\n\t\t\tfmt.Printf(\"%d \", f[i])\n\t\t}\n\t}\n\tfmt.Print(\"]\")\n\tfmt.Println()\n}\n\nfunc main() {\n    var n, e int\n\tfmt.Scan(&n, &e)\n\n\tfila := make([]int, 0, n)\n\n\t//crio a fila e preencho de 1 at\u00e9 n\n\n\tfor i := 1; i <= n; i++ {\n\t\tfila = append(fila, i)\n\t}\n\n\t//procurar o indice que quem est\u00e1 com a espada\n\tvar indiceEspada int\n\tfor i := 0; i < n; i++ {\n\t\tif fila[i] == e {\n\t\t\tindiceEspada = i\n\t\t\tbreak\n\t\t}\n\t}\n\n\n\n\t//enquanto minha fila for maior que 0, ou seja, ter algu\u00e9m, o meu la\u00e7o vai continuar\n\tfor len(fila) > 0 {\n\t\t//imprimo a pessoa que t\u00e1 na fila e quem possui a espada\n\t\timprimir(fila, indiceEspada)\n\n\t\t//se tiver s\u00f3 uma pessoa eu paro o loop\n\t\tif len(fila) == 1 {\n\t\t\tbreak\n\t\t}\n\n\t\t//% d\u00e1 a ideia de uma fila circular\n\t\tmorreIdx := (indiceEspada + 1) % len(fila)\n\n\t\t/*O que isso significa ? corto o indice do que morre, na minha fila, e continuo depois do que eu cortei, os \"...\" \u00e9 tipo como se eu tivesse indicando que eu quero que continue, mas exclua o morreIdx, o append s\u00f3 cola tudo*/\n\t\tfila  = append(fila[:morreIdx], fila[morreIdx+1:]...)\n\n\t\t//atualiza o index de quem fica com a espada, ap\u00f3s matar e passar para o pr\u00f3ximo\n\t\tindiceEspada = morreIdx % len(fila)\n\n\t}\n\n}\n",
+            "lines": "62"
         }
     ]
 }

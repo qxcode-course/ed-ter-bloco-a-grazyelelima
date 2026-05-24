@@ -52,8 +52,33 @@
         },
         {
             "label": "2026-04-11_13-15-39",
-            "content": "package main\n\nimport  \"fmt\" \n\ntype Jogada struct {\n\ta, b int\n}\n\nfunc valorAbs(j Jogada) int {\n\tif j.a > j.b {\n\t\treturn j.a - j.b\n\t}\n\n\treturn j.b - j.a\n}\n\nfunc main() {\n    \n\tn := 0\n\tfmt.Scan(&n)\n\n\tjogadas := make([]Jogada, n)\n\n\tfor i := range n {\n\t\tfmt.Scan(&jogadas[i].a, &jogadas[i].b)\n\t}\n\n\tindice_melhor := -1\n\tfor i, jog := range jogadas {\n\t\tif jog.a < 10 || jog.b < 10 {\n\t\t\tcontinue\n\t\t}\n\n\t\tif indice_melhor == -1  || valorAbs(jog) < valorAbs(jogadas[indice_melhor]){\n\t\t\tindice_melhor = i\n\t\t}\n\t}\n\n\tif indice_melhor == -1 {\n\t\t\tfmt.Println(\"sem ganhador\")\n\t\t} else {\n\t\t\tfmt.Println(indice_melhor)\n\t\t}\n}\n",
+            "content": "@@ -28,26 +28,22 @@\n  %0A%0Atype \n-competidor\n+Jogada\n  struct \n@@ -49,132 +49,97 @@\n  %7B%0A%09\n-pedraA int%0A%09pedraB int%0A%7D%0A%0Afunc difAbs(c competidor) int %7B%0A%09if c.pedraA %3E c.pedraB %7B%0A%09%09return c.pedraA - c.pedraB\n+a, b int%0A%7D%0A%0Afunc valorAbs(j Jogada) int %7B%0A%09if j.a %3E j.b %7B%0A%09%09return j.a - j.b\n %0A%09%7D%0A\n+%0A\n %09return \n c.pe\n@@ -138,27 +138,17 @@\n urn \n-c.pedraB - c.pedraA\n+j.b - j.a\n %0A%7D%0A%0A\n@@ -169,79 +169,437 @@\n     \n-nCompetidores := 0%0A%09fmt.Scan(&nCompetidores)%0A%09fmt.Println(nCompetidores)\n+%0A%09n := 0%0A%09fmt.Scan(&n)%0A%0A%09jogadas := make(%5B%5DJogada, n)%0A%0A%09for i := range n %7B%0A%09%09fmt.Scan(&jogadas%5Bi%5D.a, &jogadas%5Bi%5D.b)%0A%09%7D%0A%0A%09indice_melhor := -1%0A%09for i, jog := range jogadas %7B%0A%09%09if jog.a %3C 10 %7C%7C jog.b %3C 10 %7B%0A%09%09%09continue%0A%09%09%7D%0A%0A%09%09if indice_melhor == -1  %7C%7C valorAbs(jog) %3C valorAbs(jogadas%5Bindice_melhor%5D)%7B%0A%09%09%09indice_melhor = i%0A%09%09%7D%0A%09%7D%0A%0A%09if indice_melhor == -1 %7B%0A%09%09%09fmt.Println(%22sem ganhador%22)%0A%09%09%7D else %7B%0A%09%09%09fmt.Println(indice_melhor)%0A%09%09%7D\n %0A%7D%0A\n",
             "lines": "44"
+        },
+        {
+            "label": "2026-05-23_11-50-54",
+            "content": "@@ -28,17 +28,17 @@\n  %0A%0Atype \n-C\n+c\n ompetido\n@@ -89,17 +89,17 @@\n ifAbs(c \n-C\n+c\n ompetido\n@@ -264,74 +264,32 @@\n s)%0A%09\n-%0A%09jogadas := make(%5B%5DCompetidor, nCompetidores)%0A%09fmt.Println(jogada\n+fmt.Println(nCompetidore\n s)%0A%7D\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-05-23_11-52-08",
+            "content": "@@ -311,90 +311,8 @@\n es)%0A\n-%09%0A%09for i := range jogadas %7B%0A%09%09fmt.Scan(&jogadas%5Bi%5D.pedraA, jogadas%5Bi%5D.pedraB)%0A%09%7D%0A%0A\n %09fmt\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-05-23_11-54-30",
+            "content": "@@ -366,17 +366,16 @@\n pedraA, \n-&\n jogadas%5B\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_11-55-01",
+            "content": "@@ -395,350 +395,27 @@\n %7D%0A%0A%09\n-melhorJogadaIndice := -1%0A%0A%09for i, jog := range jogadas %7B%0A%09%09if jog.pedraA %3C 10 %7C%7C jog.pedraB %3C 10 %7B%0A%09%09%09continue%0A%09%09%7D%0A%0A%09%09if melhorJogadaIndice == -1 %7C%7C difAbs(jog) %3C difAbs(jogadas%5BmelhorJogadaIndice%5D) %7B%0A%09%09%09melhorJogadaIndice = i%0A%09%09%7D%0A%0A%09%7D%0A%0A%09if melhorJogadaIndice == -1 %7B%0A%09%09fmt.Println(%22sem ganhador%22)%0A%09%7D else %7B%0A%09%09fmt.Println(melhorJogadaIndice)%0A%09%7D\n+fmt.Println(jogadas)\n %0A%7D%0A\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_12-03-09",
+            "content": "package main\n\nimport  \"fmt\" \n\ntype Competidor struct {\n\tpedraA int\n\tpedraB int\n}\n\nfunc difAbs(c Competidor) int {\n\tif c.pedraA > c.pedraB {\n\t\treturn c.pedraA - c.pedraB\n\t}\n\treturn c.pedraB - c.pedraA\n}\n\nfunc main() {\n    nCompetidores := 0\n\tfmt.Scan(&nCompetidores)\n\t\n\tjogadas := make([]Competidor, nCompetidores)\n\t\n\tfor i := range jogadas {\n\t\tfmt.Scan(&jogadas[i].pedraA, &jogadas[i].pedraB)\n\t}\n\n\tmelhorJogadaIndice := -1\n\n\tfor i, jog := range jogadas {\n\t\tif jog.pedraA < 10 || jog.pedraB < 10 {\n\t\t\tcontinue\n\t\t}\n\n\t\tif melhorJogadaIndice == -1 || difAbs(jog) < difAbs(jogadas[melhorJogadaIndice]) {\n\t\t\tmelhorJogadaIndice = i\n\t\t}\n\n\t}\n\n\tif melhorJogadaIndice == -1 {\n\t\tfmt.Println(\"sem ganhador\")\n\t} else {\n\t\tfmt.Println(melhorJogadaIndice)\n\t}\n}\n",
+            "lines": "45"
         }
     ]
 }

@@ -27,8 +27,18 @@
         },
         {
             "label": "2026-04-13_22-56-27",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    var h, p, f, d int\n   fmt.Scan(&h, &p, &f, &d)\n\n   for {\n\n        f += d\n\n        if f > 15 {\n            f = 0\n        } else if f < 0{\n            f = 15\n        }\n\n        if f == h {\n            fmt.Println(\"S\")\n            break\n        }\n\n        if f == p {\n            fmt.Println(\"N\")\n            break\n        }\n\n   }\n}    \n\n",
+            "content": "@@ -57,20 +57,13 @@\n f, d\n-irecao\n  int%0A\n- \n    f\n@@ -88,42 +88,11 @@\n , &d\n-irecao)%0A    fugiuOuNao := false%0A%0A \n+)%0A%0A\n    f\n@@ -96,16 +96,17 @@\n   for %7B%0A\n+%0A\n         \n@@ -115,14 +115,8 @@\n += d\n-irecao\n %0A%0A  \n@@ -130,12 +130,12 @@\n f f \n-%3C= 0\n+%3E 15\n  %7B%0A \n@@ -149,18 +149,17 @@\n     f = \n-15\n+0\n %0A       \n@@ -160,36 +160,30 @@\n        %7D\n-%0A%0A       \n+ else\n  if f \n-%3E 15 \n+%3C 0\n %7B%0A      \n@@ -184,33 +184,34 @@\n             f = \n-0\n+15\n %0A        %7D%0A%0A    \n@@ -243,24 +243,23 @@\n    f\n-ugiuOuNao = true\n+mt.Println(%22S%22)\n %0A   \n@@ -312,59 +312,8 @@\n     \n-        break%0A        %7D%0A    %7D%0A%0A    if fugiuOuNao %7B%0A\n     \n@@ -333,51 +333,41 @@\n ln(%22\n-S\n+N\n %22)%0A    \n-%7D else %7B%0A        fmt.Println(%22N%22)%0A \n+        break%0A        %7D%0A%0A\n    %7D\n",
             "lines": "31"
+        },
+        {
+            "label": "2026-05-23_11-39-02",
+            "content": "@@ -30,47 +30,80 @@\n unc \n-verificarSeFugiu(f, d, h, p int) bool %7B\n+main() %7B%0A    var h, p, f, direcao int%0A    fmt.Scan(&h, &p, &f, &direcao)\n %0A   \n@@ -123,16 +123,17 @@\n = false%0A\n+%0A\n     for \n@@ -148,16 +148,22 @@\n   f += d\n+irecao\n %0A%0A      \n@@ -392,18 +392,15 @@\n   %7D%0A\n+%0A\n     \n-return\n+if\n  fug\n@@ -410,132 +410,8 @@\n uNao\n-%0A%7D%0A%0Afunc main() %7B%0A    var h, p, f, direcao int%0A    fmt.Scan(&h, &p, &f, &direcao)%0A%0A    if verificarSeFugiu(f, direcao, h, p)\n  %7B%0A \n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-05-23_11-43-26",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc verificarSeFugiu(f, d, h, p int) bool {\n    fugiuOuNao := false\n    for {\n        f += d\n\n        if f <= 0 {\n            f = 15\n        }\n\n        if f > 15 {\n            f = 0\n        }\n\n        if f == h {\n            fugiuOuNao = true\n            break\n        }\n\n        if f == p {\n            break\n        }\n    }\n    return fugiuOuNao\n}\n\nfunc main() {\n    var h, p, f, direcao int\n    fmt.Scan(&h, &p, &f, &direcao)\n\n    if verificarSeFugiu(f, direcao, h, p) {\n        fmt.Println(\"S\")\n    } else {\n        fmt.Println(\"N\")\n    }\n}    \n\n",
+            "lines": "40"
         }
     ]
 }

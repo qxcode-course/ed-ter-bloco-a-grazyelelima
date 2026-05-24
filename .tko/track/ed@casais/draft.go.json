@@ -17,7 +17,82 @@
         },
         {
             "label": "2026-04-11_14-08-54",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    \n    n := 0\n\n    fmt.Scan(&n)\n\n    animais := make([]int, n)\n\n    solteiros := make(map[int]int)\n    for i := range animais {\n        fmt.Scan(&animais[i])\n    }\n\n    numPares := 0\n    for _, animal := range  animais {\n        if solteiros[-animal] > 0 {\n            solteiros[-animal]--\n            numPares++\n        } else {\n            solteiros[animal]++\n        }\n    }\n\n    fmt.Println(numPares)\n}\n",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -19,17 +19,16 @@\n t %22fmt%22%0A\n-%0A\n func mai\n@@ -33,16 +33,21 @@\n ain() %7B%0A\n+    %0A\n     n :=\n@@ -49,16 +49,17 @@\n  n := 0%0A\n+%0A\n     fmt.\n@@ -97,16 +97,52 @@\n %5Dint, n)\n+%0A%0A    solteiros := make(map%5Bint%5Dint)\n %0A    for\n@@ -180,16 +180,17 @@\n mt.Scan(\n+&\n animais%5B\n@@ -200,16 +200,230 @@\n %0A    %7D%0A%0A\n+    numPares := 0%0A    for _, animal := range  animais %7B%0A        if solteiros%5B-animal%5D %3E 0 %7B%0A            solteiros%5B-animal%5D--%0A            numPares++%0A        %7D else %7B%0A            solteiros%5Banimal%5D++%0A        %7D%0A    %7D%0A%0A\n     fmt.\n@@ -430,19 +430,20 @@\n Println(\n-animai\n+numPare\n s)%0A%7D%0A\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_12-46-50",
+            "content": "@@ -140,17 +140,16 @@\n mt.Scan(\n-&\n animais%5B\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-23_12-47-10",
+            "content": "@@ -168,276 +168,24 @@\n     \n-solteiros := make(map%5Bint%5Dint)%0A    contCasais := 0%0A%0A    for _, animal := range animais %7B%0A        if solteiros%5B-animal%5D == 0 %7B%0A            solteiros%5B-animal%5D++%0A        %7D else %7B%0A            contCasais--%0A        %7D%0A    %7D%0A%0A    fmt.Println(solteiros)%0A    fmt.Println(contCas\n+fmt.Println(anim\n ais)\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-23_12-59-01",
+            "content": "@@ -362,18 +362,18 @@\n ntCasais\n-++\n+--\n %0A       \n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_12-59-33",
+            "content": "@@ -312,16 +312,17 @@\n lteiros%5B\n+-\n animal%5D+\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_12-59-59",
+            "content": "@@ -308,25 +308,24 @@\n   solteiros%5B\n--\n animal%5D++%0A  \n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_13-00-17",
+            "content": "@@ -287,9 +287,9 @@\n al%5D \n-!\n+=\n = 0 \n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_13-00-44",
+            "content": "@@ -302,26 +302,34 @@\n         \n-contCasais\n+solteiros%5B-animal%5D\n ++%0A     \n@@ -352,34 +352,26 @@\n         \n-solteiros%5B-animal%5D\n+contCasais\n ++%0A     \n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_13-01-25",
+            "content": "@@ -283,17 +283,17 @@\n animal%5D \n-=\n+!\n = 0 %7B%0A  \n@@ -302,34 +302,26 @@\n         \n-solteiros%5B-animal%5D\n+contCasais\n ++%0A     \n@@ -366,33 +366,8 @@\n mal%5D\n---%0A            contCasais\n ++%0A \n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_13-05-24",
+            "content": "@@ -287,11 +287,62 @@\n al%5D \n-%3E 0\n+== 0 %7B%0A            solteiros%5B-animal%5D++%0A        %7D else\n  %7B%0A \n@@ -402,58 +402,8 @@\n s++%0A\n-        %7D else %7B%0A            solteiros%5B-animal%5D++%0A\n     \n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_13-07-00",
+            "content": "@@ -386,16 +386,17 @@\n lteiros%5B\n+-\n animal%5D+\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_13-09-45",
+            "content": "@@ -287,10 +287,9 @@\n al%5D \n-!=\n+%3E\n  0 %7B\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_13-11-19",
+            "content": "@@ -413,20 +413,43 @@\n %7D%0A    %7D%0A\n+%0A\n     \n+fmt.Println(solteiros)\n %0A    fmt\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-05-23_13-12-09",
+            "content": "@@ -365,16 +365,48 @@\n  else %7B%0A\n+            solteiros%5Banimal%5D++%0A\n         \n@@ -409,24 +409,28 @@\n     %7D%0A    %7D%0A\n+    \n %0A    fmt.Pri\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-05-23_13-17-07",
+            "content": "@@ -369,40 +369,8 @@\n e %7B%0A\n-            solteiros%5Banimal%5D++%0A\n     \n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-05-23_13-17-17",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    n := 0\n    fmt.Scan(&n)\n\n    animais := make([]int, n)\n    for i := range animais {\n        fmt.Scan(&animais[i])\n    }\n\n    solteiros := make(map[int]int)\n    contCasais := 0\n\n    for _, animal := range animais {\n        if solteiros[-animal] != 0 {\n            solteiros[-animal]--\n            contCasais++\n        } else {\n            solteiros[animal]++\n        }\n    }\n\n    fmt.Println(contCasais)\n}\n",
             "lines": "27"
         }
     ]

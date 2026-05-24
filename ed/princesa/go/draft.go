@@ -1,54 +1,62 @@
 package main
 import "fmt"
 
-func saidaVivos(vivos []int, donoDaEspada int) {
-    fmt.Print("[ ")
-    for _, p := range vivos {
-        if p == donoDaEspada {
-            fmt.Printf("%d> ", p)
-        } else {
-            fmt.Printf("%d ", p)
-        }
-    }
-    fmt.Println("]")
+
+func imprimir(f []int, e int) {
+	fmt.Print("[ ")
+	for i := 0; i < len(f); i++ {
+		if e == i{
+			fmt.Printf("%d> ", f[i])
+		} else {
+			fmt.Printf("%d ", f[i])
+		}
+	}
+	fmt.Print("]")
+	fmt.Println()
 }
 
 func main() {
-
     var n, e int
-    fmt.Scan(&n, &e)
+	fmt.Scan(&n, &e)
 
-    vivos := make([]int, n)
+	fila := make([]int, 0, n)
 
-    for i := 0; i < n; i++ {
-        vivos[i] = i + 1
-    }
+	//crio a fila e preencho de 1 até n
 
-    pos := 0
+	for i := 1; i <= n; i++ {
+		fila = append(fila, i)
+	}
 
-    for i, v := range vivos {
-        if v == e {
-            pos = i
-            break
-        }
-    }
+	//procurar o indice que quem está com a espada
+	var indiceEspada int
+	for i := 0; i < n; i++ {
+		if fila[i] == e {
+			indiceEspada = i
+			break
+		}
+	}
 
-    for len(vivos) > 1 {
-        saidaVivos(vivos, vivos[pos])
 
-        morre := (pos + 1) % len(vivos)
 
-        vivos = append(vivos[:morre], vivos[morre+1:]...)
+	//enquanto minha fila for maior que 0, ou seja, ter alguém, o meu laço vai continuar
+	for len(fila) > 0 {
+		//imprimo a pessoa que tá na fila e quem possui a espada
+		imprimir(fila, indiceEspada)
 
-        if morre < pos {
-            pos--
-        }
+		//se tiver só uma pessoa eu paro o loop
+		if len(fila) == 1 {
+			break
+		}
 
-        pos = (pos + 1) % len(vivos)
-    }
+		//% dá a ideia de uma fila circular
+		morreIdx := (indiceEspada + 1) % len(fila)
 
-    saidaVivos(vivos, vivos[0])
+		/*O que isso significa ? corto o indice do que morre, na minha fila, e continuo depois do que eu cortei, os "..." é tipo como se eu tivesse indicando que eu quero que continue, mas exclua o morreIdx, o append só cola tudo*/
+		fila  = append(fila[:morreIdx], fila[morreIdx+1:]...)
 
-    
+		//atualiza o index de quem fica com a espada, após matar e passar para o próximo
+		indiceEspada = morreIdx % len(fila)
+
+	}
 
 }

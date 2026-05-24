@@ -47,8 +47,18 @@
         },
         {
             "label": "2026-04-13_22-33-55",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"math\"\n        )\n\nfunc area(a, b, c float64) float64 {\n    p := (a + b + c) / 2.0\n    return math.Sqrt(p  * (p - a) * (p - b) * (p - c))\n}\n\nfunc main() {\n    \n    var l1, l2, l3 float64\n    fmt.Scan(&l1, &l2, &l3)\n\n    result := area(l1, l2, l3)\n    fmt.Printf(\"%.2f\\n\", result)\n\n}\n",
+            "content": "@@ -31,16 +31,24 @@\n %09%22math%22%0A\n+        \n )%0A%0Afunc \n@@ -51,26 +51,16 @@\n unc area\n-_triangulo\n (a, b, c\n@@ -129,16 +129,17 @@\n .Sqrt(p \n+ \n * (p - a\n@@ -178,16 +178,21 @@\n ain() %7B%0A\n+    %0A\n     var \n@@ -196,30 +196,25 @@\n ar l\n-ado\n 1, l\n-ado\n 2, l\n-ado3 int\n+3 float64\n %0A   \n@@ -229,142 +229,84 @@\n n(&l\n-ado\n 1, &l\n-ado\n 2, &l\n-ado\n 3)%0A\n+%0A\n     \n-fmt.Println(lado1)%0A    fmt.Println(lado2)%0A    fmt.Println(lado3)%0A    //result := area_triangulo(lado1, lado2\n+result := area(l1, l2, l3)%0A    fmt.Printf(%22%25.2f%5Cn%22, result\n )%0A%0A%7D\n",
             "lines": "21"
+        },
+        {
+            "label": "2026-05-23_11-09-31",
+            "content": "@@ -207,23 +207,19 @@\n , lado3 \n-float64\n+int\n %0A    fmt\n@@ -256,52 +256,48 @@\n     \n-result := area_triangulo(lado1, lado2, \n+fmt.Println(lado1)%0A    fmt.Println(\n lado\n-3\n+2\n )%0A  \n@@ -311,25 +311,61 @@\n rint\n-f(%22%25.2f%5Cn%22,result\n+ln(lado3)%0A    //result := area_triangulo(lado1, lado2\n )%0A%0A%7D\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-05-23_11-11-07",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"math\"\n)\n\nfunc area_triangulo(a, b, c float64) float64 {\n    p := (a + b + c) / 2.0\n    return math.Sqrt(p * (p - a) * (p - b) * (p - c))\n}\n\nfunc main() {\n    var lado1, lado2, lado3 float64\n    fmt.Scan(&lado1, &lado2, &lado3)\n    result := area_triangulo(lado1, lado2, lado3)\n    fmt.Printf(\"%.2f\\n\",result)\n\n}\n",
+            "lines": "19"
         }
     ]
 }

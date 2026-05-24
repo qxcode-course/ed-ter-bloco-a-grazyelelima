@@ -2,49 +2,47 @@ package main
 
 import "fmt"
 
-func saida(v []int) string {
-	saida := fmt.Sprintf("%v", v)
+func toString(vet[]int) string {
+	saida := fmt.Sprintf("%v", vet)
 	if saida == "[]" {
 		return "N"
 	} else {
-		return saida[1 : len(saida) - 1]
+		return (saida[1: len(saida) - 1])
 	}
 }
 
 func main() {
 
-    var qtd_album, qtd_possui int
-	fmt.Scan(&qtd_album, &qtd_possui)
+	var qtdTotalFigurinhas, qtdFigurinhasDeBaruel int
+	fmt.Scan(&qtdTotalFigurinhas, &qtdFigurinhasDeBaruel)
 
-	figuras := make([]int, qtd_possui)
+	figurinhas := make([]int, qtdFigurinhasDeBaruel)
 
-	for i := range figuras {
-		fmt.Scan(&figuras[i])
+	for i := range figurinhas {
+		fmt.Scan(&figurinhas[i])
 	}
 
-	unicos := make(map[int]bool)
-	repetidas := make([]int, 0, qtd_possui)
+	unicas := make(map[int]bool)
+	repetidos := make([]int, 0, qtdFigurinhasDeBaruel)
 
-	for _, figura := range figuras {
+	for _, figurinha := range figurinhas{
+		if unicas[figurinha] {
+			repetidos = append(repetidos, figurinha)
 
-		if unicos[figura] {
-			repetidas = append(repetidas, figura)
 		} else {
-			unicos[figura] = true
+			unicas[figurinha] = true
 		}
 	}
 
-	faltantes := make([]int , 0 , qtd_album)
-
-	for i := 1; i <= qtd_album; i++ {
-		if !unicos[i] {
-			faltantes = append(faltantes, i)
+	faltando := make([]int, 0, qtdTotalFigurinhas)
+	for i := 1; i <= qtdTotalFigurinhas; i++ {
+		if !unicas[i] {
+			faltando = append(faltando, i)
 		}
 	}
 
+	fmt.Println(toString(repetidos))
+	fmt.Println(toString(faltando))
 	
-	fmt.Println(saida(repetidas))
-	fmt.Println(saida(faltantes))
-
 }
 
