@@ -3,82 +3,45 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
 
 func getMen(vet []int) []int {
-	var res []int
-	for _, v := range vet {
-		if v > 0 {
-			res = append(res, v)
-		}
-	}
-
-	return res
-
+	_ = vet
+	return nil
 }
 
 func getCalmWomen(vet []int) []int {
-	var res []int
-	for _, v := range vet {
-		if v < 0 && v > -10 {
-			res = append(res, v)
-		}
-	}
-
-	return res
-
+	_ = vet
+	return nil
 }
 
+
 func sortVet(vet []int) []int {
-	res := append([]int{}, vet...)
-	sort.Ints(res)
-	return res
+	_ = vet
+	return nil
 }
 
 func sortStress(vet []int) []int {
-	res := append([]int{}, vet...)
-	sort.Slice(res, func(i, j int) bool {
-		return math.Abs(float64(res[i])) < math.Abs(float64(res[j]))
-	})
-	return res
+	_ = vet
+	return nil
 }
 
 func reverse(vet []int) []int {
-	n := len(vet)
-	res := make([]int, n)
-	for i, v := range vet {
-		res[n-1-i] = v
-	}
-	return res
+	_ = vet
+	return nil
 }
 
 func unique(vet []int) []int {
-	vistos := make(map[int]bool)
-	var res []int
-	for _, v := range vet {
-		if !vistos[v] {
-			vistos[v] = true
-			res = append(res, v)
-		}
-	}
-	return res
+	_ = vet
+	return nil
 }
 
 func repeated(vet []int) []int {
-	counts := make(map[int]int)
-	var res []int
-	for _, v := range vet {
-		counts[v]++
-		if counts[v] >  1 {
-			res = append(res, v)
-		}
-	}
-	return res
+	_ = vet
+	return nil
 }
 
 func main() {

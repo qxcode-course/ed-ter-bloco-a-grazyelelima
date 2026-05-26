@@ -10,21 +10,18 @@ import (
 
 func processa(vet []int) {
 	
-	if len(vet) == 0 {
+	if len(vet) < 1 { //Ponto de parada
 		return
 	}
 
-	if len(vet) > 1 {
-		aux := make([]int, len(vet) -1)
-		for i := 0; i < len(vet) -1; i++ {
-			aux[i] = vet[i] + vet[i + 1]
-		}
-		processa(aux)
+	aux := make([]int, len(vet)-1)
+	for i := 0; i < len(vet) -1; i++ {
+		aux[i] = vet[i] + vet[i+1]
 	}
 
-	fmt.Printf("[ %s ]\n", Join(vet, " "))
+	processa(aux)
 
-
+	fmt.Println("[ " + Join(vet, " ") + " ]")
 }
 
 func main() {

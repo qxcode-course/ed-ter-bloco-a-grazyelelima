@@ -67,8 +67,88 @@
         },
         {
             "label": "2026-04-25_13-16-51",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n\t\"sort\"\n)\n\nfunc tostr(vet []int) string {\n\tif len(vet) == 0 {\n\t\treturn \"[]\"\n\t} else {\n\t\tvar partes []string\n\tfor _, n := range vet {\n\t\tpartes = append(partes, fmt.Sprint(n))\n\t}\n\treturn \"[\" + strings.Join(partes, \", \") + \"]\"\n\t}\n}\n\nfunc tostrrev(vet []int) string {\n\tif len(vet) == 0 {\n\t\treturn \"[]\"\n\t}\n\n\tsort.Slice(vet, func(i, j int) bool {\n\t\treturn vet[i] > vet[j]\n\t})\n\n\tvar partes []string\n\tfor _, n := range vet {\n\t\tpartes = append(partes, fmt.Sprint(n))\n\t}\n\t\n\treturn \"[\" + strings.Join(partes, \", \") + \"]\"\n}\n\n// reverse: inverte os elementos do slice\nfunc reverse(vet []int) {\n\tfor i, j := 0, len(vet)-1; i < j; i, j = i+1, j-1 {\n\t\tvet[i], vet[j] = vet[j], vet[i]\n\t}\n}\n\n// sum: soma dos elementos do slice\nfunc sum(vet []int) int {\n\ttotal := 0\n\tfor _, numero := range vet {\n\t\ttotal += numero\n\t}\n\treturn total\n}\n\n// mult: produto dos elementos do slice\nfunc mult(vet []int) int {\n\tif len(vet) == 0 {\n\t\treturn 1 \n\t}\n\n\ttotal := 1 \n\tfor _, numero := range vet {\n\t\ttotal *= numero \n\t}\n\treturn total\n}\n\n// min: retorna o \u00edndice e valor do menor valor\n// crie uma fun\u00e7\u00e3o recursiva interna do modelo\n// var rec func(v []int) (int, int)\n// para fazer uma recurs\u00e3o que retorna valor e \u00edndice\nfunc min(vet []int) int {\n\tif len(vet) == 0 {\n\t\treturn -1\n\t}\n\n\tvar rec func(idx int) int\n\trec = func(idx int) int {\n\t\tif idx == len(vet)-1 {\n\t\t\treturn idx\n\t\t}\n\n\t\tidxMenorDoResto := rec(idx + 1)\n\n\t\t// Compara os valores, mas retorna o \u00edndice\n\t\tif vet[idx] < vet[idxMenorDoResto] {\n\t\t\treturn idx\n\t\t}\n\t\treturn idxMenorDoResto\n\t}\n\n\treturn rec(0)\n}\n\nfunc main() {\n\tvar vet []int\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(\"$\" + line)\n\n\t\tswitch args[0] {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"read\":\n\t\t\tvet = nil\n\t\t\tfor _, arg := range args[1:] {\n\t\t\t\tif val, err := strconv.Atoi(arg); err == nil {\n\t\t\t\t\tvet = append(vet, val)\n\t\t\t\t}\n\t\t\t}\n\t\tcase \"tostr\":\n\t\t\tfmt.Println(tostr(vet))\n\t\tcase \"torev\":\n\t\t\tfmt.Println(tostrrev(vet))\n\t\tcase \"reverse\":\n\t\t\treverse(vet)\n\t\tcase \"sum\":\n\t\t\tfmt.Println(sum(vet))\n\t\tcase \"mult\":\n\t\t\tfmt.Println(mult(vet))\n\t\tcase \"min\":\n\t\t\tfmt.Println(min(vet))\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "content": "@@ -60,16 +60,24 @@\n trings%22%0A\n+%09%22sort%22%0A\n )%0A%0Afunc \n@@ -107,475 +107,1492 @@\n  %7B%0A%09\n-%0A%7D%0A%0Afunc tostrrev(vet %5B%5Dint) string %7B%0A%09%0A%7D%0A%0A// reverse: inverte os elementos do slice%0Afunc reverse(vet %5B%5Dint) %7B%0A%09%0A%7D%0A%0A// sum: soma dos elementos do slice%0Afunc sum(vet %5B%5Dint) int %7B%0A%09%0A%7D%0A%0A// mult: produto dos elementos do slice%0Afunc mult(vet %5B%5Dint) int %7B%0A%09%0A%7D%0A%0A// min: retorna o %C3%ADndice e valor do menor valor%0A// crie uma fun%C3%A7%C3%A3o recursiva interna do modelo%0A// var rec func(v %5B%5Dint) (int, int)%0A// para fazer uma recurs%C3%A3o que retorna valor e %C3%ADndice%0Afunc min(vet %5B%5Dint) int %7B%0A%09\n+if len(vet) == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D else %7B%0A%09%09var partes %5B%5Dstring%0A%09for _, n := range vet %7B%0A%09%09partes = append(partes, fmt.Sprint(n))%0A%09%7D%0A%09return %22%5B%22 + strings.Join(partes, %22, %22) + %22%5D%22%0A%09%7D%0A%7D%0A%0Afunc tostrrev(vet %5B%5Dint) string %7B%0A%09if len(vet) == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D%0A%0A%09sort.Slice(vet, func(i, j int) bool %7B%0A%09%09return vet%5Bi%5D %3E vet%5Bj%5D%0A%09%7D)%0A%0A%09var partes %5B%5Dstring%0A%09for _, n := range vet %7B%0A%09%09partes = append(partes, fmt.Sprint(n))%0A%09%7D%0A%09%0A%09return %22%5B%22 + strings.Join(partes, %22, %22) + %22%5D%22%0A%7D%0A%0A// reverse: inverte os elementos do slice%0Afunc reverse(vet %5B%5Dint) %7B%0A%09for i, j := 0, len(vet)-1; i %3C j; i, j = i+1, j-1 %7B%0A%09%09vet%5Bi%5D, vet%5Bj%5D = vet%5Bj%5D, vet%5Bi%5D%0A%09%7D%0A%7D%0A%0A// sum: soma dos elementos do slice%0Afunc sum(vet %5B%5Dint) int %7B%0A%09total := 0%0A%09for _, numero := range vet %7B%0A%09%09total += numero%0A%09%7D%0A%09return total%0A%7D%0A%0A// mult: produto dos elementos do slice%0Afunc mult(vet %5B%5Dint) int %7B%0A%09if len(vet) == 0 %7B%0A%09%09return 1 %0A%09%7D%0A%0A%09total := 1 %0A%09for _, numero := range vet %7B%0A%09%09total *= numero %0A%09%7D%0A%09return total%0A%7D%0A%0A// min: retorna o %C3%ADndice e valor do menor valor%0A// crie uma fun%C3%A7%C3%A3o recursiva interna do modelo%0A// var rec func(v %5B%5Dint) (int, int)%0A// para fazer uma recurs%C3%A3o que retorna valor e %C3%ADndice%0Afunc min(vet %5B%5Dint) int %7B%0A%09if len(vet) == 0 %7B%0A%09%09return -1%0A%09%7D%0A%0A%09var rec func(idx int) int%0A%09rec = func(idx int) int %7B%0A%09%09if idx == len(vet)-1 %7B%0A%09%09%09return idx%0A%09%09%7D%0A%0A%09%09idxMenorDoResto := rec(idx + 1)%0A%0A%09%09// Compara os valores, mas retorna o %C3%ADndice%0A%09%09if vet%5Bidx%5D %3C vet%5BidxMenorDoResto%5D %7B%0A%09%09%09return idx%0A%09%09%7D%0A%09%09return idxMenorDoResto%0A%09%7D%0A%0A%09return rec(0)\n %0A%7D%0A%0A\n",
             "lines": "134"
+        },
+        {
+            "label": "2026-05-25_19-11-24",
+            "content": "@@ -99,285 +99,8 @@\n  %7B%0A%09\n-if len(vet) == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D //Se o vetor vier vazio, retorno %22%5B%5D%22%0A%0A%09var junta func(v %5B%5Dint) string%0A%0A%09junta = func(v %5B%5Dint) string %7B%0A%09%09if len(v) == 1 %7B%0A%09%09%09return strconv.Itoa(v%5B0%5D)%0A%09%09%7D%0A%0A%09%09return strconv.Itoa(v%5B0%5D) + %22, %22 + junta(v%5B1:%5D)%0A%09%7D%0A%0A%09return %22%5B%22 + junta(vet) + %22%5D%22\n %0A%7D%0A%0A\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-05-25_19-21-19",
+            "content": "@@ -415,27 +415,9 @@\n  %7B%0A%09\n-_ = vet%0A%09return %22%22\n %0A\n+\n %7D%0A%0A/\n@@ -484,23 +484,16 @@\n int) %7B%0A%09\n-_ = vet\n %0A%7D%0A%0A// s\n@@ -551,33 +551,16 @@\n  int %7B%0A%09\n-_ = vet%0A%09return 0\n %0A%7D%0A%0A// m\n@@ -623,33 +623,16 @@\n  int %7B%0A%09\n-_ = vet%0A%09return 0\n %0A%7D%0A%0A// m\n@@ -842,26 +842,9 @@\n t %7B%0A\n+\n %09\n-_ = vet%0A%09return 0\n %0A%7D%0A%0A\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-05-25_19-21-53",
+            "content": "@@ -415,284 +415,25 @@\n  %7B%0A%09\n-%0A%09if len(vet) == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D%0A%0A%09var juntaInvertido func(v %5B%5Dint) string%0A%0A%09juntaInvertido = func (v %5B%5Dint) string  %7B%0A%09%09if len(v) == 1 %7B%0A%09%09%09return strconv.Itoa(v%5B0%5D)%0A%09%09%7D%0A%0A%09%09return strconv.Itoa(v%5B1:%5D) + %22, %22 + strconv.Itoa(v%5B0%5D)%0A%09%7D%0A%0A%09return %22%5B%22 + juntaInvertido(vet) + %22%5D\n+_ = vet%0A%09return %22\n %22%0A%7D%0A\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-05-25_19-30-13",
+            "content": "@@ -597,30 +597,28 @@\n %09return \n-juntaInvertido\n+strconv.Itoa\n (v%5B1:%5D) \n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-05-25_19-30-40",
+            "content": "@@ -767,115 +767,15 @@\n  %7B%0A%09\n-if len(vet) %3C= 1 %7B%0A%09%09return%0A%09%7D//Se o meu vetor n%C3%A3o tem nada ou s%C3%B3 tem um elemento, ele j%C3%A1 est%C3%A1 invertido%0A%0A%09\n+_ = vet\n %0A%7D%0A%0A\n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-05-25_19-32-26",
+            "content": "@@ -874,253 +874,8 @@\n o%0A%0A%09\n-primeiroIndice := 0%0A%09ultimoIndice := len(vet) - 1%0A%0A%09//Troca o primeiro pelo %C3%BAltimo e o %C3%BAltimo pelo primerio%0A%09vet%5BprimeiroIndice%5D, vet%5BultimoIndice%5D = vet%5BultimoIndice%5D, vet%5BprimeiroIndice%5D%0A%0A%09reverse(vet%5B1:ultimoIndice%5D) //ignora as duas porntas%0A\n %0A%7D%0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-05-25_19-36-37",
+            "content": "@@ -1186,71 +1186,25 @@\n  %7B%0A%09\n-if len(vet) == 0 %7B%0A%09%09return 0%0A%09%7D%0A%0A%09return vet%5B0%5D + sum(vet%5B1:%5D)\n+_ = vet%0A%09return 0\n %0A%7D%0A%0A\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-05-25_19-38-42",
+            "content": "@@ -1321,72 +1321,25 @@\n  %7B%0A%09\n-if len(vet) == 0 %7B%0A%09%09return 0%0A%09%7D%0A%0A%09return vet%5B0%5D * mult(vet%5B1:%5D)\n+_ = vet%0A%09return 0\n %0A%7D%0A%0A\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-05-25_19-39-45",
+            "content": "@@ -1210,17 +1210,17 @@\n %09return \n-1\n+0\n %0A%09%7D%0A%0A%09re\n@@ -1601,348 +1601,25 @@\n  %7B%0A%09\n-if len(vet) == 0 %7B%0A%09%09return -1%0A%09%7D%0A%0A%0A%09var rec func(v %5B%5Dint) (int, int) %0A%0A%09rec = func(v %5B%5Dint) (int, int) %7B%0A%09%09if len(v) == 1 %7B%0A%09%09%09return v%5B0%5D, 0%0A%09%09%7D%0A%0A%09%09indiceMenor, indice := rec(v%5B1:%5D)%0A%09%09indiceMenor = indice + 1%0A%0A%09%09if v%5B0%5D %3C indiceMenor %7B%0A%09%09%09return v%5B0%5D, 0%0A%09%09%7D%0A%0A%09%09return indiceMenor, indice%0A%09%7D%0A%0A%09menorValor, _ := rec(vet)%0A%0A%09return menorValor\n+_ = vet%0A%09return 0\n %0A%7D%0A%0A\n",
+            "lines": "128"
+        },
+        {
+            "label": "2026-05-25_20-05-23",
+            "content": "@@ -1210,17 +1210,17 @@\n %09return \n-0\n+1\n %0A%09%7D%0A%0A%09re\n@@ -1337,33 +1337,33 @@\n == 0 %7B%0A%09%09return \n-1\n+0\n %0A%09%7D%0A%0A%09return vet\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-25_20-09-04",
+            "content": "@@ -1793,19 +1793,14 @@\n dice\n-RealResto :\n+Menor \n = in\n@@ -1831,17 +1831,13 @@\n dice\n-RealResto\n+Menor\n  %7B%0A%09\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-25_20-11-21",
+            "content": "@@ -1832,21 +1832,25 @@\n %3C indice\n-Menor\n+RealResto\n  %7B%0A%09%09%09re\n@@ -1895,25 +1895,16 @@\n , indice\n-RealResto\n %0A%09%7D%0A%0A%09me\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-25_20-11-56",
+            "content": "@@ -1832,25 +1832,21 @@\n %3C indice\n-RealResto\n+Menor\n  %7B%0A%09%09%09re\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-25_20-16-26",
+            "content": "@@ -1832,21 +1832,25 @@\n %3C indice\n-Menor\n+RealResto\n  %7B%0A%09%09%09re\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-26_09-40-06",
+            "content": "@@ -1910,26 +1910,21 @@\n %7D%0A%0A%09\n-_, indiceDeVerdade\n+menorValor, _\n  := \n@@ -1945,23 +1945,18 @@\n urn \n-indiceDeVerdade\n+menorValor\n %0A%7D%0A%0A\n",
+            "lines": "151"
+        },
+        {
+            "label": "2026-05-26_09-46-44",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc tostr(vet []int) string {\n\tif len(vet) == 0 {\n\t\treturn \"[]\"\n\t} //Se o vetor vier vazio, retorno \"[]\"\n\n\tvar junta func(v []int) string\n\n\tjunta = func(v []int) string {\n\t\tif len(v) == 1 {\n\t\t\treturn strconv.Itoa(v[0])\n\t\t}\n\n\t\treturn strconv.Itoa(v[0]) + \", \" + junta(v[1:])\n\t}\n\n\treturn \"[\" + junta(vet) + \"]\"\n}\n\nfunc tostrrev(vet []int) string {\n\t\n\tif len(vet) == 0 {\n\t\treturn \"[]\"\n\t}\n\n\tvar juntaInvertido func(v []int) string\n\n\tjuntaInvertido = func (v []int) string  {\n\t\tif len(v) == 1 {\n\t\t\treturn strconv.Itoa(v[0])\n\t\t}\n\n\t\treturn juntaInvertido(v[1:]) + \", \" + strconv.Itoa(v[0])\n\t}\n\n\treturn \"[\" + juntaInvertido(vet) + \"]\"\n}\n\n// reverse: inverte os elementos do slice\nfunc reverse(vet []int) {\n\tif len(vet) <= 1 {\n\t\treturn\n\t}//Se o meu vetor n\u00e3o tem nada ou s\u00f3 tem um elemento, ele j\u00e1 est\u00e1 invertido\n\n\tprimeiroIndice := 0\n\tultimoIndice := len(vet) - 1\n\n\t//Troca o primeiro pelo \u00faltimo e o \u00faltimo pelo primerio\n\tvet[primeiroIndice], vet[ultimoIndice] = vet[ultimoIndice], vet[primeiroIndice]\n\n\treverse(vet[1:ultimoIndice]) //ignora as duas porntas\n\n}\n\n// sum: soma dos elementos do slice\nfunc sum(vet []int) int {\n\tif len(vet) == 0 {\n\t\treturn 0\n\t}\n\n\treturn vet[0] + sum(vet[1:])\n}\n\n// mult: produto dos elementos do slice\nfunc mult(vet []int) int {\n\tif len(vet) == 0 {\n\t\treturn 1\n\t}\n\n\treturn vet[0] * mult(vet[1:])\n}\n\n// min: retorna o \u00edndice e valor do menor valor\n// crie uma fun\u00e7\u00e3o recursiva interna do modelo\n// var rec func(v []int) (int, int)\n// para fazer uma recurs\u00e3o que retorna valor e \u00edndice\nfunc min(vet []int) int {\n\tif len(vet) == 0 {\n\t\treturn -1\n\t}\n\n\n\tvar rec func(v []int) (int, int) \n\n\trec = func(v []int) (int, int) {\n\t\tif len(v) == 1 {\n\t\t\treturn v[0], 0\n\t\t}\n\n\t\tindiceMenor, indice := rec(v[1:])\n\t\tindiceRealResto := indice + 1\n\n\t\tif v[0] < indiceMenor {\n\t\t\treturn v[0], 0\n\t\t}\n\n\t\treturn indiceMenor, indiceRealResto\n\t}\n\n\t_, indiceDeVerdade := rec(vet)\n\n\treturn indiceDeVerdade\n}\n\nfunc main() {\n\tvar vet []int\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(\"$\" + line)\n\n\t\tswitch args[0] {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"read\":\n\t\t\tvet = nil\n\t\t\tfor _, arg := range args[1:] {\n\t\t\t\tif val, err := strconv.Atoi(arg); err == nil {\n\t\t\t\t\tvet = append(vet, val)\n\t\t\t\t}\n\t\t\t}\n\t\tcase \"tostr\":\n\t\t\tfmt.Println(tostr(vet))\n\t\tcase \"torev\":\n\t\t\tfmt.Println(tostrrev(vet))\n\t\tcase \"reverse\":\n\t\t\treverse(vet)\n\t\tcase \"sum\":\n\t\t\tfmt.Println(sum(vet))\n\t\tcase \"mult\":\n\t\t\tfmt.Println(mult(vet))\n\t\tcase \"min\":\n\t\t\tfmt.Println(min(vet))\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "151"
         }
     ]
 }

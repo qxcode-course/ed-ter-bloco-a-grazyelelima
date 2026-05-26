@@ -6,65 +6,77 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"sort"
 )
 
 func tostr(vet []int) string {
 	if len(vet) == 0 {
 		return "[]"
-	} else {
-		var partes []string
-	for _, n := range vet {
-		partes = append(partes, fmt.Sprint(n))
+	} //Se o vetor vier vazio, retorno "[]"
+
+	var junta func(v []int) string
+
+	junta = func(v []int) string {
+		if len(v) == 1 {
+			return strconv.Itoa(v[0])
+		}
+
+		return strconv.Itoa(v[0]) + ", " + junta(v[1:])
 	}
-	return "[" + strings.Join(partes, ", ") + "]"
-	}
+
+	return "[" + junta(vet) + "]"
 }
 
 func tostrrev(vet []int) string {
+	
 	if len(vet) == 0 {
 		return "[]"
 	}
 
-	sort.Slice(vet, func(i, j int) bool {
-		return vet[i] > vet[j]
-	})
+	var juntaInvertido func(v []int) string
 
-	var partes []string
-	for _, n := range vet {
-		partes = append(partes, fmt.Sprint(n))
+	juntaInvertido = func (v []int) string  {
+		if len(v) == 1 {
+			return strconv.Itoa(v[0])
+		}
+
+		return juntaInvertido(v[1:]) + ", " + strconv.Itoa(v[0])
 	}
-	
-	return "[" + strings.Join(partes, ", ") + "]"
+
+	return "[" + juntaInvertido(vet) + "]"
 }
 
 // reverse: inverte os elementos do slice
 func reverse(vet []int) {
-	for i, j := 0, len(vet)-1; i < j; i, j = i+1, j-1 {
-		vet[i], vet[j] = vet[j], vet[i]
-	}
+	if len(vet) <= 1 {
+		return
+	}//Se o meu vetor não tem nada ou só tem um elemento, ele já está invertido
+
+	primeiroIndice := 0
+	ultimoIndice := len(vet) - 1
+
+	//Troca o primeiro pelo último e o último pelo primerio
+	vet[primeiroIndice], vet[ultimoIndice] = vet[ultimoIndice], vet[primeiroIndice]
+
+	reverse(vet[1:ultimoIndice]) //ignora as duas porntas
+
 }
 
 // sum: soma dos elementos do slice
 func sum(vet []int) int {
-	total := 0
-	for _, numero := range vet {
-		total += numero
+	if len(vet) == 0 {
+		return 0
 	}
-	return total
+
+	return vet[0] + sum(vet[1:])
 }
 
 // mult: produto dos elementos do slice
 func mult(vet []int) int {
 	if len(vet) == 0 {
-		return 1 
+		return 1
 	}
 
-	total := 1 
-	for _, numero := range vet {
-		total *= numero 
-	}
-	return total
+	return vet[0] * mult(vet[1:])
 }
 
 // min: retorna o índice e valor do menor valor
@@ -76,21 +88,27 @@ func min(vet []int) int {
 		return -1
 	}
 
-	var rec func(idx int) int
-	rec = func(idx int) int {
-		if idx == len(vet)-1 {
-			return idx
+
+	var rec func(v []int) (int, int) 
+
+	rec = func(v []int) (int, int) {
+		if len(v) == 1 {
+			return v[0], 0
 		}
 
-		idxMenorDoResto := rec(idx + 1)
+		indiceMenor, indice := rec(v[1:])
+		indiceRealResto := indice + 1
 
-		if vet[idx] < vet[idxMenorDoResto] {
-			return idx
+		if v[0] < indiceMenor {
+			return v[0], 0
 		}
-		return idxMenorDoResto
+
+		return indiceMenor, indiceRealResto
 	}
 
-	return rec(0)
+	_, indiceDeVerdade := rec(vet)
+
+	return indiceDeVerdade
 }
 
 func main() {
