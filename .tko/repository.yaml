@@ -25,25 +25,11 @@ sources:
   writeable: false
   quests: null
 expanded:
-- poo@agreg
-- poo@env
-- ed@vector
-- ed@bfs
-- poo@arrays
-- ed@map_set
-- ed@basic
-- ed@rec
-- eval1@eval1
-- poo@intro
-- sandbox@sandbox
-- poo@access
-- poo@sandbox
 - ed@linear
-- poo@polimorfismo
-- ed@backtrack
-- poo@crud
-- ed@list
 - ed@dfs
+- ed@rec
+- ed@map_set
+- ed@bfs
 flags:
   inbox: all
   panel: skills
@@ -51,5 +37,5 @@ flags:
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@fractais_png
-selected_index: 29
+selected: ed@manipulacao
+selected_index: 6

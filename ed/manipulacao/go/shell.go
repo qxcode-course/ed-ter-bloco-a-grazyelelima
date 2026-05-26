@@ -9,19 +9,45 @@ import (
 )
 
 func getMen(vet []int) []int {
-	_ = vet
-	return nil
+	var homens []int
+
+	for _, pessoa := range vet {
+		if pessoa > 0 { //Se o número for positivo, é homem
+			homens = append(homens, pessoa)
+		}
+	}
+
+	return homens //Devolve uma lista com os homens encontrados
 }
 
 func getCalmWomen(vet []int) []int {
-	_ = vet
-	return nil
+	var mulheresCalmas []int
+
+	for _, pessoa := range vet {
+		if pessoa < 0 && pessoa >= -9 { //Se o número for negativo, é mulher e são calmas se o estresse for inferior a 10, ou seja, vai de -1 até -9
+			mulheresCalmas = append(mulheresCalmas, pessoa)
+		}
+	}
+
+	return mulheresCalmas //retorno uma lista com as mulheres encontradas
 }
 
 
 func sortVet(vet []int) []int {
-	_ = vet
-	return nil
+	copia := append([]int{}, vet...) //cria uma cópia do original sem alterar sua ordem na main
+	n := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos
+
+	for i := 0; i < n-1; i++ {
+
+		for j := 0; j < n-i-1; j++ {
+			if copia[j] > copia[j+1] {
+				copia[j], copia[j+1] = copia[j+1], copia[j]
+			}
+		}
+	}
+
+	return copia
+
 }
 
 func sortStress(vet []int) []int {
