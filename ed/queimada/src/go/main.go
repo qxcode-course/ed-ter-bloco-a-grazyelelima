@@ -6,30 +6,30 @@ import (
 	"os"
 )
 
-func is_value(grid [][]rune, l, c int, value rune) bool {
+
+func isValue(grid[][]rune, l, c int, value rune) bool {
 	nl := len(grid)
 	nc := len(grid[0])
+
 	if c < 0 || c >= nc || l < 0 || l >= nl {
 		return false
 	}
 
 	return grid[l][c] == value
-
 }
 
 func burnTrees(grid [][]rune, l, c int) {
 
-	if !is_value(grid, l, c, '#') {
+	if !isValue(grid, l, c, '#') {
 		return
 	}
 
 	grid[l][c] = 'o'
 
-	burnTrees(grid, l, c + 1) 
+	burnTrees(grid, l, c + 1)
 	burnTrees(grid, l, c - 1)
-	burnTrees(grid, l - 1, c)
 	burnTrees(grid, l + 1, c)
-
+	burnTrees(grid, l - 1, c)
 }
 
 func main() {

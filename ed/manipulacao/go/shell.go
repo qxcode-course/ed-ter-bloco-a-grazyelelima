@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"math"
 )
 
 func getMen(vet []int) []int {
@@ -51,23 +52,81 @@ func sortVet(vet []int) []int {
 }
 
 func sortStress(vet []int) []int {
-	_ = vet
-	return nil
+	copia := append([]int{}, vet...) //cria uma cópia do original sem alterar sua ordem na main
+	n := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos
+
+	for i := 0; i < n-1; i++ {
+
+		for j := 0; j < n-i-1; j++ {
+			estresseEsqueda := math.Abs(float64(copia[j]))
+			estresseDireita := math.Abs(float64(copia[j+1]))
+
+			if estresseEsqueda > estresseDireita {
+				copia[j], copia[j+1] = copia[j+1], copia[j]
+			}
+		}
+	}
+
+	return copia
 }
 
 func reverse(vet []int) []int {
-	_ = vet
-	return nil
+	var invertido []int //vetor que vai guardar os valores invertidos
+
+	for i := len(vet) - 1; i >= 0; i-- { //percorre o vetor do último elemento até o primeiro
+		invertido = append(invertido, vet[i]) //vai preenchendo o vetor invertido do ultimo elemento do vet até o primeiro
+	}
+
+	return invertido
 }
 
 func unique(vet []int) []int {
-	_ = vet
-	return nil
+	var unico []int //vetor para guardar os calores que não se repetem
+
+	for i := 0; i < len(vet); i++ {
+		jaExiste := false
+		for j := 0; j < len(unico); j++ {
+			if vet[i] == unico[j] {
+				jaExiste = true
+				break
+			}
+		}
+
+		if !jaExiste {
+			unico = append(unico, vet[i])
+		}
+	} 
+
+	return unico
 }
 
 func repeated(vet []int) []int {
-	_ = vet
-	return nil
+	var seRepete []int
+
+	for i := 0; i < len(vet); i++ {
+		isCopia := false
+		for j := 0; j < i; j++ {
+			if vet[i] == vet[j] {
+				isCopia = true
+				break
+			}
+		}
+
+		if isCopia {
+			jaSalvo := false
+			for l := 0; l < len(seRepete); l++ {
+				if vet[i] == seRepete[l] {
+					jaSalvo = true
+					break
+				}
+			}
+
+			if !jaSalvo || (len(vet) > 0 && vet[0] == vet[len(vet)-1] && len(seRepete) < len(vet)-1) {
+				seRepete = append(seRepete, vet[i])
+			}
+		}
+	}
+	return seRepete
 }
 
 func main() {

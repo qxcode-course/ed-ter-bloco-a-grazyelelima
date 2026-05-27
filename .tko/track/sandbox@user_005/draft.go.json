@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-05-27_19-54-44",
+            "content": "@@ -23,220 +23,53 @@\n mt%22%0A\n-%0A\n func \n-fatorial(value int) int\n+main()\n  %7B%0A    \n-if value == 1 %7B%0A        return 1%0A    %7D%0A    fmt.Println(value)%0A    return value * fatorial(value-1)%0A%7D%0Afunc main() %7B%0A    num := 0%0A    fmt.Scan(&num)%0A    fmt.Println(fatorial(num)\n+fmt.Println(%22Hello, World!%22\n )%0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-05-27_19-57-31",
+            "content": "@@ -206,16 +206,28 @@\n um)%0A    \n+fmt.Println(\n fatorial\n@@ -231,11 +231,12 @@\n ial(num)\n+)\n %0A%7D%0A\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-27_19-58-01",
+            "content": "@@ -125,19 +125,14 @@\n     \n-coletado :=\n+return\n  val\n@@ -158,54 +158,8 @@\n -1)%0A\n-    fmt.Println(coletado)%0A    return coletado%0A\n %7D%0Afu\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-05-27_19-59-11",
+            "content": "package main\nimport \"fmt\"\n\nfunc fatorial(value int) int {\n    if value == 1 {\n        return 1\n    }\n    fmt.Println(value)\n    coletado := value * fatorial(value-1)\n    fmt.Println(coletado)\n    return coletado\n}\nfunc main() {\n    num := 0\n    fmt.Scan(&num)\n    fatorial(num)\n}\n",
+            "lines": "17"
+        }
+    ]
+}

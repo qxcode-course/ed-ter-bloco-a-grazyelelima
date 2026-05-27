@@ -4,14 +4,16 @@ import (
 	"fmt"
 )
 
-func mdc(a, b int) int {
-	
-	if b == 0 {
-		return a
+func mdc(numA, numB int) int {
+	if numA == 0 {
+		return numB
 	}
 
-	return mdc(b, a % b)
+	if numB == 0 {
+		return numA
+	}
 
+	return mdc(numB, numA % numB)
 }
 
 func main() {

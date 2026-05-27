@@ -2,8 +2,28 @@
     "patches": [
         {
             "label": "2026-04-12_13-01-58",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(a, b int) int {\n\t\n\tif b == 0 {\n\t\treturn a\n\t}\n\n\treturn mdc(b, a % b)\n\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "content": "@@ -26,16 +26,95 @@\n fmt%22%0A)%0A%0A\n+func mdc(a, b int) int %7B%0A%09%0A%09if b == 0 %7B%0A%09%09return a%0A%09%7D%0A%0A%09return mdc(b, a %25 b)%0A%0A%7D\n %0A%0Afunc m\n@@ -153,18 +153,16 @@\n &a, &b)%0A\n-%09%0A\n %09fmt.Pri\n@@ -170,12 +170,17 @@\n tln(\n+mdc(\n a, b)\n+)\n %0A%7D%0A\n",
             "lines": "21"
+        },
+        {
+            "label": "2026-05-27_16-54-01",
+            "content": "@@ -30,185 +30,8 @@\n %0A)%0A%0A\n-func mdc(numA, numB int) int %7B%0A%09if numA == 0 %7B%0A%09%09return numB%0A%09%7D%0A%0A%09if numB == 0 %7B%0A%09%09return numA%0A%09%7D%0A%0A%09result := (numA / numB)%0A%09resto := (numA %25 numB)%0A%0A%09return mdc(result, resto)%0A%7D\n %0A%0Afu\n@@ -74,16 +74,18 @@\n &a, &b)%0A\n+%09%0A\n %09fmt.Pri\n@@ -93,17 +93,12 @@\n tln(\n-mdc(\n a, b)\n-)\n %0A%7D%0A\n",
+            "lines": "14"
+        },
+        {
+            "label": "2026-05-27_17-01-42",
+            "content": "@@ -132,24 +132,81 @@\n %0A%09re\n-turn numA %25 numB\n+sult := (numA / numB)%0A%09resto := (numA %25 numB)%0A%0A%09return mdc(result, resto)\n %0A%7D%0A%0A\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-05-27_17-02-58",
+            "content": "@@ -136,18 +136,8 @@\n turn\n- mdc(numB,\n  num\n@@ -144,17 +144,16 @@\n A %25 numB\n-)\n %0A%7D%0A%0Afunc\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-05-27_17-06-30",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(numA, numB int) int {\n\tif numA == 0 {\n\t\treturn numB\n\t}\n\n\tif numB == 0 {\n\t\treturn numA\n\t}\n\n\treturn mdc(numB, numA % numB)\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "lines": "23"
         }
     ]
 }

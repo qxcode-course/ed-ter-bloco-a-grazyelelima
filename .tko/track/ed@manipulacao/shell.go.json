@@ -87,8 +87,128 @@
         },
         {
             "label": "2026-05-26_20-28-06",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc getMen(vet []int) []int {\n\tvar homens []int\n\n\tfor _, pessoa := range vet {\n\t\tif pessoa > 0 { //Se o n\u00famero for positivo, \u00e9 homem\n\t\t\thomens = append(homens, pessoa)\n\t\t}\n\t}\n\n\treturn homens //Devolve uma lista com os homens encontrados\n}\n\nfunc getCalmWomen(vet []int) []int {\n\tvar mulheresCalmas []int\n\n\tfor _, pessoa := range vet {\n\t\tif pessoa < 0 && pessoa >= -9 { //Se o n\u00famero for negativo, \u00e9 mulher e s\u00e3o calmas se o estresse for inferior a 10, ou seja, vai de -1 at\u00e9 -9\n\t\t\tmulheresCalmas = append(mulheresCalmas, pessoa)\n\t\t}\n\t}\n\n\treturn mulheresCalmas //retorno uma lista com as mulheres encontradas\n}\n\n\nfunc sortVet(vet []int) []int {\n\tcopia := append([]int{}, vet...) //cria uma c\u00f3pia do original sem alterar sua ordem na main\n\tn := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos\n\n\tfor i := 0; i < n-1; i++ {\n\n\t\tfor j := 0; j < n-i-1; j++ {\n\t\t\tif copia[j] > copia[j+1] {\n\t\t\t\tcopia[j], copia[j+1] = copia[j+1], copia[j]\n\t\t\t}\n\t\t}\n\t}\n\n\treturn copia\n\n}\n\nfunc sortStress(vet []int) []int {\n\t_ = vet\n\treturn nil\n}\n\nfunc reverse(vet []int) []int {\n\t_ = vet\n\treturn nil\n}\n\nfunc unique(vet []int) []int {\n\t_ = vet\n\treturn nil\n}\n\nfunc repeated(vet []int) []int {\n\t_ = vet\n\treturn nil\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tfmt.Print(\"$\")\n\t\tline := scanner.Text()\n\t\targs := strings.Split(line, \" \")\n\t\tfmt.Println(line)\n\n\t\tswitch args[0] {\n\t\tcase \"get_men\":\n\t\t\tprintVec(getMen(str2vet(args[1])))\n\t\tcase \"get_calm_women\":\n\t\t\tprintVec(getCalmWomen(str2vet(args[1])))\n\t\tcase \"sort\":\n\t\t\tprintVec(sortVet(str2vet(args[1])))\n\t\tcase \"sort_stress\":\n\t\t\tprintVec(sortStress(str2vet(args[1])))\n\t\tcase \"reverse\":\n\t\t\tarray := str2vet(args[1])\n\t\t\tother := reverse(array)\n\t\t\tprintVec(array)\n\t\t\tprintVec(other)\n\t\tcase \"unique\":\n\t\t\tprintVec(unique(str2vet(args[1])))\n\t\tcase \"repeated\":\n\t\t\tprintVec(repeated(str2vet(args[1])))\n\t\tcase \"end\":\n\t\t\treturn\n\t\t}\n\t}\n}\n\nfunc printVec(vet []int) {\n\tfmt.Print(\"[\")\n\tfor i, val := range vet {\n\t\tif i > 0 {\n\t\t\tfmt.Print(\", \")\n\t\t}\n\t\tfmt.Print(val)\n\t}\n\tfmt.Println(\"]\")\n}\n\nfunc str2vet(s string) []int {\n\tif s == \"[]\" {\n\t\treturn nil\n\t}\n\ts = s[1 : len(s)-1]\n\tparts := strings.Split(s, \",\")\n\tvar vet []int\n\tfor _, part := range parts {\n\t\tn, _ := strconv.Atoi(part)\n\t\tvet = append(vet, n)\n\t}\n\treturn vet\n}\n\n",
+            "content": "@@ -1082,337 +1082,27 @@\n  %7B%0A%09\n-copia := append(%5B%5Dint%7B%7D, vet...) //cria uma c%C3%B3pia do original sem alterar sua ordem na main%0A%09n := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos%0A%0A%09for i := 0; i %3C n-1; i++ %7B%0A%0A%09%09for j := 0; j %3C n-i-1; j++ %7B%0A%09%09%09if copia%5Bj%5D %3E copia%5Bj+1%5D %7B%0A%09%09%09%09copia%5Bj%5D, copia%5Bj+1%5D = copia%5Bj+1%5D, copia%5Bj%5D%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%0A%09return copia\n+_ = vet%0A%09return nil\n %0A%7D%0A%0A\n",
             "lines": "133"
+        },
+        {
+            "label": "2026-05-26_20-31-01",
+            "content": "@@ -64,16 +64,8 @@\n gs%22%0A\n-%09%22math%22%0A\n )%0A%0Af\n@@ -1310,147 +1310,32 @@\n %0A%09%09%09\n-estresseEsqueda := math.Abs(float64(copia%5Bj%5D))%0A%09%09%09estresseDireita := math.Abs(float64(copia%5Bj+1%5D))%0A%0A%09%09%09if estresseEsqueda %3E estresseDireita\n+if copia%5Bj%5D %3E copia%5Bj+1%5D\n  %7B%0A%09\n",
+            "lines": "144"
+        },
+        {
+            "label": "2026-05-26_20-33-46",
+            "content": "@@ -1571,304 +1571,27 @@\n  %7B%0A%09\n-var invertido %5B%5Dint //vetor que vai guardar os valores invertidos%0A%0A%09for i := len(vet) - 1; i %3E= 0; i-- %7B //percorre o vetor do %C3%BAltimo elemento at%C3%A9 o primeiro%0A%09%09invertido = append(invertido, vet%5Bi%5D) //vai preenchendo o vetor invertido do ultimo elemento do vet at%C3%A9 o primeiro%0A%09%7D%0A%0A%09return invertido\n+_ = vet%0A%09return nil\n %0A%7D%0A%0A\n",
+            "lines": "148"
+        },
+        {
+            "label": "2026-05-26_20-37-57",
+            "content": "@@ -1903,196 +1903,15 @@\n  %7B%0A%09\n-var unico %5B%5Dint //vetor para guardar os calores que n%C3%A3o se repetem%0A%0A%09cont := 0%0A%09for _, v := range vet %7B%0A%09%09if v == vet %7B%0A%09%09%09cont++%0A%09%09%7D%0A%0A%09%09if cont == 1 %7B%0A%09%09%09unico = append(unico, v)%0A%09%09%7D%0A%09%7D %0A\n+_ = vet\n %0A%09re\n@@ -1919,13 +1919,11 @@\n urn \n-u\n ni\n-co\n+l\n %0A%7D%0A%0A\n",
+            "lines": "153"
+        },
+        {
+            "label": "2026-05-26_20-45-44",
+            "content": "@@ -1983,17 +1983,17 @@\n  0%0A%09for \n-i\n+_\n , v := r\n@@ -2016,19 +2016,16 @@\n v == vet\n-%5Bi%5D\n  %7B%0A%09%09%09co\n",
+            "lines": "165"
+        },
+        {
+            "label": "2026-05-26_20-46-03",
+            "content": "@@ -1983,17 +1983,17 @@\n  0%0A%09for \n-_\n+i\n , v := r\n@@ -2007,43 +2007,8 @@\n t %7B%0A\n-%09%09for j := 0; j %3C len(vet); j++ %7B%0A%09\n %09%09if\n@@ -2021,14 +2021,13 @@\n vet%5B\n-j\n+i\n %5D %7B%0A\n-%09\n %09%09%09c\n@@ -2032,21 +2032,16 @@\n %09cont++%0A\n-%09%09%09%7D%0A\n %09%09%7D%0A%0A%09%09i\n",
+            "lines": "165"
+        },
+        {
+            "label": "2026-05-26_20-49-08",
+            "content": "@@ -1967,16 +1967,27 @@\n epetem%0A%0A\n+%09cont := 0%0A\n %09for _, \n@@ -2007,20 +2007,8 @@\n t %7B%0A\n-%09%09cont := 0%0A\n %09%09fo\n",
+            "lines": "167"
+        },
+        {
+            "label": "2026-05-26_20-51-23",
+            "content": "@@ -1976,33 +1976,25 @@\n for \n-i := 0; i %3C len(vet); i++\n+_, v := range vet\n  %7B%0A%09\n@@ -2045,21 +2045,16 @@\n %0A%09%09%09if v\n-et%5Bi%5D\n  == vet%5B\n@@ -2096,16 +2096,16 @@\n  == 1 %7B%0A\n+\n %09%09%09unico\n@@ -2122,21 +2122,16 @@\n unico, v\n-et%5Bi%5D\n )%0A%09%09%7D%0A%09%7D\n",
+            "lines": "167"
+        },
+        {
+            "label": "2026-05-26_20-52-57",
+            "content": "@@ -1901,43 +1901,8 @@\n nt %7B\n-%0A%0A%09copia := append(%5B%5Dint%7B%7D, vet...)\n %0A%09va\n@@ -1988,21 +1988,19 @@\n i %3C len(\n-copia\n+vet\n ); i++ %7B\n@@ -2034,21 +2034,19 @@\n j %3C len(\n-copia\n+vet\n ); j++ %7B\n@@ -2056,25 +2056,21 @@\n %09if \n-copia\n+vet\n %5Bi%5D == \n-copia\n+vet\n %5Bj%5D \n@@ -2134,21 +2134,19 @@\n (unico, \n-copia\n+vet\n %5Bi%5D)%0A%09%09%7D\n",
+            "lines": "167"
+        },
+        {
+            "label": "2026-05-26_20-55-08",
+            "content": "@@ -1893,24 +1893,59 @@\n int) %5B%5Dint %7B\n+%0A%0A%09copia := append(%5B%5Dint%7B%7D, vet...)\n %0A%09var unico \n@@ -2023,19 +2023,21 @@\n i %3C len(\n-vet\n+copia\n ); i++ %7B\n@@ -2043,25 +2043,17 @@\n %7B%0A%09%09\n-jaExiste := false\n+cont := 0\n %0A%09%09f\n@@ -2071,19 +2071,21 @@\n j %3C len(\n-vet\n+copia\n ); j++ %7B\n@@ -2095,21 +2095,25 @@\n %09if \n-vet\n+copia\n %5Bi%5D == \n-vet\n+copia\n %5Bj%5D \n@@ -2122,33 +2122,14 @@\n %09%09%09%09\n-jaExiste = true%0A%09%09%09%09break\n+cont++\n %0A%09%09%09\n@@ -2144,17 +2144,17 @@\n %09if \n-!jaExiste\n+cont == 1\n  %7B%0A%09\n@@ -2177,19 +2177,21 @@\n (unico, \n-vet\n+copia\n %5Bi%5D)%0A%09%09%7D\n",
+            "lines": "169"
+        },
+        {
+            "label": "2026-05-26_20-58-26",
+            "content": "@@ -2042,21 +2042,19 @@\n j %3C len(\n-unico\n+vet\n ); j++ %7B\n@@ -2070,21 +2070,19 @@\n t%5Bi%5D == \n-unico\n+vet\n %5Bj%5D %7B%0A%09%09\n",
+            "lines": "168"
+        },
+        {
+            "label": "2026-05-26_20-59-07",
+            "content": "@@ -2237,248 +2237,27 @@\n  %7B%0A%09\n-var seRepete %5B%5Dint%0A%0A%09contRepete := 0%0A%09for i := 0; i %3C len(vet); i++ %7B%0A%09%09for j := 0; j %3C len(vet); j++ %7B%0A%09%09%09if vet%5Bi%5D == vet%5Bj%5D %7B%0A%09%09%09%09contRepete++%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09if contRepete %3E 1 %7B%0A%09%09%09seRepete = append(seRepete, vet%5Bi%5D)%0A%09%09%7D%0A%09%7D%0A%09return seRepete\n+_ = vet%0A%09return nil\n %0A%7D%0A%0A\n",
+            "lines": "168"
+        },
+        {
+            "label": "2026-05-26_21-02-43",
+            "content": "@@ -2249,24 +2249,41 @@\n pete %5B%5Dint%0A%0A\n+%09contRepete := 0%0A\n %09for i := 0;\n@@ -2307,26 +2307,8 @@\n + %7B%0A\n-%09%09contRepete := 0%0A\n %09%09fo\n",
+            "lines": "181"
+        },
+        {
+            "label": "2026-05-26_21-04-03",
+            "content": "@@ -2385,19 +2385,21 @@\n ++%0A%09%09%09%7D%0A\n+%09%09%7D\n %0A%0A\n-%09\n %09%09if con\n@@ -2416,161 +2416,8 @@\n 1 %7B%0A\n-%09%09%09%09jaExiste := false%0A%09%09%09for l := 0; l %3C len(seRepete); l++ %7B%0A%09%09%09%09if vet%5Bi%5D == seRepete%5Bl%5D %7B%0A%09%09%09%09%09jaExiste = true%0A%09%09%09%09%09break%0A%09%09%09%09%7D%0A%0A%09%09%09%09if !jaExiste %7B%0A%09%09\n %09%09%09s\n@@ -2457,26 +2457,9 @@\n )%0A%09%09\n-%09%09%7D%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09%7D%0A\n+%7D\n %0A%09%7D%0A\n",
+            "lines": "181"
+        },
+        {
+            "label": "2026-05-26_21-09-45",
+            "content": "@@ -2385,20 +2385,16 @@\n ++%0A%09%09%09%7D%0A\n-%09%09%7D%0A\n %0A%0A%09%09%09if \n@@ -2618,16 +2618,21 @@\n %09%7D%0A%09%09%7D%0A%0A\n+%09%09%7D%0A%0A\n %09%7D%0A%09retu\n",
+            "lines": "194"
+        },
+        {
+            "label": "2026-05-26_21-12-25",
+            "content": "@@ -2304,17 +2304,16 @@\n te := 0%0A\n-%0A\n %09%09for j \n@@ -2393,16 +2393,17 @@\n %09%09%7D%0A%0A%0A%09%09\n+%09\n if contR\n@@ -2414,16 +2414,17 @@\n e %3E 1 %7B%0A\n+%09\n %09%09%09jaExi\n",
+            "lines": "193"
+        },
+        {
+            "label": "2026-05-26_21-15-07",
+            "content": "@@ -2544,21 +2544,18 @@\n k%0A%09%09%09%09%7D%0A\n-%09%09%09%7D\n %0A\n+%09\n %09%09%09if !j\n@@ -2564,16 +2564,17 @@\n xiste %7B%0A\n+%09\n %09%09%09%09seRe\n@@ -2605,16 +2605,22 @@\n vet%5Bi%5D)%0A\n+%09%09%09%09%7D%0A\n %09%09%09%7D%0A%09%09%7D\n",
+            "lines": "194"
+        },
+        {
+            "label": "2026-05-26_21-17-55",
+            "content": "@@ -2391,35 +2391,16 @@\n %09%7D%0A%09%09%7D%0A%0A\n-%09%09jaExiste := false\n %0A%09%09if co\n@@ -2414,16 +2414,37 @@\n e %3E 1 %7B%0A\n+%09%09%09jaExiste := false%0A\n %09%09%09for l\n@@ -2546,28 +2546,24 @@\n %09%09%09%09%7D%0A%09%09%09%7D%0A%09\n-%09%7D%0A%0A\n %09%09if !jaExis\n@@ -2567,16 +2567,17 @@\n xiste %7B%0A\n+%09\n %09%09%09seRep\n@@ -2603,24 +2603,29 @@\n te, vet%5Bi%5D)%0A\n+%09%09%09%7D%0A\n %09%09%7D%0A%0A%09%7D%0A%09ret\n",
+            "lines": "193"
+        },
+        {
+            "label": "2026-05-26_21-18-48",
+            "content": "@@ -2397,48 +2397,47 @@\n %0A%0A%09%09\n-if contRepete %3E 1 %7B%0A%09%09%09jaExiste := false\n+jaExiste := false%0A%09%09if contRepete %3E 1 %7B\n %0A%09%09%09\n@@ -2547,18 +2547,21 @@\n %09%7D%0A%09%09%09%7D%0A\n-%0A\n %09\n+%09%7D%0A%0A\n %09%09if !ja\n@@ -2569,17 +2569,16 @@\n xiste %7B%0A\n-%09\n %09%09%09seRep\n@@ -2610,22 +2610,18 @@\n t%5Bi%5D)%0A%09%09\n-%09\n %7D%0A\n-%09%09%7D\n %0A%09%7D%0A%09ret\n",
+            "lines": "193"
+        },
+        {
+            "label": "2026-05-26_21-19-51",
+            "content": "@@ -2286,16 +2286,35 @@\n ; i++ %7B%0A\n+%09%09contRepete := 0%0A%0A\n %09%09for j \n@@ -2372,25 +2372,96 @@\n %09%09%09%09\n-seRepete = app\n+contRepete++%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09if contRepete %3E 1 %7B%0A%09%09%09jaExiste := false%0A%09%09%09for l := 0; l %3C l\n en\n-d\n (seR\n@@ -2469,27 +2469,149 @@\n pete\n-, vet%5Bi%5D)%0A%09%09%09%09break\n+); l++ %7B%0A%09%09%09%09if vet%5Bi%5D == seRepete%5Bl%5D %7B%0A%09%09%09%09%09jaExiste = true%0A%09%09%09%09%09break%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%0A%09%09%09if !jaExiste %7B%0A%09%09%09%09seRepete = append(seRepete, vet%5Bi%5D)\n %0A%09%09%09\n",
+            "lines": "192"
+        },
+        {
+            "label": "2026-05-26_21-21-56",
+            "content": "@@ -1899,38 +1899,86 @@\n %5Dint %7B%0A%09var \n-seRepete %5B%5Dint\n+unico %5B%5Dint //vetor para guardar os calores que n%C3%A3o se repetem\n %0A%0A%09for i := \n@@ -2002,23 +2002,24 @@\n i++ %7B%0A%09%09\n-isCopia\n+jaExiste\n  := fals\n@@ -2038,17 +2038,26 @@\n  0; j %3C \n-i\n+len(unico)\n ; j++ %7B%0A\n@@ -2064,35 +2064,37 @@\n %09%09%09if vet%5Bi%5D == \n-vet\n+unico\n %5Bj%5D %7B%0A%09%09%09%09isCopi\n@@ -2087,23 +2087,24 @@\n %5D %7B%0A%09%09%09%09\n-isCopia\n+jaExiste\n  = true%0A\n@@ -2132,181 +2132,28 @@\n %09if \n-isCopia %7B%0A%09%09%09jaSalvo := false%0A%09%09%09for l := 0; l %3C len(seRepete); l++ %7B%0A%09%09%09%09if vet%5Bi%5D == seRepete%5Bl%5D %7B%0A%09%09%09%09%09jaSalvo = true%0A%09%09%09%09%09break%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%0A%09%09%09if !jaSalvo %7B%0A%09%09%09%09seRepete\n+!jaExiste %7B%0A%09%09%09unico\n  = a\n@@ -2154,32 +2154,29 @@\n co = append(\n-seRepete\n+unico\n , vet%5Bi%5D)%0A%09%09\n@@ -2175,25 +2175,22 @@\n t%5Bi%5D)%0A%09%09\n-%09\n %7D%0A%09\n-%09%7D%0A%09%7D\n+%7D %0A\n %0A%09return\n@@ -2186,32 +2186,29 @@\n %7D %0A%0A%09return \n-seRepete\n+unico\n %0A%7D%0A%0Afunc rep\n",
+            "lines": "177"
+        },
+        {
+            "label": "2026-05-26_21-24-14",
+            "content": "@@ -1907,343 +1907,8 @@\n var \n-unico %5B%5Dint //vetor para guardar os calores que n%C3%A3o se repetem%0A%0A%09for i := 0; i %3C len(vet); i++ %7B%0A%09%09jaExiste := false%0A%09%09for j := 0; j %3C len(unico); j++ %7B%0A%09%09%09if vet%5Bi%5D == unico%5Bj%5D %7B%0A%09%09%09%09jaExiste = true%0A%09%09%09%09break%0A%09%09%09%7D%0A%09%09%7D%0A%0A%09%09if !jaExiste %7B%0A%09%09%09unico = append(unico, vet%5Bi%5D)%0A%09%09%7D%0A%09%7D %0A%0A%09return unico%0A%7D%0A%0Afunc repeated(vet %5B%5Dint) %5B%5Dint %7B%0A%09vvar \n seRe\n@@ -2296,24 +2296,252 @@\n seRepete%0A%7D%0A%0A\n+func repeated(vet %5B%5Dint) %5B%5Dint %7B%0A%09var seRepete %5B%5Dint%0A%0A%09for i := 0; i %3C len(vet); i++ %7B%0A%09%09for j := 0; j %3C len(vet); j++ %7B%0A%09%09%09if vet%5Bi%5D == vet%5Bj%5D %7B%0A%09%09%09%09seRepete = append(seRepete, vet%5Bi%5D)%0A%09%09%09%09break%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%09return seRepete%0A%7D%0A%0A\n func main() \n",
+            "lines": "186"
+        },
+        {
+            "label": "2026-05-26_21-24-40",
+            "content": "@@ -2229,24 +2229,25 @@\n t) %5B%5Dint %7B%0A%09\n+v\n var seRepete\n",
+            "lines": "192"
+        },
+        {
+            "label": "2026-05-26_21-24-51",
+            "content": "@@ -2563,85 +2563,8 @@\n alvo\n- %7C%7C (len(vet) %3E 0 && vet%5B0%5D == vet%5Blen(vet)-1%5D && len(seRepete) %3C len(vet)-1)\n  %7B%0A%09\n",
+            "lines": "192"
+        },
+        {
+            "label": "2026-05-26_21-26-06",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n\t\"math\"\n)\n\nfunc getMen(vet []int) []int {\n\tvar homens []int\n\n\tfor _, pessoa := range vet {\n\t\tif pessoa > 0 { //Se o n\u00famero for positivo, \u00e9 homem\n\t\t\thomens = append(homens, pessoa)\n\t\t}\n\t}\n\n\treturn homens //Devolve uma lista com os homens encontrados\n}\n\nfunc getCalmWomen(vet []int) []int {\n\tvar mulheresCalmas []int\n\n\tfor _, pessoa := range vet {\n\t\tif pessoa < 0 && pessoa >= -9 { //Se o n\u00famero for negativo, \u00e9 mulher e s\u00e3o calmas se o estresse for inferior a 10, ou seja, vai de -1 at\u00e9 -9\n\t\t\tmulheresCalmas = append(mulheresCalmas, pessoa)\n\t\t}\n\t}\n\n\treturn mulheresCalmas //retorno uma lista com as mulheres encontradas\n}\n\n\nfunc sortVet(vet []int) []int {\n\tcopia := append([]int{}, vet...) //cria uma c\u00f3pia do original sem alterar sua ordem na main\n\tn := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos\n\n\tfor i := 0; i < n-1; i++ {\n\n\t\tfor j := 0; j < n-i-1; j++ {\n\t\t\tif copia[j] > copia[j+1] {\n\t\t\t\tcopia[j], copia[j+1] = copia[j+1], copia[j]\n\t\t\t}\n\t\t}\n\t}\n\n\treturn copia\n\n}\n\nfunc sortStress(vet []int) []int {\n\tcopia := append([]int{}, vet...) //cria uma c\u00f3pia do original sem alterar sua ordem na main\n\tn := len(vet) //Amarzeno o tamanho, ou seja, a quantidade de elementos\n\n\tfor i := 0; i < n-1; i++ {\n\n\t\tfor j := 0; j < n-i-1; j++ {\n\t\t\testresseEsqueda := math.Abs(float64(copia[j]))\n\t\t\testresseDireita := math.Abs(float64(copia[j+1]))\n\n\t\t\tif estresseEsqueda > estresseDireita {\n\t\t\t\tcopia[j], copia[j+1] = copia[j+1], copia[j]\n\t\t\t}\n\t\t}\n\t}\n\n\treturn copia\n}\n\nfunc reverse(vet []int) []int {\n\tvar invertido []int //vetor que vai guardar os valores invertidos\n\n\tfor i := len(vet) - 1; i >= 0; i-- { //percorre o vetor do \u00faltimo elemento at\u00e9 o primeiro\n\t\tinvertido = append(invertido, vet[i]) //vai preenchendo o vetor invertido do ultimo elemento do vet at\u00e9 o primeiro\n\t}\n\n\treturn invertido\n}\n\nfunc unique(vet []int) []int {\n\tvar unico []int //vetor para guardar os calores que n\u00e3o se repetem\n\n\tfor i := 0; i < len(vet); i++ {\n\t\tjaExiste := false\n\t\tfor j := 0; j < len(unico); j++ {\n\t\t\tif vet[i] == unico[j] {\n\t\t\t\tjaExiste = true\n\t\t\t\tbreak\n\t\t\t}\n\t\t}\n\n\t\tif !jaExiste {\n\t\t\tunico = append(unico, vet[i])\n\t\t}\n\t} \n\n\treturn unico\n}\n\nfunc repeated(vet []int) []int {\n\tvar seRepete []int\n\n\tfor i := 0; i < len(vet); i++ {\n\t\tisCopia := false\n\t\tfor j := 0; j < i; j++ {\n\t\t\tif vet[i] == vet[j] {\n\t\t\t\tisCopia = true\n\t\t\t\tbreak\n\t\t\t}\n\t\t}\n\n\t\tif isCopia {\n\t\t\tjaSalvo := false\n\t\t\tfor l := 0; l < len(seRepete); l++ {\n\t\t\t\tif vet[i] == seRepete[l] {\n\t\t\t\t\tjaSalvo = true\n\t\t\t\t\tbreak\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif !jaSalvo || (len(vet) > 0 && vet[0] == vet[len(vet)-1] && len(seRepete) < len(vet)-1) {\n\t\t\t\tseRepete = append(seRepete, vet[i])\n\t\t\t}\n\t\t}\n\t}\n\treturn seRepete\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tfmt.Print(\"$\")\n\t\tline := scanner.Text()\n\t\targs := strings.Split(line, \" \")\n\t\tfmt.Println(line)\n\n\t\tswitch args[0] {\n\t\tcase \"get_men\":\n\t\t\tprintVec(getMen(str2vet(args[1])))\n\t\tcase \"get_calm_women\":\n\t\t\tprintVec(getCalmWomen(str2vet(args[1])))\n\t\tcase \"sort\":\n\t\t\tprintVec(sortVet(str2vet(args[1])))\n\t\tcase \"sort_stress\":\n\t\t\tprintVec(sortStress(str2vet(args[1])))\n\t\tcase \"reverse\":\n\t\t\tarray := str2vet(args[1])\n\t\t\tother := reverse(array)\n\t\t\tprintVec(array)\n\t\t\tprintVec(other)\n\t\tcase \"unique\":\n\t\t\tprintVec(unique(str2vet(args[1])))\n\t\tcase \"repeated\":\n\t\t\tprintVec(repeated(str2vet(args[1])))\n\t\tcase \"end\":\n\t\t\treturn\n\t\t}\n\t}\n}\n\nfunc printVec(vet []int) {\n\tfmt.Print(\"[\")\n\tfor i, val := range vet {\n\t\tif i > 0 {\n\t\t\tfmt.Print(\", \")\n\t\t}\n\t\tfmt.Print(val)\n\t}\n\tfmt.Println(\"]\")\n}\n\nfunc str2vet(s string) []int {\n\tif s == \"[]\" {\n\t\treturn nil\n\t}\n\ts = s[1 : len(s)-1]\n\tparts := strings.Split(s, \",\")\n\tvar vet []int\n\tfor _, part := range parts {\n\t\tn, _ := strconv.Atoi(part)\n\t\tvet = append(vet, n)\n\t}\n\treturn vet\n}\n\n",
+            "lines": "192"
         }
     ]
 }

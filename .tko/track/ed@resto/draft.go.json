@@ -2,8 +2,28 @@
     "patches": [
         {
             "label": "2026-04-12_12-42-12",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc divisao(x int) {\n    if x == 0 {\n        return\n    }\n\n    divisao(x / 2)\n\n    fmt.Printf(\"%d %d\\n\", x/2, x % 2)\n}\n\nfunc main() {\n    \n    n := 0\n    fmt.Scan(&n)\n\n    if n == 0 {\n        return \n    }\n\n    divisao(n)\n    \n}\n",
+            "content": "@@ -77,16 +77,73 @@\n turn\n- 0\n %0A    %7D\n+%0A%0A    divisao(x / 2)%0A%0A    fmt.Printf(%22%25d %25d%5Cn%22, x/2, x %25 2)\n %0A%7D%0A%0A\n@@ -190,16 +190,32 @@\n an(&n)%0A%0A\n+    if n == 0 %7B%0A\n         \n",
             "lines": "26"
+        },
+        {
+            "label": "2026-05-26_21-28-48",
+            "content": "@@ -85,58 +85,8 @@\n    %7D\n-%0A%0A    div, resto := x %25 2%0A%0A    return divisao(div)\n %0A%7D%0A%0A\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-05-26_21-30-24",
+            "content": "@@ -40,20 +40,16 @@\n o(x int)\n- int\n  %7B%0A    i\n@@ -90,16 +90,23 @@\n %0A    div\n+, resto\n  := x %25 \n@@ -183,16 +183,39 @@\n an(&n)%0A%0A\n+        return %0A    %7D%0A%0A\n     divi\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-05-26_21-31-24",
+            "content": "@@ -40,16 +40,20 @@\n o(x int)\n+ int\n  %7B%0A    i\n@@ -78,16 +78,17 @@\n  return \n+0\n %0A    %7D%0A%0A\n@@ -98,53 +98,41 @@\n  div\n-isao(x/2)%0A%0A    fmt.Printf(%22%25d %25d%5Cn%22, x/2, x%252\n+ := x %25 2%0A%0A    return divisao(div\n )%0A%7D%0A\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-05-26_21-33-49",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc divisao(x int) {\n    if x == 0 {\n        return \n    }\n\n    divisao(x/2)\n\n    fmt.Printf(\"%d %d\\n\", x/2, x%2)\n}\n\nfunc main() {\n    \n    n := 0\n    fmt.Scan(&n)\n\n    divisao(n)\n    \n}\n",
+            "lines": "22"
         }
     ]
 }
