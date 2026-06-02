@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-01_20-49-52",
+            "content": "@@ -18,255 +18,14 @@\n ort \n-(%0A%09\n %22fmt%22%0A\n-%09%22strconv%22%0A    %22strings%22%0A)%0A%0A%0Afunc imprimindoVetor(vet %5B%5Dint) %7B%0A    primos := make(%5B%5Dstring, len(vet))%0A    for i, v := range vet %7B%0A        primos%5Bi%5D = strconv.Itoa(v)%0A    %7D%0A%0A    v := strings.Join(primos, %22, %22)%0A    fmt.Printf(%22%5B%25s%5D%5Cn%22, v)%0A%7D\n %0A%0Afu\n@@ -649,23 +649,19 @@\n     \n-imprimindoVetor\n+fmt.Println\n (res\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-06-01_20-57-24",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n    \"strings\"\n)\n\n\nfunc imprimindoVetor(vet []int) {\n    primos := make([]string, len(vet))\n    for i, v := range vet {\n        primos[i] = strconv.Itoa(v)\n    }\n\n    v := strings.Join(primos, \", \")\n    fmt.Printf(\"[%s]\\n\", v)\n}\n\nfunc priminhos(n int, atual int, lista []int) []int {\n    if len(lista) == n {\n        return lista\n    }\n\n    if eh_primo(atual, 2) {\n        lista = append(lista, atual)\n    }\n\n    return priminhos(n, atual+1, lista)\n}\n\n// x: n\u00famero que est\u00e1 sendo testado\n// div: divisor que est\u00e1 sendo testado\nfunc eh_primo(x int, div int) bool {\n\tif x < 2 {\n\t\treturn false\n\t}\n\n\tif x == 2 {\n\t\treturn true\n\t}\n\n\tif div * div > x {\n\t\treturn true\n\t}\n\n\tif x % div == 0 {\n\t\treturn false\n\t}\n\n\treturn eh_primo(x, div + 1)\n}\n\nfunc main() {\n\tvar x int\n\tfmt.Scan(&x)\n\tlistaInicial := make([]int, 0)\n    result := priminhos(x, 2, listaInicial)\n    imprimindoVetor(result)\n}\n",
+            "lines": "60"
+        }
+    ]
+}

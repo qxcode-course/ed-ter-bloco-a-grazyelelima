@@ -9,24 +9,24 @@ import (
 )
 
 func EhVazio(vet []int) bool {
-	return fmt.Sprint(vet) == "[]"
+	return fmt.Sprintf("%v", vet) == "[]" //Transformo em string e verifico se é igual a "[]", significa que é vazio
 }
 
 // não altere a assinatura
 func equals(a []int, b []int) bool {
 	if EhVazio(a) && EhVazio(b) {
-		return true
+		return true //Se ambos são vazios, eles são iguais
 	}
 
 	if EhVazio(a) || EhVazio(b) {
-		return false
+		return false //Se só um dos dois é vazio, então retorna falso, eles não são iguais
 	}
-	
+
 	if a[0] != b[0] {
-		return false
+		return false //Se o primeiro elemento do vetor a for diferente do primeiro elemento do vetor b, retorna falso, não são iguais
 	}
-	
-	return equals(a[1:], b[1:])
+
+	return equals(a[1:], b[1:])//Chamada recursiva, compara se os primeiros elementos são iguais, dps corta e o próximo elemento vira o primeiro e assim por diante, até o vetor ficar vazio...caso seja igual
 
 }
 

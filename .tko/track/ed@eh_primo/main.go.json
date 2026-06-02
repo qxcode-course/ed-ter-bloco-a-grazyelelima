@@ -12,8 +12,13 @@
         },
         {
             "label": "2026-04-29_11-24-41",
-            "content": "package main\n\nimport \"fmt\"\n\n// x: n\u00famero que est\u00e1 sendo testado\n// div: divisor que est\u00e1 sendo testado\nfunc eh_primo(x int, div int) bool {\n\tif x < 2 {\n\t\treturn false\n\t}\n\n\tif x == 2 {\n\t\treturn true\n\t} \n\n\tif x % div == 0 {\n\t\treturn false\n\t}\n\n\tif div * div > x {\n\t\treturn true\n\t}\n\n\treturn eh_primo(x, div + 2)\n\n}\n\nfunc main() {\n\tvar x int\n\tfmt.Scan(&x)\n\tif eh_primo(x, 2) {\n\t\tfmt.Println(\"true\")\n\t} else {\n\t\tfmt.Println(\"false\")\n\t}\n}\n",
+            "content": "@@ -197,27 +197,27 @@\n e%0A%09%7D\n+ \n %0A%0A%09if \n-div *\n+x %25\n  div \n-%3E x\n+== 0\n  %7B%0A%09\n@@ -220,27 +220,28 @@\n  %7B%0A%09%09return \n-tru\n+fals\n e%0A%09%7D%0A%0A%09if x \n@@ -234,36 +234,37 @@\n lse%0A%09%7D%0A%0A%09if \n-x %25\n+div *\n  div \n-== 0\n+%3E x\n  %7B%0A%09%09return \n@@ -259,28 +259,27 @@\n  %7B%0A%09%09return \n-fals\n+tru\n e%0A%09%7D%0A%0A%09retur\n@@ -301,16 +301,17 @@\n iv + 2)%0A\n+%0A\n %7D%0A%0Afunc \n",
             "lines": "36"
+        },
+        {
+            "label": "2026-05-29_17-13-48",
+            "content": "package main\n\nimport \"fmt\"\n\n// x: n\u00famero que est\u00e1 sendo testado\n// div: divisor que est\u00e1 sendo testado\nfunc eh_primo(x int, div int) bool {\n\tif x < 2 {\n\t\treturn false\n\t}\n\n\tif x == 2 {\n\t\treturn true\n\t}\n\n\tif div * div > x {\n\t\treturn true\n\t}\n\n\tif x % div == 0 {\n\t\treturn false\n\t}\n\n\treturn eh_primo(x, div + 2)\n}\n\nfunc main() {\n\tvar x int\n\tfmt.Scan(&x)\n\tif eh_primo(x, 2) {\n\t\tfmt.Println(\"true\")\n\t} else {\n\t\tfmt.Println(\"false\")\n\t}\n}\n",
+            "lines": "35"
         }
     ]
 }

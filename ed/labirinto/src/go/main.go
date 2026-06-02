@@ -11,35 +11,50 @@ type Pos struct {
 }
 
 func getNeig(p Pos) []Pos {
-	return []Pos{{p.l, p.c - 1}, {p.l - 1, p.c}, {p.l, p.c + 1}, {p.l + 1, p.c}}
+	return []Pos{
+			{p.l - 1, p.c}, //Cima
+			{p.l + 1, p.c}, //Baixo
+			{p.l, p.c - 1}, //Esqueda
+			{p.l, p.c + 1}, //Direita
+    }
 }
 
 func inside(grid [][]rune, p Pos) bool {
-	return !(p.l < 0 || p.l >= len(grid) || p.c < 0 || p.c >= len(grid[0]))
+	nl := len(grid)
+	nc := len(grid[0])
+	
+	if p.c < 0 || p.c >= nc || p.l < 0 || p.l >= nl {
+		return false
+	} 
+
+	return true
 }
 
 func match(grid [][]rune, p Pos, value rune) bool {
-	return inside(grid, p) && grid[p.l][p.c] == value
+	return inside(grid, p) && grid[p.l][p.c] == value //Verifico se a posição é válida e se o caractere bate com o valor esperado
 }
 
 // Função recursiva que tenta encontrar o caminho do início ao fim
 func search(grid [][]rune, startPos, endPos Pos, visited[][]bool) bool {
+	visited[startPos.l][startPos.c] = true //Marca o caminho como visitado para não andar em círculo
+	grid[startPos.l][startPos.c] = '.'
 	if startPos == endPos {
-		grid[startPos.l][startPos.c] = '.'
-		return true
+		return true //Se a posição inicial for igual a posição final, retorne true
 	}
 
-	visited[startPos.l][startPos.c] = true
-	
-	for _, nb := range getNeig(startPos) {
-		if inside(grid, nb) && !visited[nb.l][nb.c] && grid[nb.l][nb.c] != '#' {
-			if search(grid, nb, endPos, visited) {
-				
-				grid[startPos.l][startPos.c] = '.'
+	neighbors := getNeig(startPos) // pega os 4 vizinhos
+
+	for _, nextPos := range neighbors {
+
+		if match(grid, nextPos, ' ') && !visited[nextPos.l][nextPos.c] {
+
+			if search(grid, nextPos,  endPos, visited) {
 				return true
 			}
 		}
 	}
+	grid[startPos.l][startPos.c] = ' '
+
 	return false
 
 }

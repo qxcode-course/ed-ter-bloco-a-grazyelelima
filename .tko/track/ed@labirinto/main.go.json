@@ -37,8 +37,93 @@
         },
         {
             "label": "2026-04-28_11-40-08",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc getNeig(p Pos) []Pos {\n\treturn []Pos{{p.l, p.c - 1}, {p.l - 1, p.c}, {p.l, p.c + 1}, {p.l + 1, p.c}}\n}\n\nfunc inside(grid [][]rune, p Pos) bool {\n\treturn !(p.l < 0 || p.l >= len(grid) || p.c < 0 || p.c >= len(grid[0]))\n}\n\nfunc match(grid [][]rune, p Pos, value rune) bool {\n\treturn inside(grid, p) && grid[p.l][p.c] == value\n}\n\n// Fun\u00e7\u00e3o recursiva que tenta encontrar o caminho do in\u00edcio ao fim\nfunc search(grid [][]rune, startPos, endPos Pos, visited[][]bool) bool {\n\tif startPos == endPos {\n\t\tgrid[startPos.l][startPos.c] = '.'\n\t\treturn true\n\t}\n\n\tvisited[startPos.l][startPos.c] = true\n\t\n\tfor _, nb := range getNeig(startPos) {\n\t\tif inside(grid, nb) && !visited[nb.l][nb.c] && grid[nb.l][nb.c] != '#' {\n\t\t\tif search(grid, nb, endPos, visited) {\n\t\t\t\tgrid[startPos.l][startPos.c] = '.'\n\t\t\t\treturn true\n\t\t\t}\n\t\t}\n\t}\n\treturn false\n\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tnl_nc := scanner.Text()\n\tvar nl, nc int\n\tfmt.Sscanf(nl_nc, \"%d %d\", &nl, &nc)\n\tgrid := make([][]rune, nl)\n\n\t// L\u00ea a gridriz\n\tfor i := range nl {\n\t\tscanner.Scan()\n\t\tgrid[i] = []rune(scanner.Text())\n\t}\n\n\t// Procura posi\u00e7\u00f5es de in\u00edcio e endPos e conserta para _\n\tvar startPos, endPos Pos\n\tfor l := range nl {\n\t\tfor c := range nc {\n\t\t\tif grid[l][c] == 'I' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tstartPos = Pos{l, c}\n\t\t\t}\n\t\t\tif grid[l][c] == 'F' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tendPos = Pos{l, c}\n\t\t\t}\n\t\t}\n\t}\n\n\tvisited := make([][]bool, nl)\n\tfor i := range visited {\n\t\tvisited[i] = make([]bool, nc)\n\t}\n\n\tsearch(grid, startPos, endPos, visited)\n\n\t// Imprime o labirinto final\n\tfor _, line := range grid {\n\t\tfmt.Println(string(line))\n\t}\n}\n",
+            "content": "@@ -118,44 +118,30 @@\n Pos%7B\n-%0A%09%09%09%7Bp.l - 1, p.c%7D, //Cima%0A%09%09%09\n+%7Bp.l, p.c - 1%7D, \n %7Bp.l \n-+\n+-\n  1, \n@@ -150,19 +150,8 @@\n c%7D, \n-//Baixo%0A%09%09%09\n %7Bp.l\n@@ -160,57 +160,28 @@\n p.c \n--\n++\n  1%7D, \n-//Esqueda%0A%09%09%09%7Bp.l, p.c\n+%7Bp.l\n  + 1\n-%7D\n , \n-//Direita%0A    \n+p.c%7D\n %7D%0A%7D%0A\n@@ -227,53 +227,20 @@\n  %7B%0A%09\n-nl := len(grid)%0A%09nc := len(grid%5B0%5D)%0A%09%0A%09if p.c\n+return !(p.l\n  %3C 0\n@@ -249,22 +249,29 @@\n %7C p.\n-c\n+l\n  %3E= \n-nc\n+len(grid)\n  %7C%7C p.\n-l\n+c\n  %3C 0\n@@ -280,50 +280,26 @@\n %7C p.\n-l\n+c\n  %3E= \n-nl %7B%0A%09%09return false%0A%09%7D %0A%0A%09return true\n+len(grid%5B0%5D))\n %0A%7D%0A%0A\n@@ -351,16 +351,65 @@\n bool %7B%0A%09\n+return inside(grid, p) && grid%5Bp.l%5D%5Bp.c%5D == value\n %0A%7D%0A%0A// F\n@@ -545,16 +545,374 @@\n bool %7B%0A%09\n+if startPos == endPos %7B%0A%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'%0A%09%09return true%0A%09%7D%0A%0A%09visited%5BstartPos.l%5D%5BstartPos.c%5D = true%0A%09%0A%09for _, nb := range getNeig(startPos) %7B%0A%09%09if inside(grid, nb) && !visited%5Bnb.l%5D%5Bnb.c%5D && grid%5Bnb.l%5D%5Bnb.c%5D != '#' %7B%0A%09%09%09if search(grid, nb, endPos, visited) %7B%0A%09%09%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'%0A%09%09%09%09return true%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%09return false\n %0A%0A%7D%0A%0Afun\n",
             "lines": "86"
+        },
+        {
+            "label": "2026-05-29_16-22-32",
+            "content": "@@ -459,133 +459,8 @@\n  %7B%0A%09\n-return inside(grid, p) && grid%5Bp.l%5D%5Bp.c%5D == value //Verifico se a posi%C3%A7%C3%A3o %C3%A9 v%C3%A1lida e se o caractere bate com o valor esperado\n %0A%7D%0A%0A\n@@ -604,63 +604,8 @@\n  %7B%0A%09\n-if startPos == endPos %7B%0A%09%09return true%0A%09%7D%0A%0A%09return false\n %0A%0A%7D%0A\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-05-29_16-26-33",
+            "content": "@@ -766,410 +766,8 @@\n true\n- //Se a posi%C3%A7%C3%A3o inicial for igual a posi%C3%A7%C3%A3o final, retorne true%0A%09%7D%0A%0A%09visited%5BstartPos.l%5D%5BstartPos.c%5D = true //Marca o caminho como visitado para n%C3%A3o andar em c%C3%ADrculo%0A%0A%09neighbors := getNeig(startPos) // pega os 4 vizinhos%0A%0A%09for _, nextPos := range neighbors %7B%0A%0A%09%09if match(grid, nextPos, ' ') && !visited%5BnextPos.l%5D%5BnextPos.c%5D %7B%0A%09%09%09grid%5BnextPos.l%5D%5BnextPos.c%5D = '.'%0A%0A%09%09%09//if search(grid, nextPos,  )%0A%09%09%7D%0A%0A\n %0A%09%7D%0A\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-05-29_16-36-30",
+            "content": "@@ -1129,16 +1129,18 @@\n '.'%0A%0A%09%09%09\n+//\n if searc\n@@ -1161,47 +1161,9 @@\n s,  \n-endPos, visited) %7B%0A%09%09%09%09return true%0A%09%09%09%7D\n+)\n %0A%09%09%7D\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-05-29_16-37-07",
+            "content": "@@ -1198,45 +1198,8 @@\n %09%09%09%7D\n-%0A%0A%09%09%09grid%5BnextPos.l%5D%5BnextPos.c%5D = ' '\n %0A%09%09%7D\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-05-29_16-38-18",
+            "content": "@@ -1155,21 +1155,19 @@\n xtPos,  \n-start\n+end\n Pos, vis\n@@ -1232,24 +1232,26 @@\n %5D = ' '%0A%09%09%7D%0A\n+%0A%0A\n %09%7D%0A%0A%09return \n",
+            "lines": "106"
+        },
+        {
+            "label": "2026-05-29_16-39-40",
+            "content": "@@ -1155,19 +1155,21 @@\n xtPos,  \n-end\n+start\n Pos, vis\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-05-29_16-39-50",
+            "content": "@@ -951,19 +951,21 @@\n getNeig(\n-end\n+start\n Pos) // \n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-05-29_16-40-25",
+            "content": "@@ -951,21 +951,19 @@\n getNeig(\n-start\n+end\n Pos) // \n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-05-29_16-40-32",
+            "content": "@@ -1089,17 +1089,16 @@\n os.c%5D %7B%0A\n-%0A\n %09%09%09grid%5B\n@@ -1200,80 +1200,8 @@\n %09%7D%0A%0A\n-%09%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = 'I'%0A%09%09%09grid%5BendPos.l%5D%5BendPos.c%5D = 'F'%0A\n %09%09%09g\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-05-29_16-45-09",
+            "content": "@@ -1197,16 +1197,88 @@\n e%0A%09%09%09%7D%0A%0A\n+%09%09%09grid%5BstartPos.l%5D%5BstartPos.c%5D = 'I'%0A%09%09%09grid%5BendPos.l%5D%5BendPos.c%5D = 'F'%0A\n %09%09%09grid%5B\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-05-29_16-45-37",
+            "content": "@@ -931,44 +931,8 @@\n culo\n-%0A%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'\n %0A%0A%09n\n@@ -1093,18 +1093,16 @@\n %5D %7B%0A%0A%09%09%09\n-//\n grid%5Bnex\n",
+            "lines": "105"
+        },
+        {
+            "label": "2026-05-29_16-50-00",
+            "content": "@@ -1167,44 +1167,8 @@\n  '.'\n-%0A%09%09%09grid%5BnextPos.l%5D%5BnextPos.c%5D = ' '\n %0A%0A%09%09\n@@ -1234,26 +1234,24 @@\n ue%0A%09%09%09%7D%0A%0A%09%09%09\n-//\n grid%5BnextPos\n",
+            "lines": "106"
+        },
+        {
+            "label": "2026-05-29_16-50-33",
+            "content": "@@ -1163,16 +1163,52 @@\n c%5D = '.'\n+%0A%09%09%09grid%5BnextPos.l%5D%5BnextPos.c%5D = ' '\n %0A%0A%09%09%09if \n@@ -1319,44 +1319,8 @@\n %7D%0A%09%7D\n-%0A%09grid%5BstartPos.l%5D%5BstartPos.c%5D = ' '\n %0A%0A%09r\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-05-29_16-51-36",
+            "content": "@@ -1180,28 +1180,27 @@\n earch(grid, \n-star\n+nex\n tPos,  endPo\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-05-29_16-52-39",
+            "content": "@@ -1180,27 +1180,28 @@\n earch(grid, \n-nex\n+star\n tPos,  endPo\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-05-29_16-52-46",
+            "content": "@@ -724,16 +724,122 @@\n  bool %7B%0A\n+%09if startPos == endPos %7B%0A%09%09return true //Se a posi%C3%A7%C3%A3o inicial for igual a posi%C3%A7%C3%A3o final, retorne true%0A%09%7D%0A%0A\n %09visited\n@@ -967,113 +967,8 @@\n  '.'\n-%0A%09if startPos == endPos %7B%0A%09%09return true //Se a posi%C3%A7%C3%A3o inicial for igual a posi%C3%A7%C3%A3o final, retorne true%0A%09%7D\n %0A%0A%09n\n@@ -1126,16 +1126,55 @@\n s.c%5D %7B%0A%0A\n+%09%09%09//grid%5BnextPos.l%5D%5BnextPos.c%5D = '.'%0A%0A\n %09%09%09if se\n@@ -1229,24 +1229,63 @@\n rn true%0A%09%09%09%7D\n+%0A%0A%09%09%09//grid%5BnextPos.l%5D%5BnextPos.c%5D = ' '\n %0A%09%09%7D%0A%09%7D%0A%09gri\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-05-29_16-54-12",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc getNeig(p Pos) []Pos {\n\treturn []Pos{\n\t\t\t{p.l - 1, p.c}, //Cima\n\t\t\t{p.l + 1, p.c}, //Baixo\n\t\t\t{p.l, p.c - 1}, //Esqueda\n\t\t\t{p.l, p.c + 1}, //Direita\n    }\n}\n\nfunc inside(grid [][]rune, p Pos) bool {\n\tnl := len(grid)\n\tnc := len(grid[0])\n\t\n\tif p.c < 0 || p.c >= nc || p.l < 0 || p.l >= nl {\n\t\treturn false\n\t} \n\n\treturn true\n}\n\nfunc match(grid [][]rune, p Pos, value rune) bool {\n\treturn inside(grid, p) && grid[p.l][p.c] == value //Verifico se a posi\u00e7\u00e3o \u00e9 v\u00e1lida e se o caractere bate com o valor esperado\n}\n\n// Fun\u00e7\u00e3o recursiva que tenta encontrar o caminho do in\u00edcio ao fim\nfunc search(grid [][]rune, startPos, endPos Pos, visited[][]bool) bool {\n\tvisited[startPos.l][startPos.c] = true //Marca o caminho como visitado para n\u00e3o andar em c\u00edrculo\n\tgrid[startPos.l][startPos.c] = '.'\n\tif startPos == endPos {\n\t\treturn true //Se a posi\u00e7\u00e3o inicial for igual a posi\u00e7\u00e3o final, retorne true\n\t}\n\n\tneighbors := getNeig(startPos) // pega os 4 vizinhos\n\n\tfor _, nextPos := range neighbors {\n\n\t\tif match(grid, nextPos, ' ') && !visited[nextPos.l][nextPos.c] {\n\n\t\t\tif search(grid, nextPos,  endPos, visited) {\n\t\t\t\treturn true\n\t\t\t}\n\t\t}\n\t}\n\tgrid[startPos.l][startPos.c] = ' '\n\n\treturn false\n\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tnl_nc := scanner.Text()\n\tvar nl, nc int\n\tfmt.Sscanf(nl_nc, \"%d %d\", &nl, &nc)\n\tgrid := make([][]rune, nl)\n\n\t// L\u00ea a gridriz\n\tfor i := range nl {\n\t\tscanner.Scan()\n\t\tgrid[i] = []rune(scanner.Text())\n\t}\n\n\t// Procura posi\u00e7\u00f5es de in\u00edcio e endPos e conserta para _\n\tvar startPos, endPos Pos\n\tfor l := range nl {\n\t\tfor c := range nc {\n\t\t\tif grid[l][c] == 'I' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tstartPos = Pos{l, c}\n\t\t\t}\n\t\t\tif grid[l][c] == 'F' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tendPos = Pos{l, c}\n\t\t\t}\n\t\t}\n\t}\n\n\tvisited := make([][]bool, nl)\n\tfor i := range visited {\n\t\tvisited[i] = make([]bool, nc)\n\t}\n\n\tsearch(grid, startPos, endPos, visited)\n\n\t// Imprime o labirinto final\n\tfor _, line := range grid {\n\t\tfmt.Println(string(line))\n\t}\n}\n",
+            "lines": "102"
         }
     ]
 }

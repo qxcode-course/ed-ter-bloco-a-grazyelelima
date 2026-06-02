@@ -1,0 +1,63 @@
+2026-06-01 16:25:44, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:44, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:45, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:45, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:46, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:46, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:46, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:48, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:49, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:49, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:50, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:50, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:50, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:50, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:52, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 16:25:53, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-06-01 19:51:57, MOVE, v:1, k:ed@vetequals, mode:PICK
+2026-06-01 19:55:54, MOVE, v:1, k:ed@vetequals, mode:EDIT
+2026-06-01 20:01:07, MOVE, v:1, k:ed@vetequals, mode:EDIT
+2026-06-01 20:06:06, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:100, size:55
+2026-06-01 20:06:22, MOVE, v:1, k:ed@vetequals, mode:EDIT
+2026-06-01 20:08:21, MOVE, v:1, k:ed@vetequals, mode:BACK
+2026-06-01 20:08:30, SELF, v:1, k:ed@vetequals, self:1, rate:100
+2026-06-01 20:09:01, MOVE, v:1, k:ed@enesimo, mode:DOWN
+2026-06-01 20:09:02, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-06-01 20:10:02, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-06-01 20:10:06, MOVE, v:1, k:ed@eh_primo, mode:PICK
+2026-06-01 20:10:29, MOVE, v:1, k:ed@eh_primo, mode:BACK
+2026-06-01 20:10:33, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-06-01 20:08:19, MOVE, v:1, k:ed@vetequals, mode:EDIT
+2026-06-01 20:09:01, MOVE, v:1, k:ed@enesimo, mode:EDIT
+2026-06-01 20:09:01, MOVE, v:1, k:ed@enesimo, mode:EDIT
+2026-06-01 20:10:24, MOVE, v:1, k:ed@enesimo, mode:EDIT
+2026-06-01 20:29:35, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:0, size:44
+2026-06-01 20:30:01, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:0, size:45
+2026-06-01 20:30:13, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:0, size:45
+2026-06-01 20:31:32, MOVE, v:1, k:ed@enesimo, mode:EDIT
+2026-06-01 20:31:36, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100, size:41
+2026-06-01 20:31:49, SELF, v:1, k:ed@enesimo, self:1, rate:100
+2026-06-01 20:31:52, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-06-01 20:34:55, MOVE, v:1, k:ed@priminhos, mode:DOWN
+2026-06-01 20:34:56, MOVE, v:1, k:ed@priminhos, mode:PICK
+2026-06-01 20:35:29, MOVE, v:1, k:ed@priminhos, mode:BACK
+2026-06-01 20:35:38, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-06-01 20:34:55, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:34:55, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:36:32, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:41:32, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:46:33, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:49:09, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100
+2026-06-01 20:49:18, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-06-01 20:49:39, SELF, v:1, k:ed@priminhos, self:1
+2026-06-01 20:49:50, MOVE, v:1, k:ed@priminhos, mode:PICK
+2026-06-01 20:49:52, EXEC, v:1, k:ed@priminhos, mode:FULL, rate:25, size:46
+2026-06-01 20:50:16, EXEC, v:1, k:ed@priminhos, mode:FULL, rate:25
+2026-06-01 20:49:01, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:56:32, MOVE, v:1, k:ed@priminhos, mode:EDIT
+2026-06-01 20:57:24, EXEC, v:1, k:ed@priminhos, mode:FULL, rate:100, size:60
+2026-06-01 20:57:34, MOVE, v:1, k:ed@priminhos, mode:BACK
+2026-06-01 20:57:55, SELF, v:1, k:ed@priminhos, self:1, rate:100
+2026-06-01 20:57:57, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-06-01 20:57:59, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-06-01 20:58:02, SELF, v:1, k:ed@enesimo, self:1, rate:100

@@ -26,10 +26,8 @@ sources:
   quests: null
 expanded:
 - ed@vector
-- ed@backtrack
-- ed@rec
 - ed@list
-- ed@dfs
+- ed@backtrack
 - ed@linear
 flags:
   inbox: all
@@ -38,5 +36,5 @@ flags:
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: ed@labirinto
-selected_index: 10
+selected: ed@vetbuild
+selected_index: 12

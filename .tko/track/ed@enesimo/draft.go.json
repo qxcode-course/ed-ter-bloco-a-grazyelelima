@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-01_20-29-35",
+            "content": "@@ -147,50 +147,8 @@\n   %7D%0A\n-        return acharEnesimo(n-1, atual+1)%0A\n     \n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-06-01_20-30-01",
+            "content": "@@ -212,24 +212,26 @@\n harEnesimo(n\n+-1\n , atual+1)%0A%7D\n",
+            "lines": "45"
+        },
+        {
+            "label": "2026-06-01_20-30-13",
+            "content": "@@ -555,38 +555,84 @@\n x)%0A%09\n-fmt.Println(acharEnesimo(x, 2))\n+if eh_primo(x, 2) %7B%0A%09%09fmt.Println(%22true%22)%0A%09%7D else %7B%0A%09%09fmt.Println(%22false%22)%0A%09%7D\n %0A%7D%0A\n",
+            "lines": "45"
+        },
+        {
+            "label": "2026-06-01_20-31-36",
+            "content": "package main\n\nimport \"fmt\"\n\n\nfunc acharEnesimo(n, atual int) int {\n    if eh_primo(atual, 2) {\n        if n == 1 {\n            return atual\n        }\n        return acharEnesimo(n-1, atual+1)\n    }\n    return acharEnesimo(n, atual+1)\n}\n// x: n\u00famero que est\u00e1 sendo testado\n// div: divisor que est\u00e1 sendo testado\nfunc eh_primo(x int, div int) bool {\n\tif x < 2 {\n\t\treturn false\n\t}\n\n\tif x == 2 {\n\t\treturn true\n\t}\n\n\tif div * div > x {\n\t\treturn true\n\t}\n\n\tif x % div == 0 {\n\t\treturn false\n\t}\n\n\treturn eh_primo(x, div + 1)\n}\n\nfunc main() {\n\tvar x int\n\tfmt.Scan(&x)\n\tfmt.Println(acharEnesimo(x, 2))\n}\n",
+            "lines": "41"
+        }
+    ]
+}
