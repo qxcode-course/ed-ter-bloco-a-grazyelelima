@@ -1,0 +1,8 @@
+2026-06-02 16:44:57, MOVE, v:1, k:ed@wordsearch, mode:DOWN
+2026-06-02 16:44:58, MOVE, v:1, k:ed@wordsearch, mode:PICK
+2026-06-02 16:44:57, MOVE, v:1, k:ed@wordsearch, mode:EDIT
+2026-06-02 16:44:57, MOVE, v:1, k:ed@wordsearch, mode:EDIT
+2026-06-02 16:44:57, MOVE, v:1, k:ed@wordsearch, mode:EDIT
+2026-06-02 16:44:57, MOVE, v:1, k:ed@wordsearch, mode:EDIT
+2026-06-02 16:46:20, EXEC, v:1, k:ed@wordsearch, mode:FULL, rate:25, size:62
+2026-06-02 19:40:26, MOVE, v:1, k:ed@vetbuild, mode:PICK

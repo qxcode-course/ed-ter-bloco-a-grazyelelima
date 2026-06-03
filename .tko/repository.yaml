@@ -26,9 +26,8 @@ sources:
   quests: null
 expanded:
 - ed@vector
-- ed@list
-- ed@backtrack
 - ed@linear
+- ed@list
 flags:
   inbox: all
   panel: skills
@@ -37,4 +36,4 @@ flags:
   show_time: 'true'
 lang: go
 selected: ed@vetbuild
-selected_index: 12
+selected_index: 5
