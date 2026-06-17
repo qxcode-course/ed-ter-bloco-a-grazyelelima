@@ -2,8 +2,13 @@
     "patches": [
         {
             "label": "2026-05-05_18-31-38",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}\n",
+            "content": "@@ -10,693 +10,65 @@\n ain%0A\n-%0A\n import \n-(%0A%09%22math/rand%22%0A%09\n %22fmt%22%0A\n-)%0A%0A\n func \n-ri(inf, sup int) float64 %7B%0A%09return float64(rand.Intn(sup-inf+1) + inf)%0A%7D%0A%0Afunc circulos(pen *Pen, dist float64) %7B%0A%09if dist %3C 6 %7B%0A%09%09return%0A%09%7D%0A%0A%09angulo := 60.0%0A%09fator := 0.339%0A%0A%09pen.DrawCircle(dist)%0A%09for range 6 %7B%0A%09%09pen.SetLineWidth(0.99)%0A%09%09pen.Right(angulo)%0A%0A%09%09pen.Up()%0A%09%09pen.Walk(dist)%0A%09%09pen.Down()%0A%0A%09%09pen.DrawCircle(dist *fator)%0A%09%09circulos(pen, dist *fator)%0A%0A%09%09pen.Up()%0A%09%09pen.Walk(-dist)%0A%09%09pen.Down()%0A%09%7D%0A%7D%0Afunc main() %7B%0A    pen := NewPen(800, 800)%0A%09pen.SetHeading(90)%0A%09pen.SetPosition(0, 0)%0A%09pen.FillSquare(800, 800)%0A%0A%09pen.SetPosition(400, 420)%0A%09pen.SetRGB(250, 250, 250)%0A%0A%09pen.SavePNG(%22circulos.png%22)%0A%09fmt.Println(%22PNG file created successfully.\n+main() %7B%0A    fmt.Println(%22Hello, World!\n %22)%0A%7D\n",
             "lines": "5"
+        },
+        {
+            "label": "2026-06-16_16-35-46",
+            "content": "package main\n\nimport (\n\t\"math/rand\"\n\t\"fmt\"\n)\n\nfunc ri(inf, sup int) float64 {\n\treturn float64(rand.Intn(sup-inf+1) + inf)\n}\n\nfunc circulos(pen *Pen, dist float64) {\n\tif dist < 6 {\n\t\treturn\n\t}\n\n\tangulo := 60.0\n\tfator := 0.339\n\n\tpen.DrawCircle(dist)\n\tfor range 6 {\n\t\tpen.SetLineWidth(0.99)\n\t\tpen.Right(angulo)\n\n\t\tpen.Up()\n\t\tpen.Walk(dist)\n\t\tpen.Down()\n\n\t\tpen.DrawCircle(dist *fator)\n\t\tcirculos(pen, dist *fator)\n\n\t\tpen.Up()\n\t\tpen.Walk(-dist)\n\t\tpen.Down()\n\t}\n}\nfunc main() {\n    pen := NewPen(800, 800)\n\tpen.SetHeading(90)\n\tpen.SetPosition(0, 0)\n\tpen.FillSquare(800, 800)\n\n\tpen.SetPosition(400, 420)\n\tpen.SetRGB(250, 250, 250)\n\n\tpen.SavePNG(\"circulos.png\")\n\tfmt.Println(\"PNG file created successfully.\")\n}\n",
+            "lines": "48"
         }
     ]
 }
