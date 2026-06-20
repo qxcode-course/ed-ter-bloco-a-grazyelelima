@@ -9,35 +9,41 @@ func rand_int(inf, sup int) float64 {
 	return float64(rand.Intn(sup-inf+1) + inf)
 }
 
-func arvere(pen *Pen, dist float64) {
-	if dist < 10 {
-		if rand_int(0, 50) == 0 {
-			pen.SetRGB(255, 0, 0)
-			pen.FillCircle(10)
-		}
+func circles(pen *Pen, dist float64) {
+	if dist < 6 {
 		return
 	}
+	angulo := 60.0
+	fator := 0.339
 
-	ang_dir := rand_int(10, 40)
-	ang_esq := rand_int(10, 40)
+	pen.DrawCircle(dist)
+	for range 6 {
+		pen.SetLineWidth(1.0)
+		pen.Right(angulo)
 
-	pen.SetLineWidth(dist / 5)
-	pen.SetRGB(0, 0, 0)
-	pen.Walk(dist)
-	pen.Right(ang_dir)
-	arvere(pen, dist*(rand_int(80, 85)/100))
-	pen.Left(ang_dir + ang_esq)
-	arvere(pen, dist*(rand_int(80, 85)/100))
-	pen.Right(ang_esq)
-	pen.SetRGB(0, 0, 0)
-	pen.Walk(-dist)
+		pen.Up()
+		pen.Walk(dist)
+		pen.Down()
+
+		pen.DrawCircle(dist * fator)
+		circles(pen, dist*fator)
+
+		pen.Up()
+		pen.Walk(-dist)
+		pen.Down()
+	}
 }
 
 func main() {
-	pen := NewPen(600, 500)
-	pen.SetHeading(90)
-	pen.SetPosition(300, 500)
-	arvere(pen, 80)
-	pen.SavePNG("tree.png")
+	pen := NewPen(800, 800)
+	pen.SetHeading(80)
+	pen.SetPosition(0, 0)
+	pen.FillSquare(800, 800)
+
+	pen.SetPosition(400, 420)
+	pen.SetRGB(250, 250, 250)
+	circles(pen, 250)
+
+	pen.SavePNG("circles.png")
 	fmt.Println("PNG file created successfully.")
 }
