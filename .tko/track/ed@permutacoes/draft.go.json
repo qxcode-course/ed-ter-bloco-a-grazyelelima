@@ -1,0 +1,44 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-24_09-29-14",
+            "content": "@@ -327,12 +327,11 @@\n %5D = \n-fals\n+tru\n e%0A  \n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-06-24_09-30-14",
+            "content": "@@ -327,11 +327,12 @@\n %5D = \n-tru\n+fals\n e%0A  \n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-06-24_09-30-21",
+            "content": "@@ -265,10 +265,8 @@\n ras)\n--1\n ; i+\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-06-24_09-30-43",
+            "content": "@@ -261,16 +261,18 @@\n (letras)\n+-1\n ; i++ %7B%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-06-24_09-30-54",
+            "content": "@@ -425,50 +425,8 @@\n ual)\n-%0A%0A            atual = atual%5B:len(atual)-1%5D\n %0A   \n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-06-24_09-32-36",
+            "content": "@@ -468,40 +468,8 @@\n -1%5D%0A\n-            visitados%5Bi%5D = true%0A\n     \n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-06-24_09-36-44",
+            "content": "@@ -495,12 +495,11 @@\n %5D = \n-fals\n+tru\n e%0A  \n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-06-24_09-37-04",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"sort\"\n\t\"strings\"\n)\n\nfunc backtrack(letras []string, visitados []bool, atual []string) {\n    if len(atual) == len(letras) {\n        fmt.Println(strings.Join(atual, \"\"))\n        return\n    }\n\n    for i := 0; i < len(letras); i++ {\n        if !visitados[i] {\n            visitados[i] = true\n            atual = append(atual, letras[i])\n\n            backtrack(letras, visitados, atual)\n\n            atual = atual[:len(atual)-1]\n            visitados[i] = false\n        }\n    }\n}\n\n\nfunc main() {\n    scanner := bufio.NewScanner(os.Stdin)\n\n    if !scanner.Scan() {\n        return \n    }\n\n    entrada := strings.TrimSpace(scanner.Text())\n    if entrada == \"\" {\n        return \n    }\n\n    letras := strings.Split(entrada, \"\")\n    sort.Strings(letras)\n\n    visitados := make([]bool, len(letras))\n    atual := make([]string, 0)\n\n    backtrack(letras, visitados, atual)\n}\n",
+            "lines": "50"
+        }
+    ]
+}

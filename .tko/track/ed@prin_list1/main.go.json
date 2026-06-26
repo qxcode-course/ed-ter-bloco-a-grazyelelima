@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-21_13-36-52",
+            "content": "@@ -40,10 +40,8 @@\n %22%0A)%0A\n-/*\n %0Atyp\n@@ -290,766 +290,122 @@\n %0A%7D%0A%0A\n-type DList%5BT comparable%5D struct %7B%0A%09root *Dnode%5BT%5D%0A%09size int%0A%7D%0A%0Afunc NewDList%5BT comparable%5D () *DList%5BT%5D %7B%0A%09root := &DNode%5BT%5D%7B%7D%0A%09root.next = root%0A%09root.prev = root%0A%09root.root = root%0A%09return &DList%5BT%5D%7Broot: root, size: 0%7D%0A%7D%0A%0Afunc (l *DList%5BT%5D) PushBack(value T) %7B%0A%09l.Insert(l.root, value)%0A%7D%0A%0Afunc (l *DList%5BT%5D) Insert(it *Dnode%5BT%5D, value T) *DNode%5BT%5D %7B%0A%09n := &DNode%5BT%5D%7BValue: value, root: l.root%7D%0A%7D*/%0A%0A// mostra a lista com o elemento sword destacado%0Afunc ToStr(l *DList%5Bint%5D, sword *DNode%5Bint%5D) string %7B%0A%09var values %5B%5Dstring%0A%09for n := l.root.next; n != l.root; n = n.next %7B%0A%09%09if n == sword %7B%0A%09%09%09values = append(values, fmt.Sprint(n.Value) + %22%3E%22)%0A%09%09%7D else %7B%0A%09%09%09values = append(values, fmt.Sprint(n.Value))%0A%09%09%7D%0A%09%7D%0A%0A%09return %22%5B %22 + strings.Join(values, %22 %22) + %22 %5D\n+%0A%0A// mostra a lista com o elemento sword destacado%0Afunc ToStr(l *DList%5Bint%5D, sword *DNode%5Bint%5D) string %7B%0A%09return %22\n %22%0A%7D%0A\n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-06-21_13-47-36",
+            "content": "@@ -1149,126 +1149,18 @@\n  %7B%0A%09\n-if it == nil %7B%0A%09%09return nil%0A%09%7D%0A%0A%09proximo := it.next%0A%09if proximo == l.root %7B%0A%09%09proximo = l.root.next%0A%09%7D%0A%09return proximo\n+return nil\n %0A%7D%0A%0A\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-06-21_13-50-41",
+            "content": "@@ -35,16 +35,667 @@\n rings%22%0A)\n+%0A/*%0Atype Dnode%5BT comparable%5D struct %7B%0A%09Value%0A%09next, prev, root *DNode%5BT%5D%0A%7D%0A%0Afunc (n *Dnode%5BT%5D) Next() *DNode%5BT%5D %7B%0A%09if n == n.root %7B%0A%09%09return n%0A%09%7D%0A%0A%09return n.next%0A%7D%0A%0Afunc (n *DNode%5BT%5D) Prev() *Dnode%5BT%5D %7B%0A%09if n == n.root %7B%0A%09%09return n%0A%09%7D%0A%09return n.prev%0A%7D%0A%0Atype DList%5BT comparable%5D struct %7B%0A%09root *Dnode%5BT%5D%0A%09size int%0A%7D%0A%0Afunc NewDList%5BT comparable%5D () *DList%5BT%5D %7B%0A%09root := &DNode%5BT%5D%7B%7D%0A%09root.next = root%0A%09root.prev = root%0A%09root.root = root%0A%09return &DList%5BT%5D%7Broot: root, size: 0%7D%0A%7D%0A%0Afunc (l *DList%5BT%5D) PushBack(value T) %7B%0A%09l.Insert(l.root, value)%0A%7D%0A%0Afunc (l *DList%5BT%5D) Insert(it *Dnode%5BT%5D, value T) *DNode%5BT%5D %7B%0A%09n := &DNode%5BT%5D%7BValue: value, root: l.root%7D%0A%7D*/\n %0A%0A// mos\n",
+            "lines": "94"
+        },
+        {
+            "label": "2026-06-21_13-57-18",
+            "content": "@@ -902,17 +902,16 @@\n )%0A%09%09\n-morre := \n+l.Erase(\n Next\n@@ -920,16 +920,17 @@\n , sword)\n+)\n %0A%09%09sword\n@@ -944,30 +944,13 @@\n (l, \n-morre)%0A%09%09l.Erase(morre\n+sword\n )%0A%09%7D\n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-06-21_13-59-00",
+            "content": "@@ -677,16 +677,40 @@\n hosen)%0A%09\n+fmt.Println(qtd, chosen)\n %0A%09l := N\n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-06-21_14-01-39",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n)\n\n// mostra a lista com o elemento sword destacado\nfunc ToStr(l *DList[int], sword *DNode[int]) string {\n\tvar values []string\n\tfor n := l.root.next; n != l.root; n = n.next {\n\t\tif n == sword {\n\t\t\tvalues = append(values, fmt.Sprint(n.Value) + \">\")\n\t\t} else {\n\t\t\tvalues = append(values, fmt.Sprint(n.Value))\n\t\t}\n\t}\n\n\treturn \"[ \" + strings.Join(values, \" \") + \" ]\"\n}\n\n// move para frente na lista circular\nfunc Next(l *DList[int], it *DNode[int]) *DNode[int] {\n\tif it == nil {\n\t\treturn nil\n\t}\n\n\tproximo := it.next\n\tif proximo == l.root {\n\t\tproximo = l.root.next\n\t}\n\treturn proximo\n}\n\nfunc main() {\n\tvar qtd, chosen int\n\tfmt.Scan(&qtd, &chosen)\n\t\n\tl := NewDList[int]()\n\tfor i := 1; i <= qtd; i++ {\n\t\tl.PushBack(i)\n\t}\n\tsword := l.Front()\n\tfor range chosen - 1 {\n\t\tsword = Next(l, sword)\n\t}\n\tfor range qtd - 1 {\n\t\tfmt.Println(ToStr(l, sword))\n\t\tmorre := Next(l, sword)\n\t\tsword = Next(l, morre)\n\t\tl.Erase(morre)\n\t}\n\tfmt.Println(ToStr(l, sword))\n}\n",
+            "lines": "54"
+        }
+    ]
+}

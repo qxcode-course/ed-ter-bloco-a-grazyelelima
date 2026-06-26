@@ -1,0 +1,69 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-20_14-36-25",
+            "content": "@@ -613,99 +613,8 @@\n %0A%7D%0A%0A\n-func (ll *LList) Clear() %7B%0A%09ll.root.next = ll.root%0A%09ll.root.prev = ll.root%0A%09ll.size = 0%0A%7D%0A%0A\n /*fu\n@@ -1420,16 +1420,19 @@\n ar%22:%0A%09%09%09\n+// \n ll.Clear\n",
+            "lines": "148"
+        },
+        {
+            "label": "2026-06-20_14-38-05",
+            "content": "@@ -53,19 +53,8 @@\n gs%22%0A\n-%09%22strconv%22%0A\n )%0A%0A%0A\n@@ -704,381 +704,8 @@\n %0A%7D%0A%0A\n-//metodo auxiliar que vai evitar repeti%C3%A7%C3%B5es no c%C3%B3gigo, top dms%0Afunc (ll *LList) insertAux(value int, proximo *Node) *Node %7B%0A%09anterior := proximo.prev%0A%09novo := &Node%7BValue: value, prev: anterior, next: proximo, root: ll.root%7D%0A%09anterior.next = novo%0A%09proximo.prev = novo%0A%09ll.size++%0A%09return novo%0A%7D%0A%0Afunc (ll *LList) PushFront(value int) %7B%0A%09ll.insertAux(value, ll.root.next)%0A%7D%0A%0A\n /*fu\n@@ -1316,16 +1316,19 @@\n nt%22:%0A%09%09%09\n+// \n for _, v\n@@ -1351,16 +1351,18 @@\n :%5D %7B%0A%09%09%09\n+//\n  %09num, _\n@@ -1384,16 +1384,18 @@\n i(v)%0A%09%09%09\n+//\n  %09ll.Pus\n@@ -1409,16 +1409,18 @@\n num)%0A%09%09%09\n+//\n  %7D%0A%09%09cas\n",
+            "lines": "154"
+        },
+        {
+            "label": "2026-06-20_14-47-46",
+            "content": "@@ -1088,175 +1088,10 @@\n %0A%7D%0A%0A\n-func (ll *LList) PushBack(value int) %7B%0A%09ll.insertAux(value, ll.root)%0A%7D%0A%0Afunc (ll *LList) Front() *Node %7B%0A%09if ll.size == 0 %7B%0A%09%09return nil%0A%09%7D%0A%0A%09return ll.root.next%0A%7D%0A%0A%0A%0A\n+/*\n func\n@@ -1112,16 +1112,17 @@\n tring() \n+/\n string %7B\n@@ -1186,177 +1186,11 @@\n ing%0A\n-%09for node := ll.Front(); node != nil; node = node.Next() %7B%0A%09%09elements = append(elements, strconv.Itoa(node.Value))%0A%09%7D%0A%0A%09return %22%5B%22 + strings.Join(elements, %22, %22) + %22%5D%22%0A%7D\n+%7D*/\n %0A%0Afu\n@@ -1483,24 +1483,27 @@\n  %22show%22:%0A%09%09%09\n+// \n fmt.Println(\n@@ -1575,24 +1575,27 @@\n h_back%22:%0A%09%09%09\n+// \n for _, v := \n@@ -1614,16 +1614,19 @@\n :%5D %7B%0A%09%09%09\n+// \n %09num, _ \n@@ -1639,32 +1639,34 @@\n conv.Atoi(v)%0A%09%09%09\n+//\n  %09ll.PushBack(nu\n@@ -1671,16 +1671,19 @@\n num)%0A%09%09%09\n+// \n %7D%0A%09%09case\n",
+            "lines": "169"
+        },
+        {
+            "label": "2026-06-21_13-00-04",
+            "content": "@@ -1160,66 +1160,8 @@\n %0A%7D%0A%0A\n-func (ll *LList) PopFront() %7B%0A%09if ll.size 0 %7B%0A%09%09ll.%0A%09%7D%0A%7D%0A%0A\n func\n",
+            "lines": "188"
+        },
+        {
+            "label": "2026-06-21_13-03-12",
+            "content": "@@ -1160,273 +1160,8 @@\n %0A%7D%0A%0A\n-func (ll *LList) Remove(node *Node) *Node %7B%0A%09if node == nil %7C%7C node == ll.root %7B%0A%09%09return nil%0A%09%7D%0A%09anterior := node.prev%0A%09proximo := node.next%0A%09anterior.next = proximo%0A%09proximo.prev = anterior%0A%0A%09ll.size--%0A%0A%09if proximo == ll.root %7B%0A%09%09return nil%0A%09%7D%0A%09return proximo%0A%7D%0A%0A\n func\n@@ -1201,10 +1201,8 @@\n size\n- %3E\n  0 %7B\n@@ -1211,61 +1211,13 @@\n %09ll.\n-Remove(ll.root.next)%0A%09%7D%0A%7D%0A%0A//func (ll *LList) PopBack\n+%0A%09%7D%0A%7D\n %0A%0Afu\n@@ -2224,16 +2224,19 @@\n nt%22:%0A%09%09%09\n+// \n ll.PopFr\n",
+            "lines": "194"
+        },
+        {
+            "label": "2026-06-21_13-17-18",
+            "content": "@@ -1493,32 +1493,34 @@\n oot.next)%0A%09%7D%0A%7D%0A%0A\n+//\n func (ll *LList)\n@@ -1531,61 +1531,8 @@\n Back\n-() %7B%0A%09if ll.size %3E 0 %7B%0A%09%09ll.Remove(ll.root.prev)%0A%09%7D%0A%7D\n %0A%0Afu\n@@ -2496,24 +2496,27 @@\n p_back%22:%0A%09%09%09\n+// \n ll.PopBack()\n",
+            "lines": "213"
+        },
+        {
+            "label": "2026-06-21_13-18-28",
+            "content": "@@ -1677,268 +1677,8 @@\n %0A%7D%0A%0A\n-func (ll *LList) Back() *Node %7B%0A%09if ll.size == 0 %7B%0A%09%09return nil%0A%09%7D%0A%0A%09return ll.root.prev%0A%7D%0A%0Afunc (ll *LList) Search(value int) *Node %7B%0A%09for node := ll.root.next; node != ll.root; node = node.next %7B%0A%09%09if node.Value == value %7B%0A%09%09%09return node%0A%09%09%7D%0A%09%7D%0A%09return nil%0A%7D\n %0A%0Afu\n@@ -3458,16 +3458,19 @@\n ve%22:%0A%09%09%09\n+// \n oldvalue\n@@ -3501,16 +3501,19 @@\n %5B1%5D)%0A%09%09%09\n+// \n node := \n@@ -3535,16 +3535,19 @@\n lue)%0A%09%09%09\n+// \n if node \n@@ -3554,24 +3554,26 @@\n != nil %7B%0A%09%09%09\n+//\n  %09ll.Remove(\n@@ -3581,16 +3581,19 @@\n ode)%0A%09%09%09\n+// \n %7D else %7B\n@@ -3596,16 +3596,18 @@\n se %7B%0A%09%09%09\n+//\n  %09fmt.Pr\n@@ -3630,24 +3630,27 @@\n  found%22)%0A%09%09%09\n+// \n %7D%0A%09%09case %22en\n",
+            "lines": "217"
+        },
+        {
+            "label": "2026-06-21_13-22-16",
+            "content": "@@ -2905,24 +2905,27 @@\n  %22walk%22:%0A%09%09%09\n+// \n fmt.Print(%22%5B\n@@ -2923,32 +2923,35 @@\n .Print(%22%5B %22)%0A%09%09%09\n+// \n for node := ll.F\n@@ -2987,32 +2987,34 @@\n ode.Next() %7B%0A%09%09%09\n+//\n  %09fmt.Printf(%22%25v\n@@ -3032,21 +3032,27 @@\n lue)%0A%09%09%09\n+// \n %7D%0A%09%09%09\n+// \n fmt.Prin\n@@ -3061,24 +3061,27 @@\n %22%5D%5Cn%5B %22)%0A%09%09%09\n+// \n for node := \n@@ -3124,24 +3124,26 @@\n Prev() %7B%0A%09%09%09\n+//\n  %09fmt.Printf\n@@ -3165,21 +3165,26 @@\n lue)%0A%09%09%09\n+// \n %7D%0A%09%09%09\n+//\n  fmt.Pri\n",
+            "lines": "232"
+        },
+        {
+            "label": "2026-06-21_13-24-14",
+            "content": "@@ -3186,24 +3186,27 @@\n eplace%22:%0A%09%09%09\n+// \n oldvalue, _ \n@@ -3233,16 +3233,19 @@\n %5B1%5D)%0A%09%09%09\n+// \n newvalue\n@@ -3272,24 +3272,27 @@\n args%5B2%5D)%0A%09%09%09\n+// \n node := ll.S\n@@ -3302,32 +3302,35 @@\n ch(oldvalue)%0A%09%09%09\n+// \n if node != nil %7B\n@@ -3333,16 +3333,18 @@\n il %7B%0A%09%09%09\n+//\n  %09node.V\n@@ -3358,24 +3358,27 @@\n newvalue%0A%09%09%09\n+// \n %7D else %7B%0A%09%09%09\n@@ -3369,32 +3369,34 @@\n %09// %7D else %7B%0A%09%09%09\n+//\n  %09fmt.Println(%22f\n@@ -3411,24 +3411,26 @@\n  found%22)%0A%09%09%09\n+//\n  %7D%0A%09%09case %22i\n",
+            "lines": "232"
+        },
+        {
+            "label": "2026-06-21_13-24-55",
+            "content": "@@ -1939,90 +1939,8 @@\n %0A%7D%0A%0A\n-func (ll *LList) Insert(node *Node, value int) %7B%0A%09if node == nil %7B%0A%09%09return%0A%09%7D%0A%7D%0A%0A\n func\n",
+            "lines": "232"
+        },
+        {
+            "label": "2026-06-21_13-26-03",
+            "content": "@@ -2018,35 +2018,8 @@\n %0A%09%7D%0A\n-%09ll.insertAux(value, node)%0A\n %7D%0A%0Af\n",
+            "lines": "238"
+        },
+        {
+            "label": "2026-06-21_13-26-36",
+            "content": "@@ -3524,24 +3524,27 @@\n insert%22:%0A%09%09%09\n+// \n oldvalue, _ \n@@ -3563,32 +3563,35 @@\n toi(args%5B1%5D)%0A%09%09%09\n+// \n newvalue, _ := s\n@@ -3606,32 +3606,35 @@\n toi(args%5B2%5D)%0A%09%09%09\n+// \n node := ll.Searc\n@@ -3640,32 +3640,35 @@\n ch(oldvalue)%0A%09%09%09\n+// \n if node != nil %7B\n@@ -3667,24 +3667,26 @@\n != nil %7B%0A%09%09%09\n+//\n  %09ll.Insert(\n@@ -3700,24 +3700,27 @@\n ewvalue)%0A%09%09%09\n+// \n %7D else %7B%0A%09%09%09\n@@ -3711,32 +3711,34 @@\n %09// %7D else %7B%0A%09%09%09\n+//\n  %09fmt.Println(%22f\n@@ -3749,32 +3749,35 @@\n  not found%22)%0A%09%09%09\n+// \n %7D%0A%09%09case %22remove\n",
+            "lines": "239"
+        },
+        {
+            "label": "2026-06-21_13-27-21",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strings\"\n\t\"strconv\"\n)\n\n\n//estrutura do node\n\ntype Node struct {\n\tValue int\n\tnext *Node\n\tprev *Node\n\troot *Node\n}\n\nfunc (n *Node) Next() *Node {\n\tif n.next == n.root {\n\t\treturn nil\n\t}\n\n\treturn n.next\n}\n\nfunc (n *Node) Prev() *Node {\n\tif n.prev == n.root {\n\t\treturn nil\n\t}\n\n\treturn n.prev\n}\n\n//estrutura da lista:\n\ntype LList struct {\n\troot *Node\n\tsize int\n}\n\nfunc NewLList() LList {\n\tsentinel := &Node{}\n\tsentinel.next = sentinel\n\tsentinel.prev = sentinel\n\tsentinel.root = sentinel\n\treturn LList{\n\t\troot: sentinel,\n\t\tsize: 0,\n\t}\n}\n\nfunc (ll *LList) Size() int {\n\treturn ll.size\n}\n\nfunc (ll *LList) Clear() {\n\tll.root.next = ll.root\n\tll.root.prev = ll.root\n\tll.size = 0\n}\n\n//metodo auxiliar que vai evitar repeti\u00e7\u00f5es no c\u00f3gigo, top dms\nfunc (ll *LList) insertAux(value int, proximo *Node) *Node {\n\tanterior := proximo.prev\n\tnovo := &Node{Value: value, prev: anterior, next: proximo, root: ll.root}\n\tanterior.next = novo\n\tproximo.prev = novo\n\tll.size++\n\treturn novo\n}\n\nfunc (ll *LList) PushFront(value int) {\n\tll.insertAux(value, ll.root.next)\n}\n\nfunc (ll *LList) PushBack(value int) {\n\tll.insertAux(value, ll.root)\n}\n\nfunc (ll *LList) Remove(node *Node) *Node {\n\tif node == nil || node == ll.root {\n\t\treturn nil\n\t}\n\tanterior := node.prev\n\tproximo := node.next\n\tanterior.next = proximo\n\tproximo.prev = anterior\n\n\tll.size--\n\n\tif proximo == ll.root {\n\t\treturn nil\n\t}\n\treturn proximo\n}\n\nfunc (ll *LList) PopFront() {\n\tif ll.size > 0 {\n\t\tll.Remove(ll.root.next)\n\t}\n}\n\nfunc (ll *LList) PopBack() {\n\tif ll.size > 0 {\n\t\tll.Remove(ll.root.prev)\n\t}\n}\n\nfunc (ll *LList) Front() *Node {\n\tif ll.size == 0 {\n\t\treturn nil\n\t}\n\n\treturn ll.root.next\n}\n\nfunc (ll *LList) Back() *Node {\n\tif ll.size == 0 {\n\t\treturn nil\n\t}\n\n\treturn ll.root.prev\n}\n\nfunc (ll *LList) Search(value int) *Node {\n\tfor node := ll.root.next; node != ll.root; node = node.next {\n\t\tif node.Value == value {\n\t\t\treturn node\n\t\t}\n\t}\n\treturn nil\n}\n\nfunc (ll *LList) Insert(node *Node, value int) {\n\tif node == nil {\n\t\treturn\n\t}\n\tll.insertAux(value, node)\n}\n\nfunc (ll *LList) String() string {\n\tif ll.size == 0 {\n\t\treturn \"[]\"\n\t}\n\n\tvar elements []string\n\tfor node := ll.Front(); node != nil; node = node.Next() {\n\t\telements = append(elements, strconv.Itoa(node.Value))\n\t}\n\n\treturn \"[\" + strings.Join(elements, \", \") + \"]\"\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n \tll := NewLList()\n\n\tfor {\n\t\tfmt.Print(\"$\")\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\tfmt.Println(line)\n\t\targs := strings.Fields(line)\n\n\t\tif len(args) == 0 {\n\t\t\tcontinue\n\t\t}\n\n\t\tcmd := args[0]\n\n\t\tswitch cmd {\n\t\tcase \"show\":\n\t\t\tfmt.Println(ll.String())\n\t\tcase \"size\":\n\t\t\tfmt.Println(ll.Size())\n\t\tcase \"push_back\":\n\t\t\tfor _, v := range args[1:] {\n\t\t\t\tnum, _ := strconv.Atoi(v)\n\t\t\t \tll.PushBack(num)\n\t\t\t}\n\t\tcase \"push_front\":\n\t\t\tfor _, v := range args[1:] {\n\t\t\t \tnum, _ := strconv.Atoi(v)\n\t\t\t \tll.PushFront(num)\n\t\t\t }\n\t\tcase \"pop_back\":\n\t\t\tll.PopBack()\n\t\tcase \"pop_front\":\n\t\t\tll.PopFront()\n\t\tcase \"clear\":\n\t\t\tll.Clear()\n\t\tcase \"walk\":\n\t\t\tfmt.Print(\"[ \")\n\t\t\tfor node := ll.Front(); node != nil; node = node.Next() {\n\t\t\t \tfmt.Printf(\"%v \", node.Value)\n\t\t\t}\n\t\t\tfmt.Print(\"]\\n[ \")\n\t\t\tfor node := ll.Back(); node != nil; node = node.Prev() {\n\t\t\t \tfmt.Printf(\"%v \", node.Value)\n\t\t\t}\n\t\t\t fmt.Println(\"]\")\n\t\tcase \"replace\":\n\t\t\toldvalue, _ := strconv.Atoi(args[1])\n\t\t\tnewvalue, _ := strconv.Atoi(args[2])\n\t\t\tnode := ll.Search(oldvalue)\n\t\t\tif node != nil {\n\t\t\t \tnode.Value = newvalue\n\t\t\t} else {\n\t\t\t \tfmt.Println(\"fail: not found\")\n\t\t\t }\n\t\tcase \"insert\":\n\t\t\toldvalue, _ := strconv.Atoi(args[1])\n\t\t\tnewvalue, _ := strconv.Atoi(args[2])\n\t\t\tnode := ll.Search(oldvalue)\n\t\t\tif node != nil {\n\t\t\t \tll.Insert(node, newvalue)\n\t\t\t} else {\n\t\t\t \tfmt.Println(\"fail: not found\")\n\t\t\t}\n\t\tcase \"remove\":\n\t\t\toldvalue, _ := strconv.Atoi(args[1])\n\t\t\tnode := ll.Search(oldvalue)\n\t\t\tif node != nil {\n\t\t\t \tll.Remove(node)\n\t\t\t} else {\n\t\t\t \tfmt.Println(\"fail: not found\")\n\t\t\t}\n\t\tcase \"end\":\n\t\t\treturn\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "239"
+        }
+    ]
+}

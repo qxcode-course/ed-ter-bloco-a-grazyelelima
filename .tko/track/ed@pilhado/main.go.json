@@ -2,8 +2,63 @@
     "patches": [
         {
             "label": "2026-05-19_10-29-18",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main () {\n\t\t\n}\n\n",
+            "content": "@@ -42,622 +42,28 @@\n os%22%0A\n-%09%22strconv%22%0A%09%22strings%22%0A)%0A%0Atype Pos struct %7B%0A%09l, c int%0A%7D%0A%0Afunc main () %7B%0A%09scanner := bufio.NewScanner(os.Stdin)%0A%0A%09if !scanner.Scan() %7B%0A%09%09return %0A%09%7D%0A%0A%09dimencoes := strings.Fields(scanner.Text())%0A%09nl, _ := strconv.Atoi(dimencoes%5B0%5D)%0A%09nc, _ := strconv.Atoi(dimencoes%5B1%5D)%0A%0A%09var inicio, fim Pos%0A%0A%09grid := make(%5B%5D%5B%5Drune, nl)%0A%09for i := 0; i %3C nl; i++ %7B%0A%09%09if scanner.Scan() %7B%0A%09%09%09grid%5Bi%5D = %5B%5Drune(scanner.Text())%0A%0A%09%09%09if len(grid%5Bi%5D %3C nc) %7B%0A%09%09%09%09linhaCompleta := make(%5B%5Drune, nc)%0A%09%09%09%09copy(linhaCompleta, grid%5Bi%5D)%0A%09%09%09%09for j := len(grid%5Bi%5D); j %3C nc; j++ %7B%0A%09%09%09%09%09linhaCompleta%5Bj%5D = ' '%0A%09%09%09%09%7D%0A%09%09%09%09grid%5Bi%5D = linhaCompleta%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D\n+)%0A%0Afunc main () %7B%0A%09%09\n %0A%7D%0A%0A\n",
             "lines": "12"
+        },
+        {
+            "label": "2026-06-26_18-48-04",
+            "content": "@@ -25,16 +25,23 @@\n %22bufio%22%0A\n+%09%22fmt%22%0A\n %09%22os%22%0A%09%22\n@@ -462,14 +462,14 @@\n d%5Bi%5D\n-)\n  %3C nc\n+)\n  %7B%0A%09\n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-06-26_18-48-43",
+            "content": "@@ -642,167 +642,8 @@\n %09%09%09%7D\n-%0A%0A%09%09%09for j := 0; j %3C nc; j++ %7B%0A%09%09%09%09if grid%5Bi%5D%5Bj%5D == 'I' %7B%0A%09%09%09%09%09inicio = Pos%7Bl: i, c: j%7D%0A%09%09%09%09%7D else if grid%5Bi%5D%5Bj%5D == 'F' %7B%0A%09%09%09%09%09fim = Pos%7Bl: i, c: j%7D%0A%09%09%09%09%7D%0A%09%09%09%7D\n %0A%09%09%7D\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-06-26_18-50-53",
+            "content": "@@ -809,284 +809,7 @@\n %0A%09%7D%0A\n-%0A%0A%09caminho := NewStack%5BPos%5D()%0A%09becos := NewStack%5BPos%5D()%0A%09visited := make(map%5BPos%5Dbool)%0A%0A%09caminho.Push(inicio)%0A%0A%09dl := %5B%5Dint%7B-1, 1, 0, 0%7D%0A%09dc := %5B%5Dint%7B0, 0, -1, 1%7D%0A%0A%09for !caminho.IsEmpty() %7B%0A%09%09atual := caminho.Top()%0A%09%09visited%5Batual%5D = true%0A%0A%09%09if atual == fim %7B%0A%09%09%09break%0A%09%09%7D%0A%09%7D%0A%0A\n %7D%0A%0A\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-06-26_18-54-34",
+            "content": "@@ -1081,324 +1081,8 @@\n %0A%09%09%7D\n-%0A%0A%09%09var validos %5B%5DPos%0A%0A%09%09for i := 0; i %3C 4; i++ %7B%0A%09%09%09nlViz := atual.l + dl%5Bi%5D%0A%09%09%09ncViz := atual.c + dc%5Bi%5D%0A%0A%09%09%09if nlViz %3E= 0 && nlViz %3C nl && ncViz %3E=0 && ncViz %3C nc %7B%0A%09%09%09%09vizinho := Pos%7Bl: nlViz, c: ncViz%7D%0A%09%09%09%09if grid%5BnlViz%5D%5BncViz%5D != '#' && !visited%5Bvizinho%5D %7B%0A%09%09%09%09%09validos = append(validos, vizinho)%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%09%09%7D\n %0A%09%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-06-26_19-00-53",
+            "content": "@@ -1397,114 +1397,8 @@\n %0A%09%09%7D\n-%0A%0A%09%09if len(validos) %3E 0 %7B%0A%09%09%09caminho.Push(validos%5B0%5D)%0A%09%09%7D else %7B%0A%09%09%09becos.Push(atual)%0A%09%09%09caminho.Pop()%0A%09%09%7D\n %0A%09%7D%0A\n",
+            "lines": "85"
+        },
+        {
+            "label": "2026-06-26_19-02-18",
+            "content": "@@ -1508,142 +1508,7 @@\n %09%7D%0A%0A\n-%09for _, pos := range caminho.data %7B%0A%09%09if grid%5Bpos.l%5D%5Bpos.c%5D != 'I' && grid%5Bpos.l%5D%5Bpos.c%5D != 'F' %7B%0A%09%09%09grid%5Bpos.l%5D%5Bpos.c%5D = '.'%0A%09%09%7D%0A%0A%09%7D%0A%0A\n %7D%0A%0A\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-06-26_19-04-36",
+            "content": "@@ -1638,157 +1638,8 @@\n %09%09%7D%0A\n-%09%7D%0A%0A%09for !becos.IsEmpty() %7B%0A%09%09beco := becos.Pop()%0A%09%09if grid%5Bbeco.l%5D%5Bbeco.c%5D != 'I' && grid%5Bbeco.l%5D%5Bbeco.c%5D != 'F' %7B%0A%09%09%09grid%5Bbeco.l%5D%5Bbeco.c%5D = ' '%0A%09%09%7D\n %0A%09%7D%0A\n",
+            "lines": "99"
+        },
+        {
+            "label": "2026-06-26_19-07-05",
+            "content": "@@ -29,15 +29,8 @@\n io%22%0A\n-%09%22fmt%22%0A\n %09%22os\n@@ -1792,69 +1792,7 @@\n %09%7D%0A%0A\n-%09for i := 0; i %3C nl; i++ %7B%0A%09%09fmt.Println(string(grid%5Bi%5D))%0A%09%7D%0A%0A\n %7D%0A%0A\n",
+            "lines": "105"
+        },
+        {
+            "label": "2026-06-26_19-08-08",
+            "content": "@@ -1520,37 +1520,23 @@\n for \n-!caminho.IsEmpty() %7B%0A%09%09\n+_, \n pos :=\n+ range\n  cam\n@@ -1540,21 +1540,22 @@\n caminho.\n-Pop()\n+data %7B\n %0A%09%09if gr\n",
+            "lines": "110"
+        },
+        {
+            "label": "2026-06-26_19-12-53",
+            "content": "@@ -1558,24 +1558,27 @@\n nho.Pop()%0A%09%09\n+if \n grid%5Bpos.l%5D%5B\n@@ -1588,64 +1588,195 @@\n .c%5D \n+!\n = '\n-.'%0A%09%7D%0A%0A%09for !becos.IsEmpty() %7B%0A%09%09beco := becos.Pop()%0A\n+I' && grid%5Bpos.l%5D%5Bpos.c%5D != 'F' %7B%0A%09%09%09grid%5Bpos.l%5D%5Bpos.c%5D = '.'%0A%09%09%7D%0A%09%7D%0A%0A%09for !becos.IsEmpty() %7B%0A%09%09beco := becos.Pop()%0A%09%09if grid%5Bbeco.l%5D%5Bbeco.c%5D != 'I' && grid%5Bbeco.l%5D%5Bbeco.c%5D != 'F' %7B%0A%09\n %09%09gr\n@@ -1800,16 +1800,20 @@\n %5D = ' '%0A\n+%09%09%7D%0A\n %09%7D%0A%0A%09for\n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-06-26_19-15-11",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc main () {\n\tscanner := bufio.NewScanner(os.Stdin)\n\n\tif !scanner.Scan() {\n\t\treturn \n\t}\n\n\tdimencoes := strings.Fields(scanner.Text())\n\tnl, _ := strconv.Atoi(dimencoes[0])\n\tnc, _ := strconv.Atoi(dimencoes[1])\n\n\tvar inicio, fim Pos\n\n\tgrid := make([][]rune, nl)\n\tfor i := 0; i < nl; i++ {\n\t\tif scanner.Scan() {\n\t\t\tgrid[i] = []rune(scanner.Text())\n\n\t\t\tif len(grid[i]) < nc {\n\t\t\t\tlinhaCompleta := make([]rune, nc)\n\t\t\t\tcopy(linhaCompleta, grid[i])\n\t\t\t\tfor j := len(grid[i]); j < nc; j++ {\n\t\t\t\t\tlinhaCompleta[j] = ' '\n\t\t\t\t}\n\t\t\t\tgrid[i] = linhaCompleta\n\t\t\t}\n\n\t\t\tfor j := 0; j < nc; j++ {\n\t\t\t\tif grid[i][j] == 'I' {\n\t\t\t\t\tinicio = Pos{l: i, c: j}\n\t\t\t\t} else if grid[i][j] == 'F' {\n\t\t\t\t\tfim = Pos{l: i, c: j}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\n\tcaminho := NewStack[Pos]()\n\tbecos := NewStack[Pos]()\n\tvisited := make(map[Pos]bool)\n\n\tcaminho.Push(inicio)\n\n\tdl := []int{-1, 1, 0, 0}\n\tdc := []int{0, 0, -1, 1}\n\n\tfor !caminho.IsEmpty() {\n\t\tatual := caminho.Top()\n\t\tvisited[atual] = true\n\n\t\tif atual == fim {\n\t\t\tbreak\n\t\t}\n\n\t\tvar validos []Pos\n\n\t\tfor i := 0; i < 4; i++ {\n\t\t\tnlViz := atual.l + dl[i]\n\t\t\tncViz := atual.c + dc[i]\n\n\t\t\tif nlViz >= 0 && nlViz < nl && ncViz >=0 && ncViz < nc {\n\t\t\t\tvizinho := Pos{l: nlViz, c: ncViz}\n\t\t\t\tif grid[nlViz][ncViz] != '#' && !visited[vizinho] {\n\t\t\t\t\tvalidos = append(validos, vizinho)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif len(validos) > 0 {\n\t\t\tcaminho.Push(validos[0])\n\t\t} else {\n\t\t\tbecos.Push(atual)\n\t\t\tcaminho.Pop()\n\t\t}\n\t}\n\n\tfor !caminho.IsEmpty() {\n\t\tpos := caminho.Pop()\n\t\tgrid[pos.l][pos.c] = '.'\n\t}\n\n\tfor !becos.IsEmpty() {\n\t\tbeco := becos.Pop()\n\t\tgrid[beco.l][beco.c] = ' '\n\t}\n\n\tfor i := 0; i < nl; i++ {\n\t\tfmt.Println(string(grid[i]))\n\t}\n\n}\n\n",
+            "lines": "107"
         }
     ]
 }

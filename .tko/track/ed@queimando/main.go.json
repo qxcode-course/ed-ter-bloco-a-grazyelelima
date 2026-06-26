@@ -1,0 +1,39 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-26_18-30-15",
+            "content": "@@ -159,17 +159,16 @@\n 0, c:c -\n- \n 1%7D,%0A%09%09Po\n@@ -183,17 +183,16 @@\n 0, c:c +\n- \n 1%7D,%0A%09%09Po\n@@ -204,18 +204,20 @@\n   -1, c:\n- \n c\n+ +1\n %7D,%0A%09%09Pos\n@@ -228,17 +228,16 @@\n   +1, c:\n- \n c +0%7D,%0A%09\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-06-26_18-31-06",
+            "content": "@@ -232,17 +232,16 @@\n , c: c +\n- \n 0%7D,%0A%09%7D%0A%7D\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-06-26_18-31-34",
+            "content": "@@ -208,19 +208,16 @@\n -1, c: c\n-+ 1\n %7D,%0A%09%09Pos\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-06-26_18-32-25",
+            "content": "@@ -457,16 +457,87 @@\n .Pop()%0A%0A\n+%0A%09%09if grid%5Bcurr.l%5D%5Bcurr.c%5D == '#' %7B%0A%09%09%09grid%5Bcurr.l%5D%5Bcurr.c%5D = 'o'%0A%09%09%7D%0A%0A\n %09%09for _,\n@@ -539,17 +539,17 @@\n or _, vi\n-s\n+z\n inho := \n@@ -579,17 +579,17 @@\n %09%09%09if vi\n-s\n+z\n inho.l %3E\n@@ -593,25 +593,25 @@\n l %3E= 0 && vi\n-s\n+z\n inho.l %3C nl \n@@ -611,25 +611,25 @@\n l %3C nl && vi\n-s\n+z\n inho.c %3E= 0 \n@@ -633,17 +633,17 @@\n  0 && vi\n-s\n+z\n inho.c %3C\n@@ -658,25 +658,25 @@\n %09%09if grid%5Bvi\n-s\n+z\n inho.l%5D%5Bvisi\n@@ -665,33 +665,33 @@\n id%5Bvizinho.l%5D%5Bvi\n-s\n+z\n inho.c%5D == '#' %7B\n@@ -695,46 +695,8 @@\n ' %7B%0A\n-%09%09%09%09%09grid%5Bvisinho.l%5D%5Bvisinho.c%5D = 'o'%0A\n %09%09%09%09\n@@ -709,17 +709,17 @@\n .Push(vi\n-s\n+z\n inho)%0A%09%09\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-06-26_18-37-12",
+            "content": "@@ -233,16 +233,20 @@\n +1, c: c\n+ + 0\n %7D,%0A%09%7D%0A%7D%0A\n",
+            "lines": "78"
+        },
+        {
+            "label": "2026-06-26_18-37-31",
+            "content": "@@ -208,16 +208,19 @@\n -1, c: c\n++ 1\n %7D,%0A%09%09Pos\n@@ -233,20 +233,16 @@\n +1, c: c\n- + 0\n %7D,%0A%09%7D%0A%7D%0A\n",
+            "lines": "78"
+        },
+        {
+            "label": "2026-06-26_18-37-44",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc (p Pos) getNeig() []Pos {\n\tl := p.l\n\tc := p.c\n\treturn []Pos {\n\t\tPos{l:l + 0, c:c - 1},\n\t\tPos{l:l + 0, c:c + 1},\n\t\tPos{l:l  -1, c: c},\n\t\tPos{l:l  +1, c: c + 0},\n\t}\n}\n\nfunc burnTrees(grid [][]rune, l, c int) {\n\tstack := NewStack[Pos]()\n\tnl := len(grid)\n\tnc := len(grid[0])\n\n\tif grid[l][c] == '#' {\n\t\tstack.Push(Pos{l: l, c: c})\n\t}\n\n\tfor !stack.IsEmpty() {\n\t\tcurr := stack.Pop()\n\n\t\tfor _, visinho := range curr.getNeig() {\n\t\t\tif visinho.l >= 0 && visinho.l < nl && visinho.c >= 0 && visinho.c < nc {\n\t\t\t\tif grid[visinho.l][visinho.c] == '#' {\n\t\t\t\t\tgrid[visinho.l][visinho.c] = 'o'\n\t\t\t\t\tstack.Push(visinho)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\n\t// Essa fun\u00e7\u00e3o deve usar uma list como pilha\n\t// e marcar as \u00e1rvores na matriz como queimados\n\t// Uma sugest\u00e3o de como fazer isso \u00e9:\n\t// - adicionar a primeira posi\u00e7\u00e3o na pilha\n\t// - enquanto a pilha n\u00e3o estiver vazia:\n\t//   - retirar o elemento do topo\n\t//   - se puder ser queimado, queime e adicione seus vizinhos \u00e0 pilha\n\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tline := scanner.Text()\n\tvar nl, nc, lfire, cfire int\n\tfmt.Sscanf(line, \"%d %d %d %d\", &nl, &nc, &lfire, &cfire)\n\n\tgrid := make([][]rune, 0, nl)\n\tfor range nl {\n\t\tscanner.Scan()\n\t\tline := []rune(scanner.Text())\n\t\tgrid = append(grid, line)\n\t}\n\tburnTrees(grid, lfire, cfire)\n\tshowGrid(grid)\n}\n\nfunc showGrid(mat [][]rune) {\n\tfor _, linha := range mat {\n\t\tfmt.Println(string(linha))\n\t}\n}\n",
+            "lines": "78"
+        }
+    ]
+}

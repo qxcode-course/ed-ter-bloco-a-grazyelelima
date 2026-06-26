@@ -32,21 +32,99 @@ func (e *Editor) KeyLeft() {
 }
 
 func (e *Editor) KeyEnter() {
+	if e.cursor == e.line.Value.End() {
+		newLine := NewList[rune]()
+		e.lines.Insert(e.line.Next(), newLine)
+		e.line = e.line.Next()
+		e.cursor = e.line.Value.Front()
+		return
+	}
+
+	newLine := NewList[rune]()
+	for i := e.cursor; i != e.line.Value.End(); {
+		newLine.PushBack(i.Value)
+		i = e.line.Value.Erase(i)
+	}
+
+	e.lines.Insert(e.line.Next(), newLine)
+	e.line = e.line.Next()
+	e.cursor = e.line.Value.Front()
 }
 
 func (e *Editor) KeyRight() {
+	if e.cursor != e.line.Value.Back() {
+		e.cursor = e.cursor.Next()
+		return
+	}
+
+	if e.line != e.lines.Back() {
+		e.line = e.line.Next()
+		e.cursor = e.line.Value.Front()
+	}
 }
 
 func (e *Editor) KeyUp() {
+	if e.line == e.lines.Front() {
+		return
+	}
+
+	p := e.line.Value.IndexOf(e.cursor)
+	e.line = e.line.Prev()
+
+	t := e.line.Value.Front()
+
+	for i := 0; i < p && t != e.line.Value.End(); i++ {
+		t = t.Next()
+	}
+
+	e.cursor = t
 }
 
 func (e *Editor) KeyDown() {
+	if e.line == e.lines.Back() {
+		return
+	}
+
+	p := e.line.Value.IndexOf(e.cursor)
+	e.line = e.line.Next()
+
+	t := e.line.Value.Front()
+	for i := 0; i < p && t != e.line.Value.End(); i++ {
+		t = t.Next()
+	}
+	e.cursor = t
 }
 
 func (e *Editor) KeyBackspace() {
+	if e.cursor == e.line.Value.Front() {
+		anterior := e.line.Prev()
+		for i := e.line.Value.Front(); i != e.line.Value.End(); i = i.Next() {
+			anterior.Value.PushBack(i.Value)
+		}
+
+		e.lines.Erase(e.line)
+		e.line = anterior
+		e.cursor = e.line.Value.Back()
+		return
+	}
+
+	e.cursor = e.line.Value.Erase(e.cursor)
+	e.cursor = e.cursor.Prev()
 }
 
 func (e *Editor) KeyDelete() {
+	if e.cursor != e.line.Value.End() {
+		e.cursor = e.line.Value.Erase(e.cursor)
+		return
+	}
+
+	prx := e.line.Next()
+	for i := prx.Value.Front(); i != prx.Value.End(); i = i.Next() {
+		e.line.Value.PushBack(i.Value)
+	}
+
+	e.lines.Erase(prx)
+	e.cursor = e.line.Value.End()
 }
 
 func main() {

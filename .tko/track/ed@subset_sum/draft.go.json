@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-23_12-11-58",
+            "content": "@@ -10,1340 +10,66 @@\n ain%0A\n-%0A\n import \n-(%0A%09%22bufio%22%0A%09%22fmt%22%0A%09%22os%22%0A%09%22strconv%22%0A%09%22strings%22%0A)%0A%0Afunc backtrack(idx int, somaAtual int, alvo int, n int, arr %5B%5Dint) bool %7B%0A%0A    //caso base 1: se a somaAtual, ou seja, acumulado pelas escolhas anteiores for igual ao alvo, significa que o subconjubto atual funciona%0A    if somaAtual == alvo %7B%0A        return true%0A    %7D%0A%0A    //caso base 2: se a soma j%C3%A1 passou do alvo, qualquer numero adicionado dps vai aumentar a soma ainda mais, logo %C3%A9 imposs%C3%ADvel chegar ao alvo se j%C3%A1 passou dele, voltameos. Se o indice chegou ao fim e n%C3%A3o parou no caso um, a soma n%C3%A3o bateu!%0A    if somaAtual %3E alvo %7C%7C idx %3E= n %7B%0A        return false%0A    %7D%0A%0A    if backtrack(idx+1, somaAtual+arr%5Bidx%5D, alvo, n, arr) %7B%0A        return true%0A    %7D%0A%0A    if backtrack(idx+1, somaAtual, alvo, n, arr) %7B%0A        return true%0A    %7D%0A%0A    return false%0A%7D%0A%0Afunc main() %7B%0A    scanner := bufio.NewScanner(os.Stdin)%0A%0A    if !scanner.Scan() %7B%0A        return %0A    %7D%0A%0A    l1 := strings.Fields(scanner.Text())%0A    n, _:= strconv.Atoi(l1%5B0%5D)%0A    k, _:= strconv.Atoi(l1%5B0%5D)%0A%0A    if !scanner.Scan() %7B%0A        return %0A    %7D%0A%0A    l2 := strings.Fields(scanner.Text())%0A%0A    arr := make(%5B%5Dint, n)%0A%0A    for i := 0; i %3C n; i++ %7B%0A        arr%5Bi%5D, _ = strconv.Atoi(l2%5Bi%5D)%0A    %7D%0A%0A    if backtrack(0, 0, k, n, arr) %7B%0A        fmt.Println(%22true%22)%0A    %7D else %7B%0A        fmt.Println(%22false%22)%0A    %7D\n+%22fmt%22%0Afunc main() %7B%0A    fmt.Println(%22Hello, World!%22)\n %0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-06-23_12-37-51",
+            "content": "@@ -1030,17 +1030,17 @@\n Atoi(l1%5B\n-1\n+0\n %5D)%0A%0A    \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-06-23_12-41-35",
+            "content": "@@ -891,32 +891,12 @@\n     \n-var l1 %5B%5Dstring%0A    for \n+if !\n scan\n@@ -916,15 +916,35 @@\n     \n+    return %0A    %7D%0A%0A\n     l1 \n+:\n = st\n@@ -976,120 +976,16 @@\n ())%0A\n-        if len(l1) %3E 0 %7B%0A            break%0A        %7D%0A    %7D%0A%0A    if len(l1) %3C 2 %7B%0A        return %0A    %7D%0A%0A\n     n, _\n  := \n@@ -980,17 +980,16 @@\n     n, _\n- \n := strco\n@@ -1011,17 +1011,16 @@\n     k, _\n- \n := strco\n@@ -1043,33 +1043,12 @@\n     \n-var l2 %5B%5Dstring%0A%0A    for \n+if !\n scan\n@@ -1068,15 +1068,35 @@\n     \n+    return %0A    %7D%0A%0A\n     l2 \n+:\n = st\n@@ -1127,111 +1127,8 @@\n t())\n-%0A        if len(l2) %3E 0 %7B%0A            break%0A        %7D%0A    %7D%0A%0A    if len(l2) %3C n %7B%0A        return %0A    %7D\n %0A%0A  \n@@ -1151,16 +1151,17 @@\n int, n)%0A\n+%0A\n     for \n@@ -1340,11 +1340,10 @@\n )%0A    %7D%0A\n-%0A\n %7D%0A\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-06-23_12-51-22",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc backtrack(idx int, somaAtual int, alvo int, n int, arr []int) bool {\n\n    //caso base 1: se a somaAtual, ou seja, acumulado pelas escolhas anteiores for igual ao alvo, significa que o subconjubto atual funciona\n    if somaAtual == alvo {\n        return true\n    }\n\n    //caso base 2: se a soma j\u00e1 passou do alvo, qualquer numero adicionado dps vai aumentar a soma ainda mais, logo \u00e9 imposs\u00edvel chegar ao alvo se j\u00e1 passou dele, voltameos. Se o indice chegou ao fim e n\u00e3o parou no caso um, a soma n\u00e3o bateu!\n    if somaAtual > alvo || idx >= n {\n        return false\n    }\n\n    if backtrack(idx+1, somaAtual+arr[idx], alvo, n, arr) {\n        return true\n    }\n\n    if backtrack(idx+1, somaAtual, alvo, n, arr) {\n        return true\n    }\n\n    return false\n}\n\nfunc main() {\n    scanner := bufio.NewScanner(os.Stdin)\n\n    var l1 []string\n    for scanner.Scan() {\n        l1 = strings.Fields(scanner.Text())\n        if len(l1) > 0 {\n            break\n        }\n    }\n\n    if len(l1) < 2 {\n        return \n    }\n\n    n, _ := strconv.Atoi(l1[0])\n    k, _ := strconv.Atoi(l1[1])\n\n    var l2 []string\n\n    for scanner.Scan() {\n        l2 = strings.Fields(scanner.Text())\n        if len(l2) > 0 {\n            break\n        }\n    }\n\n    if len(l2) < n {\n        return \n    }\n\n    arr := make([]int, n)\n    for i := 0; i < n; i++ {\n        arr[i], _ = strconv.Atoi(l2[i])\n    }\n\n    if backtrack(0, 0, k, n, arr) {\n        fmt.Println(\"true\")\n    } else {\n        fmt.Println(\"false\")\n    }\n\n}\n",
+            "lines": "76"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-26_17-42-43",
+            "content": "@@ -29,15 +29,8 @@\n io%22%0A\n-%09%22fmt%22%0A\n %09%22os\n@@ -641,38 +641,7 @@\n %7D%0A%09%7D\n-%0A%0A%09fmt.Println(queue.Dequeue())\n %0A%7D%0A\n",
+            "lines": "41"
+        },
+        {
+            "label": "2026-06-26_17-43-34",
+            "content": "@@ -554,9 +554,9 @@\n rda \n-%3E\n+%3C\n  gol\n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-06-26_18-00-08",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tqueue := NewQueue[string]()\n\n\tfor i := 0; i < 16; i++ {\n\t\tqueue.Enqueue(string(rune('A' + i)))\n\t}\n\n\tfor i := 0; i < 15; i++ {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\n\t\tline := scanner.Text()\n\t\tparts := strings.Fields(line)\n\t\tif len(parts) < 2 {\n\t\t\tcontinue\n\t\t}\n\n\t\tgolsEsquerda, _ := strconv.Atoi(parts[0])\n\t\tgolsDireita, _ := strconv.Atoi(parts[1])\n\n\t\ttimeEsquerda := queue.Dequeue()\n\t\ttimeDireita := queue.Dequeue()\n\n\t\tif golsEsquerda > golsDireita {\n\t\t\tqueue.Enqueue(timeEsquerda)\n\t\t} else {\n\t\t\tqueue.Enqueue(timeDireita)\n\t\t}\n\t}\n\n\tfmt.Println(queue.Dequeue())\n}\n",
+            "lines": "44"
+        }
+    ]
+}

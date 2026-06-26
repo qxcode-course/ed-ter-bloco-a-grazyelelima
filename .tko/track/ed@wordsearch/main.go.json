@@ -2,8 +2,33 @@
     "patches": [
         {
             "label": "2026-06-02_16-46-20",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\n// N\u00e3o mude a assinatura desta fun\u00e7\u00e3o, ela \u00e9 a fun\u00e7\u00e3o chamada pelo LeetCode\nfunc exist(grid [][]byte, word string) bool {\n\t_, _ = grid, word\n\treturn false\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tvar word string\n\tfmt.Sscanf(scanner.Text(), \"%s\", &word)\n\tgrid := make([][]byte, 0)\n\tfor scanner.Scan() {\n\t\tgrid = append(grid, []byte(scanner.Text()))\n\t}\n\tif exist(grid, word) {\n\t\tfmt.Println(\"true\")\n\t} else {\n\t\tfmt.Println(\"false\")\n\t}\n}\n",
+            "content": "@@ -168,673 +168,39 @@\n  %7B%0A%09\n-if len(grid) == 0 %7C%7C len(word) == 0 %7B%0A%09%09return false%0A%09%7D%0A%0A%09linhas := len(grid)%0A%09colunas := len(grid%5B0%5D)%0A%0A%09for r := 0; r %3C linhas; r++ %7B%0A%09%09for c := 0; c %3C colunas; c++ %7B%0A%09%09%09if grid%5Br%5D%5Bc%5D == word%5B0%5D %7B%0A%09%09%09%09%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%7D%0A%0Afunc dfs(r int, c int, index int, grid %5B%5D%5B%5Dbyte, word string) bool %7B%0A%09if index == len(word) %7B%0A%09%09return true%0A%09%7D%0A%0A%09if r %3C 0 %7C%7C r %3E= len(grid) %7C%7C c %3C 0 %7C%7C c %3E= len(grid%5B0%5D) %7C%7C grid%5Br%5D%5Bc%5D != word%5Bindex%5D %7B%0A%09%09return false%0A%09%7D%0A%0A%09t := grid%5Br%5D%5Bc%5D%0A%09grid%5Br%5D%5Bc%5D = '#'%0A%0A%09found := dfs(r+1, c, index+1, grid, word) %7C%7C %0A%09%09%09dfs(r-1, c, index+1, grid, word) %7C%7C%0A%09%09%09dfs(r, c+1, index+1, grid, word) %7C%7C%0A%09%09%09dfs(r, c-1, index+1, grid, word)%0A%0A%09grid%5Br%5D%5Bc%5D = t%0A%09return found\n+_, _ = grid, word%0A%09return false\n %0A%7D%0A%0A\n",
             "lines": "29"
+        },
+        {
+            "label": "2026-06-23_13-41-53",
+            "content": "@@ -382,23 +382,8 @@\n %7D%0A%09%7D\n-%0A%0A%09return false\n %0A%7D%0A%0A\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-06-23_13-42-14",
+            "content": "@@ -388,19 +388,20 @@\n %09return \n-tru\n+fals\n e%0A%7D%0A%0Afun\n",
+            "lines": "64"
+        },
+        {
+            "label": "2026-06-23_13-42-26",
+            "content": "@@ -370,60 +370,8 @@\n %09%09%09%09\n-if dfs(r, c, 0, grid, word) %7B%0A%09%09%09%09%09return true%0A%09%09%09%09%7D\n %0A%09%09%09\n",
+            "lines": "64"
+        },
+        {
+            "label": "2026-06-23_13-43-11",
+            "content": "@@ -440,20 +440,19 @@\n %09return \n-fals\n+tru\n e%0A%7D%0A%0Afun\n",
+            "lines": "66"
+        },
+        {
+            "label": "2026-06-23_13-45-54",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\n// N\u00e3o mude a assinatura desta fun\u00e7\u00e3o, ela \u00e9 a fun\u00e7\u00e3o chamada pelo LeetCode\nfunc exist(grid [][]byte, word string) bool {\n\tif len(grid) == 0 || len(word) == 0 {\n\t\treturn false\n\t}\n\n\tlinhas := len(grid)\n\tcolunas := len(grid[0])\n\n\tfor r := 0; r < linhas; r++ {\n\t\tfor c := 0; c < colunas; c++ {\n\t\t\tif grid[r][c] == word[0] {\n\t\t\t\tif dfs(r, c, 0, grid, word) {\n\t\t\t\t\treturn true\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\treturn false\n}\n\nfunc dfs(r int, c int, index int, grid [][]byte, word string) bool {\n\tif index == len(word) {\n\t\treturn true\n\t}\n\n\tif r < 0 || r >= len(grid) || c < 0 || c >= len(grid[0]) || grid[r][c] != word[index] {\n\t\treturn false\n\t}\n\n\tt := grid[r][c]\n\tgrid[r][c] = '#'\n\n\tfound := dfs(r+1, c, index+1, grid, word) || \n\t\t\tdfs(r-1, c, index+1, grid, word) ||\n\t\t\tdfs(r, c+1, index+1, grid, word) ||\n\t\t\tdfs(r, c-1, index+1, grid, word)\n\n\tgrid[r][c] = t\n\treturn found\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tvar word string\n\tfmt.Sscanf(scanner.Text(), \"%s\", &word)\n\tgrid := make([][]byte, 0)\n\tfor scanner.Scan() {\n\t\tgrid = append(grid, []byte(scanner.Text()))\n\t}\n\tif exist(grid, word) {\n\t\tfmt.Println(\"true\")\n\t} else {\n\t\tfmt.Println(\"false\")\n\t}\n}\n",
+            "lines": "66"
         }
     ]
 }

@@ -25,19 +25,18 @@ sources:
   writeable: false
   quests: null
 expanded:
-- ed@list
-- ed@vector
-- ed@rec
+- ed@linear
+- ed@dfs
+- ed@tree
+- ed@bfs
 flags:
   inbox: all
   panel: skills
   task_graph_mode: executions
   show_time: 'true'
 audit:
-  enabled: true
+  enabled: false
   interval_seconds: null
-audit_enabled: true
-audit_interval_seconds: null
 lang: go
-selected: ed@list
-selected_index: 35
+selected: ed@pilhado
+selected_index: 12
