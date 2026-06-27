@@ -24,19 +24,15 @@ sources:
   type: git
   writeable: false
   quests: null
-expanded:
-- ed@linear
-- ed@dfs
-- ed@tree
-- ed@bfs
+expanded: []
 flags:
   inbox: all
   panel: skills
   task_graph_mode: executions
   show_time: 'true'
 audit:
-  enabled: false
+  enabled: true
   interval_seconds: null
 lang: go
-selected: ed@pilhado
-selected_index: 12
+selected: ed@bfs
+selected_index: 10

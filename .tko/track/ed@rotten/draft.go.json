@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-27_18-38-36",
+            "content": "@@ -1112,132 +1112,8 @@\n ) %7B%0A\n-        tamanhoOnda := q.queue.Len()%0A        algumaContaminada := false%0A%0A        for i := 0; i %3C i %3C tamanhoOnda; i++ %7B%0A    \n     \n@@ -1152,41 +1152,33 @@\n     \n-    \n for \n-j\n+d\n  := 0; \n-j\n+d\n  %3C 4; \n-j\n+d\n ++ %7B%0A\n-    \n     \n@@ -1218,20 +1218,16 @@\n         \n-    \n nc := cu\n@@ -1240,20 +1240,16 @@\n  dc%5Bd%5D%0A%0A\n-    \n         \n@@ -1329,50 +1329,8 @@\n 1 %7B%0A\n-                    grid%5Bnr%5D%5Bnc%5D == 2%0A    \n     \n@@ -1351,20 +1351,17 @@\n escas--%0A\n-    \n+%0A\n         \n@@ -1372,37 +1372,18 @@\n     \n-algumaContaminada = true%0A    \n+minutos++%0A\n     \n@@ -1433,90 +1433,9 @@\n     \n-    %7D%0A            %7D%0A        %7D%0A        if algumaContaminada %7B%0A            minutos++\n+%7D\n %0A   \n@@ -1489,24 +1489,25 @@\n rn -1%0A    %7D%0A\n+%0A\n     return m\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-06-27_18-49-27",
+            "content": "@@ -1499,16 +1499,17 @@\n r%5D%5Bnc%5D =\n+=\n  2%0A     \n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-06-27_18-49-54",
+            "content": "@@ -1204,16 +1204,20 @@\n = 0; i %3C\n+ i %3C\n  tamanho\n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-06-27_18-50-16",
+            "content": "@@ -1331,17 +1331,17 @@\n .r + dr%5B\n-j\n+d\n %5D%0A      \n@@ -1368,17 +1368,17 @@\n .c + dc%5B\n-j\n+d\n %5D%0A%0A     \n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-06-27_18-50-37",
+            "content": "@@ -1935,17 +1935,16 @@\n mt.Sscan\n-f\n (scanner\n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-06-27_18-53-23",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"container/list\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Queue[T any] struct {\n    queue *list.List\n}\n\nfunc NewQueue[T any]() *Queue[T] {\n    return &Queue[T]{queue: list.New()}\n}\nfunc (q *Queue[T]) Enqueue(value T) {\n    q.queue.PushBack(value)\n}\n\nfunc (q *Queue[T]) Dequeue() (T, bool) {\n    element := q.queue.Front()\n    if element == nil {\n        var zero T\n        return zero, false\n    }\n    q.queue.Remove(element)\n    return element.Value.(T), true\n}\n\nfunc (q *Queue[T]) IsEmpty() bool {\n    return q.queue.Len() == 0\n}\n\ntype Pos struct {\n    r, c int\n}\n\nfunc orangesRotting(grid [][]int) int {\n    nrows := len(grid)\n    ncols := len(grid[0])\n\n    q := NewQueue[Pos]()\n    frescas := 0\n    for r := 0; r < nrows; r++ {\n        for c := 0; c < ncols; c++ {\n            if grid[r][c] == 2 {\n                q.Enqueue(Pos{r, c})\n            } else if grid[r][c] == 1 {\n                frescas++\n            }\n        }\n    }\n    if frescas == 0 {\n        return 0\n    }\n\n    minutos := 0\n    dr := []int{-1, 1, 0, 0}\n    dc := []int{0, 0, -1, 1}\n\n    for !q.IsEmpty() {\n        tamanhoOnda := q.queue.Len()\n        algumaContaminada := false\n\n        for i := 0; i < tamanhoOnda; i++ {\n            curr, _ := q.Dequeue()\n\n            for j := 0; j < 4; j++ {\n                nr := curr.r + dr[j]\n                nc := curr.c + dc[j]\n\n                if nr >= 0 && nc >= 0 && nr < nrows && nc < ncols && grid[nr][nc] == 1 {\n                    grid[nr][nc] = 2\n                    frescas--\n                    algumaContaminada = true\n                    q.Enqueue(Pos{nr, nc})\n                }\n            }\n        }\n        if algumaContaminada {\n            minutos++\n        }\n    }\n\n    if frescas > 0 {\n        return -1\n    }\n    return minutos\n}\n\nfunc main() {\n    scanner := bufio.NewScanner(os.Stdin)\n    if !scanner.Scan() {\n        return\n    }\n    var nrows, ncols int\n    fmt.Sscanf(scanner.Text(), \"%d %d\", &nrows, &ncols)\n    grid := make([][]int, nrows)\n    for i := 0; i < nrows; i++ {\n        scanner.Scan()\n        fields := strings.Fields(scanner.Text())\n        grid[i] = make([]int, ncols)\n        for j := 0; j < ncols; j++ {\n            grid[i][j], _ = strconv.Atoi(fields[j])\n        }\n    }\n    fmt.Println(orangesRotting(grid))\n}\n",
+            "lines": "111"
+        }
+    ]
+}

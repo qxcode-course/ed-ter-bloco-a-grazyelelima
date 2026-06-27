@@ -1,0 +1,59 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-27_09-02-57",
+            "content": "@@ -45,395 +45,8 @@\n %0A)%0A%0A\n-type Stack%5BT any%5D struct %7B%0A    data %5B%5DT%0A%7D%0A%0Afunc NewStrack%5BT any%5D() *Stack%5BT%5D %7B%0A    return &Stack%5BT%5D%7Bdata: %5B%5DT%7B%7D%7D%0A%7D%0A%0Afunc (s *Stack%5BT%5D) Push(value T) %7B%0A    s.data = append(s.data, value)%0A%7D%0A%0Afunc (s *Stack%5BT%5D) IsEmpty() bool %7B%0A    return len(s.data) == 0%0A%7D%0A%0Afunc (s *Stack%5BT%5D) Top() T %7B%0A    if s.IsEmpty() %7B%0A        var zero T%0A        return zero%0A    %7D%0A    return s.data%5Blen(s.data)-1%5D%0A%7D%0A%0A\n func\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-06-27_09-08-58",
+            "content": "@@ -432,195 +432,8 @@\n %0A%7D%0A%0A\n-func (s *Stack%5BT%5D) Pop() T %7B%0A    if s.IsEmpty() %7B%0A        var zero T%0A        return zero%0A    %7D%0A%0A    value := s.data%5Blen(s.data)-1%5D%0A    s.data = s.data%5B:len(s.data)-1%5D%0A    return value%0A%7D%0A%0A\n func\n",
+            "lines": "70"
+        },
+        {
+            "label": "2026-06-27_09-10-40",
+            "content": "@@ -1369,17 +1369,17 @@\n rintln(%22\n-b\n+B\n alancead\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-11-08",
+            "content": "@@ -1134,19 +1134,20 @@\n  return \n-tru\n+fals\n e%0A      \n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-11-28",
+            "content": "@@ -877,35 +877,36 @@\n          return \n-tru\n+fals\n e%0A            %7D%0A\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-12-40",
+            "content": "@@ -877,36 +877,35 @@\n          return \n-fals\n+tru\n e%0A            %7D%0A\n@@ -1137,12 +1137,11 @@\n urn \n-fals\n+tru\n e%0A  \n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-13-05",
+            "content": "@@ -1185,12 +1185,24 @@\n urn \n-true\n+stack.IsEmpty() \n %0A%7D%0A%0A\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-13-14",
+            "content": "@@ -1181,31 +1181,20 @@\n  return \n-stack.IsEmpty()\n+true\n %0A%7D%0A%0Afunc\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-13-27",
+            "content": "@@ -1185,12 +1185,23 @@\n urn \n-true\n+stack.IsEmpty()\n %0A%7D%0A%0A\n@@ -1423,17 +1423,17 @@\n rintln(%22\n-n\n+N\n ao balan\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-25-40",
+            "content": "@@ -1181,31 +1181,20 @@\n  return \n-stack.IsEmpty()\n+true\n %0A%7D%0A%0Afunc\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-06-27_09-31-26",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Stack[T any] struct {\n    data []T\n}\n\nfunc NewStrack[T any]() *Stack[T] {\n    return &Stack[T]{data: []T{}}\n}\n\nfunc (s *Stack[T]) Push(value T) {\n    s.data = append(s.data, value)\n}\n\nfunc (s *Stack[T]) IsEmpty() bool {\n    return len(s.data) == 0\n}\n\nfunc (s *Stack[T]) Top() T {\n    if s.IsEmpty() {\n        var zero T\n        return zero\n    }\n    return s.data[len(s.data)-1]\n}\n\nfunc (s *Stack[T]) Pop() T {\n    if s.IsEmpty() {\n        var zero T\n        return zero\n    }\n\n    value := s.data[len(s.data)-1]\n    s.data = s.data[:len(s.data)-1]\n    return value\n}\n\nfunc IsBalanced(str string) bool {\n    stack := NewStrack[rune]()\n\n    for _, char := range str {\n        if char == '(' || char == '[' {\n            stack.Push(char)\n        } else if char == ')' || char == ']' {\n            if stack.IsEmpty() {\n                return false\n            }\n\n            topo := stack.Top()\n\n            if char == ')' && topo == '(' {\n                stack.Pop()\n            } else if char == ']' && topo == '[' {\n                stack.Pop()\n            } else {\n                return false\n            }\n        }\n    }\n    return stack.IsEmpty()\n}\n\nfunc main() {\n    scanner := bufio.NewScanner(os.Stdin)\n\n    if scanner.Scan() {\n        line := scanner.Text()\n\n        if IsBalanced(line) {\n            fmt.Println(\"balanceado\")\n        } else {\n            fmt.Println(\"nao balanceado\")\n        }\n    }\n}\n",
+            "lines": "81"
+        }
+    ]
+}
